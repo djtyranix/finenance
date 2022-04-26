@@ -12,6 +12,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        UserDefaults.standard.set(true, forKey: "isOnboardingFinished")
+        UserDefaults.standard.set("Michael", forKey: "userName")
     }
     
     override func viewDidAppear(_ animated: Bool) {
