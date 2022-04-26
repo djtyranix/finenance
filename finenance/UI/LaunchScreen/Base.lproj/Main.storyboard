@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="132" y="92"/>
         </scene>
-        <!--home-->
+        <!--mainmenu-->
         <scene sceneID="b9A-5K-aA2">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="GCr-Dg-6Sz" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="mainmenu" storyboardName="MainMenu" referencedIdentifier="mainmenu" id="GCr-Dg-6Sz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFV-gd-X6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="736" y="-92"/>

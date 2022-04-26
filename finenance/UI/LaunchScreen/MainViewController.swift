@@ -12,6 +12,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        UserDefaults.standard.set(true, forKey: "isOnboardingFinished")
+        UserDefaults.standard.set("Michael", forKey: "userName")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -19,7 +22,7 @@ class MainViewController: UIViewController {
         
         if isOnboardingFinished {
             // Move to Home
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "home") as! HomeViewController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainmenu") as! UITabBarController
             self.present(vc, animated: true, completion: nil)
         } else {
             // Move to Onboarding
