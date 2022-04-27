@@ -12,6 +12,7 @@
 		A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */; };
 		A84646A42818FFDA00AC8CD4 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646A32818FFDA00AC8CD4 /* BudgetViewModel.swift */; };
 		A84646A62819002700AC8CD4 /* TotalBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646A52819002700AC8CD4 /* TotalBudget.swift */; };
+		A84646AA28190AB100AC8CD4 /* AnimTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */; };
 		A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E4E28166C330093F5FB /* AppDelegate.swift */; };
 		A8CB8E5128166C330093F5FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E5028166C330093F5FB /* SceneDelegate.swift */; };
 		A8CB8E5328166C330093F5FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E5228166C330093F5FB /* MainViewController.swift */; };
@@ -41,6 +42,7 @@
 		A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpenses.swift; sourceTree = "<group>"; };
 		A84646A32818FFDA00AC8CD4 /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
 		A84646A52819002700AC8CD4 /* TotalBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBudget.swift; sourceTree = "<group>"; };
+		A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimTabBarController.swift; sourceTree = "<group>"; };
 		A8CB8E4B28166C330093F5FB /* finenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CB8E4E28166C330093F5FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8CB8E5028166C330093F5FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				A8CB8E7928179C2A0093F5FB /* ExpenseViewController.swift */,
 				A8CB8E7B28179C4D0093F5FB /* BudgetViewController.swift */,
 				A8CB8E7D28179C860093F5FB /* ProfileViewController.swift */,
+				A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */,
 				A8CB8E88281831160093F5FB /* ExpenseTableViewCell.swift in Sources */,
 				A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */,
+				A84646AA28190AB100AC8CD4 /* AnimTabBarController.swift in Sources */,
 				A8CB8E85281830CE0093F5FB /* HomeViewModel.swift in Sources */,
 				A8CB8E7A28179C2A0093F5FB /* ExpenseViewController.swift in Sources */,
 				A84646A42818FFDA00AC8CD4 /* BudgetViewModel.swift in Sources */,

@@ -347,10 +347,10 @@
             </objects>
             <point key="canvasLocation" x="-1504" y="743"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Anim Tab Bar Controller-->
         <scene sceneID="W1u-Rx-vTI">
             <objects>
-                <tabBarController storyboardIdentifier="mainmenu" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ewl-wB-5nk" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainmenu" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ewl-wB-5nk" customClass="AnimTabBarController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YaO-Bx-MuL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
