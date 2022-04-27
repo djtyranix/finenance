@@ -37,6 +37,7 @@
 		A8CB8E8A281834570093F5FB /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E89281834570093F5FB /* CategoryLabel.swift */; };
 		A8CB8E8C28183A8B0093F5FB /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E8B28183A8B0093F5FB /* Transaction.swift */; };
 		A8CB8E8F28183C020093F5FB /* DummyDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E8E28183C020093F5FB /* DummyDataGenerator.swift */; };
+		A8DF5CA9281959CE0056D872 /* AddEditExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CA8281959CE0056D872 /* AddEditExpenseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		A8CB8E89281834570093F5FB /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		A8CB8E8B28183A8B0093F5FB /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		A8CB8E8E28183C020093F5FB /* DummyDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataGenerator.swift; sourceTree = "<group>"; };
+		A8DF5CA8281959CE0056D872 /* AddEditExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditExpenseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,13 +164,11 @@
 		A8CB8E7628179B920093F5FB /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				A8CB8E86281830FB0093F5FB /* TableViewCell */,
+				A8DF5CA72819597B0056D872 /* Profile */,
+				A8DF5CA6281959680056D872 /* Home */,
+				A8DF5CA5281959620056D872 /* Expense */,
+				A8DF5CA4281959550056D872 /* Budget */,
 				A8CB8E6E28178ECA0093F5FB /* MainMenu.storyboard */,
-				A8CB8E72281790F90093F5FB /* HomeViewController.swift */,
-				A8CB8E7928179C2A0093F5FB /* ExpenseViewController.swift */,
-				A8CB8E7B28179C4D0093F5FB /* BudgetViewController.swift */,
-				A8CB8E7D28179C860093F5FB /* ProfileViewController.swift */,
-				A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -198,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB8E822817A8F70093F5FB /* CardView.swift */,
+				A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */,
 				A8CB8E89281834570093F5FB /* CategoryLabel.swift */,
 			);
 			path = CustomClass;
@@ -217,6 +218,40 @@
 				A8CB8E8E28183C020093F5FB /* DummyDataGenerator.swift */,
 			);
 			path = Dummy;
+			sourceTree = "<group>";
+		};
+		A8DF5CA4281959550056D872 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB8E7B28179C4D0093F5FB /* BudgetViewController.swift */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		A8DF5CA5281959620056D872 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB8E86281830FB0093F5FB /* TableViewCell */,
+				A8CB8E7928179C2A0093F5FB /* ExpenseViewController.swift */,
+				A8DF5CA8281959CE0056D872 /* AddEditExpenseViewController.swift */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
+		A8DF5CA6281959680056D872 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB8E72281790F90093F5FB /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A8DF5CA72819597B0056D872 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB8E7D28179C860093F5FB /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +350,7 @@
 				A8CB8E832817A8F70093F5FB /* CardView.swift in Sources */,
 				A8CB8E73281790F90093F5FB /* HomeViewController.swift in Sources */,
 				A848A99B281927F50048AF3C /* Onboarding.swift in Sources */,
+				A8DF5CA9281959CE0056D872 /* AddEditExpenseViewController.swift in Sources */,
 				A8CB8E8C28183A8B0093F5FB /* Transaction.swift in Sources */,
 				A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */,
 			);
@@ -470,6 +506,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,6 +536,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

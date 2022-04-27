@@ -24,7 +24,7 @@ struct Expense {
     let colorData: ColorData
 }
 
-enum TransactionCategory: String {
+enum TransactionCategory: String, CaseIterable {
     case fnb = "Food & Beverages"
     case bills = "Bills"
     case leisure = "Leisure"
