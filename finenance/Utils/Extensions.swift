@@ -53,12 +53,3 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
-
-extension UINavigationController {
-    public func setStatusBar(bgColor: UIColor) {
-        let statusBarFrame: CGRect = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
-        let statusBarView = UIView(frame: statusBarFrame)
-        statusBarView.backgroundColor = bgColor
-        view.addSubview(statusBarView)
-    }
-}

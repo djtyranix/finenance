@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
         
         UserDefaults.standard.set(true, forKey: "isOnboardingFinished")
         UserDefaults.standard.set("Michael", forKey: "userName")
+        UserDefaults.standard.set(10000000, forKey: "monthlyIncome")
+        UserDefaults.standard.set(3000000, forKey: "monthlySavings")
     }
     
     override func viewDidAppear(_ animated: Bool) {

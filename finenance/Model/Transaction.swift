@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 
-struct Transcation {
+struct Transaction {
     let name: String
     let amount: Int
     let date: Date
     let category: TransactionCategory
-    let type: TransactionType
 }
 
 struct Expense {
@@ -28,14 +27,8 @@ struct Expense {
 enum TransactionCategory: String {
     case fnb = "Food & Beverages"
     case bills = "Bills"
-    case income = "Monthly Income"
-    case gift = "Gift"
     case leisure = "Leisure"
     case other = "Other"
-}
-
-enum TransactionType {
-    case expense, income
 }
 
 extension TransactionCategory {
@@ -45,7 +38,7 @@ extension TransactionCategory {
         case .fnb:
             return ColorData(colorType: .dark, mainColor: UIColor(named: "MainRed")!, shadeColor: UIColor(named: "MainRedShade")!)
             
-        case .income, .gift, .leisure:
+        case .leisure:
             return ColorData(colorType: .dark, mainColor: UIColor(named: "MainBlue")!, shadeColor: UIColor(named: "MainBlueShade")!)
             
         case .bills:

@@ -23,6 +23,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let viewModel = HomeViewModel()
     var expenseDatas = [Expense]()
     var userName: String = ""
+    var monthlyExpenses = 0
+    var remainingBudget = 0
+    var monthAndYear = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +82,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private func getData() {
         expenseDatas = viewModel.getLatestExpenses()
         userName = viewModel.getUserName()
+        monthlyExpenses = viewModel.getMonthlyExpenses()
+        remainingBudget = viewModel.getRemainingBudgets(monthlyExpense: monthlyExpenses)
+        monthAndYear = viewModel.getCurrentMonthAndYear()
     }
     
     private func updateViews() {
         userGreetingsLabel.text = "Hello, \(userName)!"
+        currentMonthlyExpenses.text = monthlyExpenses.formatToRupiah()
+        currentRemainingBudget.text = remainingBudget.formatToRupiah()
+        currentMonthAndYear.text = monthAndYear
     }
 }

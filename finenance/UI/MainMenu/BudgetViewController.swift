@@ -7,15 +7,40 @@
 
 import UIKit
 
-class BudgetViewController: UIViewController {
+class BudgetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var itemArray = [(title: String, detail: String)]()
+    var totalBudget = TotalBudget(totalBudget: 0, totalSavings: 0, monthlyIncome: 0, totalExpenses: 0, remainingBudget: 0)
+    let viewModel = BudgetViewModel()
+    
+    @IBOutlet weak var incomeTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        incomeTable.delegate = self
+        incomeTable.dataSource = self
+        
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setNavBarStyle()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = incomeTable.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+        
+        cell.textLabel?.text = itemArray[indexPath.row].title
+        cell.detailTextLabel?.text = itemArray[indexPath.row].detail
+        
+        return cell
     }
     
     private func setNavBarStyle() {
@@ -25,5 +50,10 @@ class BudgetViewController: UIViewController {
         navAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.standardAppearance = navAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+    }
+    
+    private func getData() {
+        totalBudget = viewModel.getTotalBudget()
+        itemArray = viewModel.generateDetailTuple(totalBudget: totalBudget)
     }
 }

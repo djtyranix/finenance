@@ -8,38 +8,34 @@
 import Foundation
 
 class DummyDataGenerator {
-    func getLatestTransaction() -> [Transcation] {
-        var array = [Transcation]()
+    func getLatestTransaction() -> [Transaction] {
+        var array = [Transaction]()
         
-        array.append(Transcation(name: "Cafe Bills",
+        array.append(Transaction(name: "Cafe Bills",
                                  amount: 45000,
                                  date: Date(),
-                                 category: .fnb,
-                                 type: .expense
+                                 category: .fnb
                                 )
         )
         
-        array.append(Transcation(name: "Credit Card Bills",
+        array.append(Transaction(name: "Credit Card Bills",
                                  amount: 1500000,
                                  date: Date(),
-                                 category: .bills,
-                                 type: .expense
+                                 category: .bills
                                 )
         )
         
-        array.append(Transcation(name: "Buying Earphone",
+        array.append(Transaction(name: "Buying Earphone",
                                  amount: 100000,
                                  date: Date(),
-                                 category: .leisure,
-                                 type: .expense
+                                 category: .leisure
                                 )
         )
         
-        array.append(Transcation(name: "Paying Friend",
+        array.append(Transaction(name: "Paying Friend",
                                  amount: 50000,
                                  date: Date(),
-                                 category: .other,
-                                 type: .expense
+                                 category: .other
                                 )
         )
         
