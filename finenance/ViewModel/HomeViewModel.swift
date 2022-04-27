@@ -32,7 +32,7 @@ class HomeViewModel: NSObject {
     }
     
     func getUserName() -> String {
-        return UserDefaults.standard.value(forKey: "userName") as? String ?? "User"
+        return UserDefaults.standard.value(forKey: "userFirstName") as? String ?? "User"
     }
     
     func getRemainingBudgets(monthlyExpense: Int) -> Int {

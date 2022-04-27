@@ -12,11 +12,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        UserDefaults.standard.set(true, forKey: "isOnboardingFinished")
-        UserDefaults.standard.set("Michael", forKey: "userName")
-        UserDefaults.standard.set(10000000, forKey: "monthlyIncome")
-        UserDefaults.standard.set(3000000, forKey: "monthlySavings")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,11 +23,8 @@ class MainViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         } else {
             // Move to Onboarding
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "onboarding") as! OnboardingViewController
-            self.present(vc, animated: true, completion: nil)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "onboarding")
+            self.present(vc!, animated: true, completion: nil)
         }
     }
-
-
 }
-
