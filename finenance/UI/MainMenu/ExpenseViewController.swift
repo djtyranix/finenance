@@ -21,7 +21,6 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         
         expenseTable.delegate = self
         expenseTable.dataSource = self
-        expenseTable.isScrollEnabled = false
         
         getData()
     }
