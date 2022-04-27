@@ -34,6 +34,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         getData()
         updateViews()
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
