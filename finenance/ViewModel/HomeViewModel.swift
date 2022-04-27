@@ -19,9 +19,10 @@ class HomeViewModel: NSObject {
             expenses.append(
                 Expense(
                     name: transaction.name,
-                    amount: transaction.amount.formatToRupiah(),
+                    amount: transaction.amount,
                     date: transaction.date.formatToString(format: "dd/MM/YYYY"),
-                    category: transaction.category.rawValue,
+                    category: transaction.category,
+                    categoryName: transaction.category.rawValue,
                     colorData: transaction.category.toColor()
                 )
             )

@@ -34,10 +34,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         getData()
         updateViews()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,9 +59,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.categoryOuter.layer.cornerRadius = 8
         cell.expenseNameLabel.text = expense.name
-        cell.expenseAmountLabel.text = expense.amount
+        cell.expenseAmountLabel.text = expense.amount.formatToRupiah()
         cell.expenseDateLabel.text = expense.date
-        cell.expenseCategoryLabel.text = expense.category
+        cell.expenseCategoryLabel.text = expense.categoryName
         cell.expenseImageView.image = UIImage(systemName: "cart.fill")
         cell.selectionStyle = .none
         

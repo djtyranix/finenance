@@ -18,9 +18,10 @@ struct Transcation {
 
 struct Expense {
     let name: String
-    let amount: String
+    let amount: Int
     let date: String
-    let category: String
+    let category: TransactionCategory
+    let categoryName: String
     let colorData: ColorData
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A81D2A06281853260007760C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D2A05281853260007760C /* ColorData.swift */; };
+		A84646A02818F20400AC8CD4 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A846469F2818F20400AC8CD4 /* ExpenseViewModel.swift */; };
+		A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */; };
 		A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E4E28166C330093F5FB /* AppDelegate.swift */; };
 		A8CB8E5128166C330093F5FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E5028166C330093F5FB /* SceneDelegate.swift */; };
 		A8CB8E5328166C330093F5FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E5228166C330093F5FB /* MainViewController.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		A81D2A05281853260007760C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
+		A846469F2818F20400AC8CD4 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpenses.swift; sourceTree = "<group>"; };
 		A8CB8E4B28166C330093F5FB /* finenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CB8E4E28166C330093F5FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8CB8E5028166C330093F5FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB8E84281830CE0093F5FB /* HomeViewModel.swift */,
+				A846469F2818F20400AC8CD4 /* ExpenseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			children = (
 				A8CB8E8B28183A8B0093F5FB /* Transaction.swift */,
 				A81D2A05281853260007760C /* ColorData.swift */,
+				A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CB8E8F28183C020093F5FB /* DummyDataGenerator.swift in Sources */,
+				A84646A02818F20400AC8CD4 /* ExpenseViewModel.swift in Sources */,
 				A8CB8E5328166C330093F5FB /* MainViewController.swift in Sources */,
 				A8CB8E5928166C330093F5FB /* finenance.xcdatamodeld in Sources */,
 				A8CB8E7E28179C860093F5FB /* ProfileViewController.swift in Sources */,
@@ -277,6 +284,7 @@
 				A8CB8E7C28179C4D0093F5FB /* BudgetViewController.swift in Sources */,
 				A8CB8E802817A2C10093F5FB /* Extensions.swift in Sources */,
 				A8CB8E8A281834570093F5FB /* CategoryLabel.swift in Sources */,
+				A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */,
 				A8CB8E88281831160093F5FB /* ExpenseTableViewCell.swift in Sources */,
 				A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */,
 				A8CB8E85281830CE0093F5FB /* HomeViewModel.swift in Sources */,
@@ -434,6 +442,7 @@
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = finenance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FineNance;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -448,7 +457,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,6 +471,7 @@
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = finenance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FineNance;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -476,7 +486,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
