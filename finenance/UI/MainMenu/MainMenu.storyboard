@@ -10,21 +10,83 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Expense View Controller-->
+        <!--Your Expenses-->
         <scene sceneID="3cW-cF-VrQ">
             <objects>
-                <viewController storyboardIdentifier="expense" id="e11-oW-IoC" customClass="ExpenseViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expense" title="Your Expenses" id="e11-oW-IoC" customClass="ExpenseViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Twx-7A-d05">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqn-fc-a8j">
+                                <rect key="frame" x="20" y="20" width="374" height="43.5"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Expense" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="0.0" bottom="12" trailing="0.0"/>
+                                    <color key="baseBackgroundColor" name="MainBlue"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajv-qM-FyD">
+                                <rect key="frame" x="20" y="87.5" width="202.5" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c5o-OK-h45">
+                                <rect key="frame" x="0.0" y="140.5" width="414" height="532.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailCell" textLabel="JU0-VW-ykV" detailTextLabel="raf-p1-ytH" style="IBUITableViewCellStyleValue1" id="mUN-km-k6s">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mUN-km-k6s" id="9Yt-HA-B5F">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JU0-VW-ykV">
+                                                    <rect key="frame" x="20" y="12" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="raf-p1-ytH">
+                                                    <rect key="frame" x="354.5" y="14" width="39.5" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="71p-1d-Cqc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ajv-qM-FyD" firstAttribute="leading" secondItem="hqn-fc-a8j" secondAttribute="leading" id="JFm-B9-7WF"/>
+                            <constraint firstItem="71p-1d-Cqc" firstAttribute="trailing" secondItem="c5o-OK-h45" secondAttribute="trailing" id="awt-gu-Ft1"/>
+                            <constraint firstItem="c5o-OK-h45" firstAttribute="top" secondItem="Ajv-qM-FyD" secondAttribute="bottom" constant="24" id="bbX-dV-gAB"/>
+                            <constraint firstItem="hqn-fc-a8j" firstAttribute="leading" secondItem="71p-1d-Cqc" secondAttribute="leading" constant="20" id="ckN-QN-kaI"/>
+                            <constraint firstItem="71p-1d-Cqc" firstAttribute="trailing" secondItem="hqn-fc-a8j" secondAttribute="trailing" constant="20" id="el4-ri-0zR"/>
+                            <constraint firstItem="71p-1d-Cqc" firstAttribute="bottom" secondItem="c5o-OK-h45" secondAttribute="bottom" id="iTN-ow-ULh"/>
+                            <constraint firstItem="Ajv-qM-FyD" firstAttribute="top" secondItem="hqn-fc-a8j" secondAttribute="bottom" constant="24" id="mic-UL-3PI"/>
+                            <constraint firstItem="hqn-fc-a8j" firstAttribute="top" secondItem="71p-1d-Cqc" secondAttribute="top" constant="20" id="rff-1T-bxH"/>
+                            <constraint firstItem="c5o-OK-h45" firstAttribute="leading" secondItem="71p-1d-Cqc" secondAttribute="leading" id="zd8-6M-ffj"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vLc-zV-pqU"/>
+                    <navigationItem key="navigationItem" title="Your Expenses" largeTitleDisplayMode="always" id="vLc-zV-pqU"/>
+                    <connections>
+                        <outlet property="expenseTable" destination="c5o-OK-h45" id="HUG-ye-pJv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Jt-aq-mh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="743"/>
+            <point key="canvasLocation" x="-636.23188405797111" y="742.63392857142856"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="EVv-WS-TsL">
@@ -293,6 +355,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" name="MainBlue"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="xmL-EG-bSX" kind="relationship" relationship="viewControllers" id="nOA-0z-jPB"/>
@@ -305,7 +372,7 @@
             </objects>
             <point key="canvasLocation" x="-381" y="-763"/>
         </scene>
-        <!--Budget View Controller-->
+        <!--Your Budget-->
         <scene sceneID="O5e-Pi-SJl">
             <objects>
                 <viewController storyboardIdentifier="budget" id="GWM-nI-XvW" customClass="BudgetViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
@@ -315,7 +382,7 @@
                         <viewLayoutGuide key="safeArea" id="DrO-Ex-qBy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="e4G-HM-U5p"/>
+                    <navigationItem key="navigationItem" title="Your Budget" largeTitleDisplayMode="always" id="e4G-HM-U5p"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDL-6m-A2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -346,9 +413,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J3g-Xw-Qkt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Expenses" image="cart" catalog="system" selectedImage="cart" id="Vfm-Ru-Waj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F2K-UQ-dDi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="F2K-UQ-dDi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="MainBlue"/>
+                        <color key="barTintColor" name="MainBlue"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -365,8 +437,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6kD-Qj-pHk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Budget" image="chart.pie" catalog="system" selectedImage="chart.pie" id="zjC-ID-aKR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="93x-7M-hKo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="93x-7M-hKo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -408,6 +480,9 @@
         <namedColor name="MainBlue">
             <color red="0.0" green="0.33333333333333331" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
