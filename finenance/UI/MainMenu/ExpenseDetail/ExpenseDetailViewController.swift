@@ -15,10 +15,6 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var detailTable: UITableView!
     
-    @IBAction func editExpense(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +35,15 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
         cell.detailTextLabel?.text = itemArray[indexPath.row].detail
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? AddEditExpenseViewController else {
+            return
+        }
+        
+        vc.isEdit = true
+        vc.expenseData = expenseData
     }
     
     private func setUpTableView() {

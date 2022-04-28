@@ -15,7 +15,7 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var expensesTable: UITableView!
     
-    @IBAction func addExpense(_ sender: Any) {
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
         
     }
     

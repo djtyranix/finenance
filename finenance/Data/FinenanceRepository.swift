@@ -164,4 +164,103 @@ class FinenanceRepository: NSObject {
             return [Transaction]()
         }
     }
+    
+    func getDataById(id: Int) -> Transaction {
+        var transactionFetchArray = [NSManagedObject]()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return Transaction(id: 0, name: "Error", amount: 0, date: Date(), category: .other)
+        }
+        
+        let predicate = NSPredicate(format: "id = %@", id as Int)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        fetchRequest.predicate = predicate
+        
+        do {
+            transactionFetchArray = try managedContext.fetch(fetchRequest)
+            let transactionFetch = transactionFetchArray.first!
+            
+            let id = transactionFetch.value(forKey: "id") as! Int
+            let name = transactionFetch.value(forKey: "transaction_name") as! String
+            let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
+            let date = transactionFetch.value(forKey: "transaction_date") as! Date
+            let categoryId = transactionFetch.value(forKey: "transaction_category") as! Int
+            let category: TransactionCategory
+            
+            switch categoryId {
+            case 0:
+                category = .fnb
+            case 1:
+                category = .bills
+            case 2:
+                category = .leisure
+            case 3:
+                category = .other
+            default:
+                category = .other
+            }
+            
+            let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
+            
+            return transaction
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return Transaction(id: 0, name: "Error", amount: 0, date: Date(), category: .other)
+        }
+    }
+    
+    func updateData(id: Int, data: Transaction) -> Bool {
+        var transactionFetchArray = [NSManagedObject]()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        print("Id is \(id), Saved Id is ")
+        
+        let predicate = NSPredicate(format: "id = %i", id)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        fetchRequest.predicate = predicate
+        
+        do {
+            transactionFetchArray = try managedContext.fetch(fetchRequest)
+            
+            if transactionFetchArray.isEmpty {
+                print("Fetch Array Empty Error")
+                return false
+            } else {
+                let transaction = transactionFetchArray.first!
+                
+                // Setting Data
+                let category: Int
+                
+                switch data.category {
+                case .fnb:
+                    category = 0
+                case .bills:
+                    category = 1
+                case .leisure:
+                    category = 2
+                case .other:
+                    category = 3
+                }
+                
+                transaction.setValue(data.name, forKey: "transaction_name")
+                transaction.setValue(data.amount, forKey: "transaction_amount")
+                transaction.setValue(category, forKey: "transaction_category")
+                transaction.setValue(data.date, forKey: "transaction_date")
+                
+                try managedContext.save()
+                
+                print("Data updated")
+                return true
+            }
+            
+        } catch let error as NSError {
+            print("Could not update. \(error), \(error.userInfo)")
+            return false
+        }
+    }
 }

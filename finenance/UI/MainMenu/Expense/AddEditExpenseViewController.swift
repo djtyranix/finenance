@@ -15,6 +15,8 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     var selectedIndex = 3
     let datePicker = UIDatePicker()
     var selectedDate = Date()
+    var isEdit = false
+    var expenseData = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
     var updateData: (()->())?
 
     @IBOutlet weak var nameField: UITextField!
@@ -41,19 +43,26 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func addPressed(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        let id = expenseData.id
         let name = nameField.text!
         let amount = Int(amountField.text!) ?? 0
         let date = selectedDate
         let category = selectedCategory
         
-        let transaction = Transaction(id: 0, name: name, amount: amount, date: date, category: category)
+        let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
         
         showLoading()
         self.cancelButton.isEnabled = false
         self.addButton.isEnabled = false
         
         // CoreData Operation
-        self.addData(data: transaction)
+        if isEdit {
+            self.updateData(data: transaction)
+        } else {
+            self.addData(data: transaction)
+        }
     }
     
     override func viewDidLoad() {
@@ -63,6 +72,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         prepareCategoryArray()
         prepareTableView()
         createDatePicker()
+        checkIfEditing()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -156,7 +166,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     
     @objc private func dismissDatePicker() {
         self.selectedDate = datePicker.date
-        dateField.text = datePicker.date.formatToString(format: "dd/MM/YYYY")
+        dateField.text = datePicker.date.formatToString(format: "dd/MM/yyyy")
         self.view.endEditing(true)
         checkIfAllFieldFilled()
     }
@@ -170,6 +180,53 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
             self.dismiss(animated: true)
         } else {
             // If the operation failed, show alert
+            self.dismissLoading()
+            self.addButton.isEnabled = true
+            self.cancelButton.isEnabled = true
+            print("Add error")
+        }
+    }
+    
+    private func updateData(data: Transaction) {
+        let isSuccess = viewModel.updateTransaction(transaction: data)
+        
+        if isSuccess {
+            // If the operation is succeeded, dismiss
+            self.dismissLoading()
+            self.dismiss(animated: true)
+            performSegue(withIdentifier: "unwindToAllExpenses", sender: self)
+        } else {
+            // If the operation failed, show alert
+            self.dismissLoading()
+            self.addButton.isEnabled = true
+            self.cancelButton.isEnabled = true
+            print("Update error")
+        }
+    }
+    
+    private func checkIfEditing() {
+        if isEdit {
+            self.title = "Edit Expense"
+            addButton.title = "Update"
+            
+            nameField.text = expenseData.name
+            amountField.text = String(expenseData.amount)
+            dateField.text = expenseData.date
+            selectedDate = expenseData.date.formatToDate(format: "dd/MM/yyyy")
+            print("Date is \(expenseData.date)")
+            print("Stringify Date is \(selectedDate)")
+            selectedCategory = expenseData.category
+            
+            switch selectedCategory {
+            case .fnb:
+                selectedIndex = 0
+            case .bills:
+                selectedIndex = 1
+            case .leisure:
+                selectedIndex = 2
+            case .other:
+                selectedIndex = 3
+            }
         }
     }
 }

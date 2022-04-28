@@ -191,9 +191,11 @@
                         <outlet property="categoryTable" destination="k9J-n7-bf6" id="Sqy-bi-Vkc"/>
                         <outlet property="dateField" destination="P8c-ip-yrS" id="5Yh-YO-9sW"/>
                         <outlet property="nameField" destination="gVw-dk-YZp" id="mFj-TY-7ev"/>
+                        <segue destination="yvG-mw-8Zg" kind="unwind" identifier="unwindToAllExpenses" unwindAction="unwind:" id="Ky4-7m-IbA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSl-cn-9yH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yvG-mw-8Zg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-636.23188405797111" y="1467.8571428571429"/>
         </scene>
@@ -264,7 +266,7 @@
                     <navigationItem key="navigationItem" title="Expense Detail" largeTitleDisplayMode="always" id="Y1T-5j-bz5">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="0Bp-3b-Dia">
                             <connections>
-                                <action selector="editExpense:" destination="ubP-Rn-vNA" id="DiP-P4-QmM"/>
+                                <segue destination="aP9-Gl-UQ3" kind="presentation" id="qMo-bG-fZB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -302,7 +304,6 @@
                     <navigationItem key="navigationItem" title="All Expenses" largeTitleDisplayMode="always" id="Nek-T6-gpi">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="rut-cD-YY9">
                             <connections>
-                                <action selector="addExpense:" destination="ARe-Fn-Sf4" id="Qk6-nv-riC"/>
                                 <segue destination="aP9-Gl-UQ3" kind="presentation" id="iVt-hV-m0k"/>
                             </connections>
                         </barButtonItem>
@@ -637,7 +638,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b7d-lR-1tu"/>
+        <segue reference="TY8-aF-0mu"/>
         <segue reference="iVt-hV-m0k"/>
     </inferredMetricsTieBreakers>
     <resources>

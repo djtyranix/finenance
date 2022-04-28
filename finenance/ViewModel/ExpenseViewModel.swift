@@ -73,4 +73,8 @@ class ExpenseViewModel: NSObject {
     func saveNewTransaction(transaction: Transaction) -> Bool {
         return repository.saveData(data: transaction)
     }
+    
+    func updateTransaction(transaction: Transaction) -> Bool {
+        return repository.updateData(id: transaction.id, data: transaction)
+    }
 }

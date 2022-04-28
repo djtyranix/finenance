@@ -28,6 +28,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var monthAndYear = ""
     var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

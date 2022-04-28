@@ -57,7 +57,7 @@ extension Date {
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents([.year, .month], from: self)
         
-        return  calendar.date(from: components)!
+        return calendar.date(from: components)!
     }
     
     var endOfMonth: Date {
@@ -65,5 +65,14 @@ extension Date {
         components.month = 1
         components.second = -1
         return Calendar(identifier: .gregorian).date(byAdding: components, to: startOfMonth)!
+    }
+}
+
+extension String {
+    public func formatToDate(format: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        return dateFormatter.date(from: self)!
     }
 }
