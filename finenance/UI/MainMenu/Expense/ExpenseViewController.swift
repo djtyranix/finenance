@@ -30,6 +30,17 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         setNavBarStyle()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? AddEditExpenseViewController else {
+            return
+        }
+        
+        vc.viewModel = self.viewModel
+        vc.updateData = { [weak self] in
+            self?.updateUi()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
@@ -56,5 +67,10 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         expenseDatas = viewModel.getExpenses()
         totalExpenses = viewModel.calculateTotalExpenses(expenses: self.expenseDatas)
         itemArray = viewModel.generateDetailTuple(totalExpenses: totalExpenses)
+    }
+    
+    private func updateUi() {
+        getData()
+        expenseTable.reloadData()
     }
 }

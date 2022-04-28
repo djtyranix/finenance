@@ -38,6 +38,7 @@
 		A8CB8E8C28183A8B0093F5FB /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E8B28183A8B0093F5FB /* Transaction.swift */; };
 		A8CB8E8F28183C020093F5FB /* DummyDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E8E28183C020093F5FB /* DummyDataGenerator.swift */; };
 		A8DF5CA9281959CE0056D872 /* AddEditExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CA8281959CE0056D872 /* AddEditExpenseViewController.swift */; };
+		A8DF5CAC281A2BEC0056D872 /* FinenanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CAB281A2BEC0056D872 /* FinenanceRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		A8CB8E8B28183A8B0093F5FB /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		A8CB8E8E28183C020093F5FB /* DummyDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataGenerator.swift; sourceTree = "<group>"; };
 		A8DF5CA8281959CE0056D872 /* AddEditExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditExpenseViewController.swift; sourceTree = "<group>"; };
+		A8DF5CAB281A2BEC0056D872 /* FinenanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinenanceRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,7 @@
 		A8CB8E4D28166C330093F5FB /* finenance */ = {
 			isa = PBXGroup;
 			children = (
-				A8CB8E6A28178E290093F5FB /* Model */,
+				A8DF5CAA281A2BCA0056D872 /* Data */,
 				A8CB8E6B28178E5F0093F5FB /* Utils */,
 				A8CB8E6828178E120093F5FB /* ViewModel */,
 				A8CB8E6528178DF20093F5FB /* UI */,
@@ -254,6 +256,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		A8DF5CAA281A2BCA0056D872 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB8E6A28178E290093F5FB /* Model */,
+				A8DF5CAB281A2BEC0056D872 /* FinenanceRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +348,7 @@
 				A8CB8E71281790830093F5FB /* OnboardingNameViewController.swift in Sources */,
 				A8CB8E7C28179C4D0093F5FB /* BudgetViewController.swift in Sources */,
 				A8CB8E802817A2C10093F5FB /* Extensions.swift in Sources */,
+				A8DF5CAC281A2BEC0056D872 /* FinenanceRepository.swift in Sources */,
 				A8CB8E8A281834570093F5FB /* CategoryLabel.swift in Sources */,
 				A84646AC28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift in Sources */,
 				A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */,
@@ -502,7 +514,7 @@
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = finenance/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = FineNance;
+				INFOPLIST_KEY_CFBundleDisplayName = Finenance;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -532,7 +544,7 @@
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = finenance/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = FineNance;
+				INFOPLIST_KEY_CFBundleDisplayName = Finenance;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

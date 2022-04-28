@@ -9,16 +9,20 @@ import UIKit
 
 class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var viewModel = ExpenseViewModel()
     var categoryArray = [TransactionCategory]()
     var selectedCategory = TransactionCategory.other
     var selectedIndex = 3
     let datePicker = UIDatePicker()
+    var selectedDate = Date()
+    var updateData: (()->())?
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var categoryTable: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     @IBAction func nameFieldChanged(_ sender: Any) {
         checkIfAllFieldFilled()
@@ -37,6 +41,19 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func addPressed(_ sender: Any) {
+        let name = nameField.text!
+        let amount = Int(amountField.text!) ?? 0
+        let date = selectedDate
+        let category = selectedCategory
+        
+        let transaction = Transaction(name: name, amount: amount, date: date, category: category)
+        
+        showLoading()
+        self.cancelButton.isEnabled = false
+        self.addButton.isEnabled = false
+        
+        // CoreData Operation
+        self.addData(data: transaction)
     }
     
     override func viewDidLoad() {
@@ -46,6 +63,12 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         prepareCategoryArray()
         prepareTableView()
         createDatePicker()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        updateData?()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,6 +96,22 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         
         categoryTable.reloadData()
         print(selectedCategory.rawValue)
+    }
+    
+    private func showLoading() {
+        let activityView = UIActivityIndicatorView(style: .large)
+        activityView.tag = 69
+        activityView.center = self.view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+    }
+    
+    private func dismissLoading() {
+        guard let viewWithTag = self.view.viewWithTag(69) else {
+            return
+        }
+        
+        viewWithTag.removeFromSuperview()
     }
     
     private func prepareCategoryArray() {
@@ -116,7 +155,21 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @objc private func dismissDatePicker() {
+        self.selectedDate = datePicker.date
         dateField.text = datePicker.date.formatToString(format: "dd/MM/YYYY")
         self.view.endEditing(true)
+        checkIfAllFieldFilled()
+    }
+    
+    private func addData(data: Transaction) {
+        let isSuccess = viewModel.saveNewTransaction(transaction: data)
+        
+        if isSuccess {
+            // If the operation is succeeded, dismiss
+            self.dismissLoading()
+            self.dismiss(animated: true)
+        } else {
+            // If the operation failed, show alert
+        }
     }
 }

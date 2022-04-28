@@ -9,10 +9,11 @@ import UIKit
 
 class ExpenseViewModel: NSObject {
     
-    var dummyData = DummyDataGenerator()
+//    private var dummyData = DummyDataGenerator()
+    private let repository = FinenanceRepository()
     
     func getExpenses() -> [Expense] {
-        let transactions = dummyData.getLatestTransaction()
+        let transactions = repository.getAllData()
         var expenses = [Expense]()
         
         for transaction in transactions {
@@ -67,5 +68,9 @@ class ExpenseViewModel: NSObject {
         array.append((TransactionCategory.other.rawValue, totalExpenses.otherAmount.formatToRupiah()))
         
         return array
+    }
+    
+    func saveNewTransaction(transaction: Transaction) -> Bool {
+        return repository.saveData(data: transaction)
     }
 }

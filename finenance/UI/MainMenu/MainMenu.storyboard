@@ -188,6 +188,7 @@
                     <connections>
                         <outlet property="addButton" destination="UEA-rX-Jou" id="AwZ-ss-N0f"/>
                         <outlet property="amountField" destination="OZi-DE-oM8" id="2Io-O2-AGL"/>
+                        <outlet property="cancelButton" destination="xU1-j8-R4U" id="qru-Na-XUe"/>
                         <outlet property="categoryTable" destination="k9J-n7-bf6" id="Sqy-bi-Vkc"/>
                         <outlet property="dateField" destination="P8c-ip-yrS" id="5Yh-YO-9sW"/>
                         <outlet property="nameField" destination="gVw-dk-YZp" id="mFj-TY-7ev"/>
@@ -197,17 +198,17 @@
             </objects>
             <point key="canvasLocation" x="-636.23188405797111" y="1467.8571428571429"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="EVv-WS-TsL">
             <objects>
                 <viewController storyboardIdentifier="profile" id="gSW-25-jwF" customClass="ProfileViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Cs-04-Uam">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ZUb-F7-P9N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="awb-Bw-kwI"/>
+                    <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="awb-Bw-kwI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfX-lO-CvE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -611,8 +612,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bcS-w8-uNi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="z7g-ZB-gJE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cdq-Df-HG5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="Cdq-Df-HG5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
