@@ -115,6 +115,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         userGreetingsLabel.text = "Hello, \(userName)!"
         currentMonthlyExpenses.text = monthlyExpenses.formatToRupiah()
         currentRemainingBudget.text = remainingBudget.formatToRupiah()
+        
+        if (Double(remainingBudget) / Double(monthlyExpenses + remainingBudget)) < 0.25 {
+            statusImageView.image = UIImage(named: "budgetwarning")
+            budgetStatusLabel.text = "High usage!"
+        } else {
+            statusImageView.image = UIImage(named: "budgethigh")
+            budgetStatusLabel.text = "Good to go!"
+        }
+        
         currentMonthAndYear.text = monthAndYear
         expensesTable.reloadData()
     }
