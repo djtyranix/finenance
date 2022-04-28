@@ -28,6 +28,8 @@ class BudgetViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         
         setNavBarStyle()
+        getData()
+        updateView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,5 +57,9 @@ class BudgetViewController: UIViewController, UITableViewDataSource, UITableView
     private func getData() {
         totalBudget = viewModel.getTotalBudget()
         itemArray = viewModel.generateDetailTuple(totalBudget: totalBudget)
+    }
+    
+    private func updateView() {
+        incomeTable.reloadData()
     }
 }

@@ -115,4 +115,51 @@ class FinenanceRepository: NSObject {
             return [Transaction]()
         }
     }
+    
+    func getAllDataOnMonth() -> [Transaction] {
+        var transactionFetchArray = [NSManagedObject]()
+        var transactionArray = [Transaction]()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return [Transaction]()
+        }
+        
+        let predicate = NSPredicate(format: "transaction_date >= %@ && transaction_date <= %@", Date().startOfMonth as CVarArg, Date().endOfMonth as CVarArg)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        fetchRequest.predicate = predicate
+        
+        do {
+            transactionFetchArray = try managedContext.fetch(fetchRequest)
+            
+            for transactionFetch in transactionFetchArray {
+                let name = transactionFetch.value(forKey: "transaction_name") as! String
+                let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
+                let date = transactionFetch.value(forKey: "transaction_date") as! Date
+                let categoryId = transactionFetch.value(forKey: "transaction_category") as! Int
+                let category: TransactionCategory
+                
+                switch categoryId {
+                case 0:
+                    category = .fnb
+                case 1:
+                    category = .bills
+                case 2:
+                    category = .leisure
+                case 3:
+                    category = .other
+                default:
+                    category = .other
+                }
+                
+                let transaction = Transaction(name: name, amount: amount, date: date, category: category)
+                transactionArray.append(transaction)
+            }
+            
+            return transactionArray
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return [Transaction]()
+        }
+    }
 }

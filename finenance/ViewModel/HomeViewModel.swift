@@ -36,10 +36,13 @@ class HomeViewModel: NSObject {
     }
     
     private func getExpenses() -> [Expense] {
-        let transactions = repository.getAllData()
+        let transactions = repository.getAllDataOnMonth()
         var expenses = [Expense]()
+        let transactionsSorted = transactions.sorted {
+            $0.date > $1.date
+        }
         
-        for transaction in transactions {
+        for transaction in transactionsSorted {
             expenses.append(
                 Expense(
                     name: transaction.name,

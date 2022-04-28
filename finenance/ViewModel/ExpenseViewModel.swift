@@ -12,7 +12,7 @@ class ExpenseViewModel: NSObject {
     private let repository = FinenanceRepository.sharedInstance
     
     func getExpenses() -> [Expense] {
-        let transactions = repository.getAllData()
+        let transactions = repository.getAllDataOnMonth()
         var expenses = [Expense]()
         
         for transaction in transactions {

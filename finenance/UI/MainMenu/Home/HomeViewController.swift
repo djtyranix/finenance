@@ -42,6 +42,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        getData()
+        updateViews()
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -93,5 +97,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         currentMonthlyExpenses.text = monthlyExpenses.formatToRupiah()
         currentRemainingBudget.text = remainingBudget.formatToRupiah()
         currentMonthAndYear.text = monthAndYear
+        expensesTable.reloadData()
     }
 }
