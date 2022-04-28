@@ -8,27 +8,11 @@
 import UIKit
 
 class HomeViewModel: NSObject {
-    
-    var dummyData = DummyDataGenerator()
+
+    private let repository = FinenanceRepository.sharedInstance
     
     func getLatestExpenses() -> [Expense] {
-        let transactions = dummyData.getLatestTransaction()
-        var expenses = [Expense]()
-        
-        for transaction in transactions {
-            expenses.append(
-                Expense(
-                    name: transaction.name,
-                    amount: transaction.amount,
-                    date: transaction.date.formatToString(format: "dd/MM/YYYY"),
-                    category: transaction.category,
-                    categoryName: transaction.category.rawValue,
-                    colorData: transaction.category.toColor()
-                )
-            )
-        }
-        
-        return expenses
+        return Array(getExpenses().prefix(5))
     }
     
     func getUserName() -> String {
@@ -52,7 +36,7 @@ class HomeViewModel: NSObject {
     }
     
     private func getExpenses() -> [Expense] {
-        let transactions = dummyData.getLatestTransaction()
+        let transactions = repository.getAllData()
         var expenses = [Expense]()
         
         for transaction in transactions {

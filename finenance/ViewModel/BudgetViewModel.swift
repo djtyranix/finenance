@@ -9,7 +9,7 @@ import UIKit
 
 class BudgetViewModel: NSObject {
     
-    var repository = FinenanceRepository.sharedInstance
+    private let repository = FinenanceRepository.sharedInstance
 
     func getTotalBudget() -> TotalBudget {
         let monthlyIncome = UserDefaults.standard.value(forKey: "monthlyIncome") as? Int ?? 0
