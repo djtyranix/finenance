@@ -9,6 +9,24 @@ import UIKit
 import CoreData
 
 class FinenanceRepository: NSObject {
+    
+    struct Static {
+        static var instance: FinenanceRepository?
+    }
+    
+    class var sharedInstance: FinenanceRepository {
+        if Static.instance == nil {
+            Static.instance = FinenanceRepository()
+        }
+        
+        return Static.instance!
+    }
+    
+    func disposeSingleton() {
+        FinenanceRepository.Static.instance = nil
+        print("FinenanceRepository Disposed")
+    }
+    
     func saveData(data: Transaction) -> Bool {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return false

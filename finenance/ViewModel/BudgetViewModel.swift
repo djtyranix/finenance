@@ -9,7 +9,7 @@ import UIKit
 
 class BudgetViewModel: NSObject {
     
-    var dummyData = DummyDataGenerator()
+    var repository = FinenanceRepository.sharedInstance
 
     func getTotalBudget() -> TotalBudget {
         let monthlyIncome = UserDefaults.standard.value(forKey: "monthlyIncome") as? Int ?? 0
@@ -40,7 +40,7 @@ class BudgetViewModel: NSObject {
     }
     
     private func getExpenses() -> [Expense] {
-        let transactions = dummyData.getLatestTransaction()
+        let transactions = repository.getAllData()
         var expenses = [Expense]()
         
         for transaction in transactions {

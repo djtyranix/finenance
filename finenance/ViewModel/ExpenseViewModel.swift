@@ -9,8 +9,7 @@ import UIKit
 
 class ExpenseViewModel: NSObject {
     
-//    private var dummyData = DummyDataGenerator()
-    private let repository = FinenanceRepository()
+    private let repository = FinenanceRepository.sharedInstance
     
     func getExpenses() -> [Expense] {
         let transactions = repository.getAllData()
