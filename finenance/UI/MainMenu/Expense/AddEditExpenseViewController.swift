@@ -103,6 +103,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         selectedCategory = categoryArray[indexPath.row]
+        checkIfAllFieldFilled()
         
         categoryTable.reloadData()
         print(selectedCategory.rawValue)
@@ -177,13 +178,10 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         if isSuccess {
             // If the operation is succeeded, dismiss
             self.dismissLoading()
-            self.dismiss(animated: true)
+            self.showSuccessAlert()
         } else {
             // If the operation failed, show alert
-            self.dismissLoading()
-            self.addButton.isEnabled = true
-            self.cancelButton.isEnabled = true
-            print("Add error")
+            showErrorAlert()
         }
     }
     
@@ -193,14 +191,10 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         if isSuccess {
             // If the operation is succeeded, dismiss
             self.dismissLoading()
-            self.dismiss(animated: true)
-            performSegue(withIdentifier: "unwindToAllExpenses", sender: self)
+            self.showSuccessAlert()
         } else {
             // If the operation failed, show alert
-            self.dismissLoading()
-            self.addButton.isEnabled = true
-            self.cancelButton.isEnabled = true
-            print("Update error")
+            showErrorAlert()
         }
     }
     
@@ -228,5 +222,54 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
                 selectedIndex = 3
             }
         }
+    }
+    
+    private func showSuccessAlert() {
+        var title = ""
+        let message = "You can see your expenses on the home and see the overview on the expenses menu."
+        
+        if isEdit {
+            title = "Expense Updated"
+        } else {
+            title = "Expense Added"
+        }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: {_ in
+            if self.isEdit {
+                self.dismiss(animated: true)
+                self.performSegue(withIdentifier: "unwindToAllExpenses", sender: self)
+            } else {
+                self.dismiss(animated: true)
+            }
+        })
+        
+        alert.addAction(doneAction)
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func showErrorAlert() {
+        var title = ""
+        let message = "An error occured. Please try again in a moment."
+        
+        if isEdit {
+            title = "Update Error"
+        } else {
+            title = "Insert Error"
+        }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: {_ in
+            self.dismissLoading()
+            self.addButton.isEnabled = true
+            self.cancelButton.isEnabled = true
+        })
+        
+        alert.addAction(doneAction)
+        
+        self.present(alert, animated: true)
     }
 }

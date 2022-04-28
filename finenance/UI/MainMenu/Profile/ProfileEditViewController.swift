@@ -34,8 +34,7 @@ class ProfileEditViewController: UIViewController {
             navigationItem.title = ""
         }
         
-        dismissLoading()
-        performSegue(withIdentifier: "unwindToProfile", sender: self)
+        showSuccessAlert()
     }
     
     var mode = 0
@@ -99,5 +98,21 @@ class ProfileEditViewController: UIViewController {
         } else {
             updateButton.isEnabled = false
         }
+    }
+    
+    private func showSuccessAlert() {
+        let title = "Data Updated"
+        let message = "Your data is successfully updated!"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: {_ in
+            self.dismissLoading()
+            self.performSegue(withIdentifier: "unwindToProfile", sender: self)
+        })
+        
+        alert.addAction(doneAction)
+        
+        self.present(alert, animated: true)
     }
 }

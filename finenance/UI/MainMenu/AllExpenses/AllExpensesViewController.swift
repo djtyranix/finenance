@@ -28,6 +28,11 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+        updateViews()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expenseDatas.count
     }
