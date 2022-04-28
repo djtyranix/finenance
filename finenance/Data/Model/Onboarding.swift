@@ -9,7 +9,7 @@ import Foundation
 
 struct Onboarding {
     var firstName: String
-    var lastName: String
+    var fullName: String
     var monthlyIncome: Int
     var monthlySavings: Int
 }

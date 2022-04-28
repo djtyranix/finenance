@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDelegate {
 
-    var onboardingData = Onboarding(firstName: "", lastName: "", monthlyIncome: 0, monthlySavings: 0)
+    var onboardingData = Onboarding(firstName: "", fullName: "", monthlyIncome: 0, monthlySavings: 0)
     
     @IBOutlet weak var monthlySavingsField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
@@ -35,7 +35,7 @@ class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDeleg
         onboardingData.monthlySavings = monthlySavings
         
         UserDefaults.standard.set(onboardingData.firstName, forKey: "userFirstName")
-        UserDefaults.standard.set(onboardingData.lastName, forKey: "userLastName")
+        UserDefaults.standard.set(onboardingData.fullName, forKey: "userFullName")
         UserDefaults.standard.set(onboardingData.monthlyIncome, forKey: "monthlyIncome")
         UserDefaults.standard.set(onboardingData.monthlySavings, forKey: "monthlySavings")
         UserDefaults.standard.set(true, forKey: "isOnboardingFinished")

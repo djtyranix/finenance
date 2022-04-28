@@ -93,7 +93,7 @@
         <!--Add Expense-->
         <scene sceneID="3c7-Di-kZd">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="aP9-Gl-UQ3" customClass="AddEditExpenseViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" hidesBottomBarWhenPushed="YES" id="aP9-Gl-UQ3" customClass="AddEditExpenseViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hOX-e3-LuD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,27 +204,163 @@
             <objects>
                 <viewController storyboardIdentifier="profile" id="gSW-25-jwF" customClass="ProfileViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Cs-04-Uam">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jtx-BY-GIP">
+                                <rect key="frame" x="0.0" y="108" width="414" height="525.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ProfileCell" textLabel="bLq-pC-FI4" style="IBUITableViewCellStyleDefault" id="iJw-qd-N9s">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iJw-qd-N9s" id="5uh-tv-eYg">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bLq-pC-FI4">
+                                                    <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbu-7F-oE8">
+                                <rect key="frame" x="20" y="657.5" width="374" height="43.5"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete User Data" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="0.0" bottom="12" trailing="0.0"/>
+                                    <color key="baseBackgroundColor" name="MainRed"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteProfile:" destination="gSW-25-jwF" eventType="touchUpInside" id="pWn-76-e63"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NIx-HY-JKk">
+                                <rect key="frame" x="20" y="20.5" width="72" height="71"/>
+                                <color key="tintColor" name="MainBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NIx-HY-JKk" secondAttribute="height" multiplier="1:1" id="dTl-p2-h63"/>
+                                    <constraint firstAttribute="height" constant="72" id="rRn-jg-3Ii"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQJ-2V-ELd">
+                                <rect key="frame" x="116" y="41.5" width="278" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ZUb-F7-P9N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pbu-7F-oE8" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" constant="20" id="2bk-5R-pGr"/>
+                            <constraint firstItem="NIx-HY-JKk" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" constant="20" id="2st-Tu-VjQ"/>
+                            <constraint firstItem="jtx-BY-GIP" firstAttribute="top" secondItem="NIx-HY-JKk" secondAttribute="bottom" constant="16" id="34r-ig-uf8"/>
+                            <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="Pbu-7F-oE8" secondAttribute="trailing" constant="20" id="6Hc-yB-eVE"/>
+                            <constraint firstItem="wQJ-2V-ELd" firstAttribute="centerY" secondItem="NIx-HY-JKk" secondAttribute="centerY" id="8yP-ou-bpm"/>
+                            <constraint firstItem="ZUb-F7-P9N" firstAttribute="bottom" secondItem="Pbu-7F-oE8" secondAttribute="bottom" constant="24" id="OrB-oe-NbA"/>
+                            <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="wQJ-2V-ELd" secondAttribute="trailing" constant="20" id="W7v-KF-1h0"/>
+                            <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="jtx-BY-GIP" secondAttribute="trailing" id="WOV-rz-2jV"/>
+                            <constraint firstItem="jtx-BY-GIP" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" id="agX-bL-cAD"/>
+                            <constraint firstItem="wQJ-2V-ELd" firstAttribute="leading" secondItem="NIx-HY-JKk" secondAttribute="trailing" constant="24" id="aj9-IR-kwa"/>
+                            <constraint firstItem="NIx-HY-JKk" firstAttribute="top" secondItem="ZUb-F7-P9N" secondAttribute="top" constant="20" id="hQX-Ka-4YS"/>
+                            <constraint firstItem="Pbu-7F-oE8" firstAttribute="top" secondItem="jtx-BY-GIP" secondAttribute="bottom" constant="24" id="i9I-Mv-rU1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="awb-Bw-kwI"/>
+                    <connections>
+                        <outlet property="profileName" destination="wQJ-2V-ELd" id="Yc1-7p-9XF"/>
+                        <outlet property="profileTable" destination="jtx-BY-GIP" id="bTn-QS-vIo"/>
+                        <segue destination="euu-MX-O7w" kind="show" identifier="goToProfileEdit" id="0zA-rE-ct8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfX-lO-CvE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000" y="743"/>
+            <point key="canvasLocation" x="1000.0000000000001" y="742.63392857142856"/>
+        </scene>
+        <!--Profile Edit View Controller-->
+        <scene sceneID="lNd-SK-FEm">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="euu-MX-O7w" customClass="ProfileEditViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fC9-u6-xBo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="alk-gu-clf">
+                                <rect key="frame" x="20" y="24" width="374" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="kWj-yE-JGS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next" textContentType="name"/>
+                                <connections>
+                                    <action selector="nameFieldChanged:" destination="aP9-Gl-UQ3" eventType="editingChanged" id="NQe-eZ-Y6j"/>
+                                    <action selector="textFieldChanged:" destination="euu-MX-O7w" eventType="editingChanged" id="HjP-LP-KhY"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcM-2k-Mkc">
+                                <rect key="frame" x="20" y="605.5" width="374" height="43.5"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update Data" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="0.0" bottom="12" trailing="0.0"/>
+                                    <color key="baseBackgroundColor" name="MainBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="updatePressed:" destination="euu-MX-O7w" eventType="touchUpInside" id="Brg-WI-eCJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JCA-G9-RH6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="alk-gu-clf" firstAttribute="leading" secondItem="JCA-G9-RH6" secondAttribute="leading" constant="20" id="A2w-hx-0Oj"/>
+                            <constraint firstItem="JcM-2k-Mkc" firstAttribute="leading" secondItem="JCA-G9-RH6" secondAttribute="leading" constant="20" id="AYt-Hh-AZF"/>
+                            <constraint firstItem="JCA-G9-RH6" firstAttribute="trailing" secondItem="alk-gu-clf" secondAttribute="trailing" constant="20" id="BkA-vu-2hY"/>
+                            <constraint firstItem="JCA-G9-RH6" firstAttribute="bottom" secondItem="JcM-2k-Mkc" secondAttribute="bottom" constant="73" id="WLw-jj-3of"/>
+                            <constraint firstItem="alk-gu-clf" firstAttribute="top" secondItem="JCA-G9-RH6" secondAttribute="top" constant="24" id="gUS-YJ-uHx"/>
+                            <constraint firstItem="JCA-G9-RH6" firstAttribute="trailing" secondItem="JcM-2k-Mkc" secondAttribute="trailing" constant="20" id="qtz-h5-I3Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1FT-Es-0hQ"/>
+                    <connections>
+                        <outlet property="textField" destination="alk-gu-clf" id="mTT-8A-dMn"/>
+                        <outlet property="updateButton" destination="JcM-2k-Mkc" id="rDg-bH-PwJ"/>
+                        <segue destination="JSJ-ML-x8j" kind="unwind" identifier="unwindToProfile" unwindAction="unwind:" id="JqF-sd-NbT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xh5-b7-3Te" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JSJ-ML-x8j" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1799" y="743"/>
+        </scene>
+        <!--onboarding-->
+        <scene sceneID="jAG-jR-sf1">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="onboarding" storyboardName="Onboarding" referencedIdentifier="onboarding" id="9Vr-YJ-wJU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXq-vT-hd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="489"/>
         </scene>
         <!--Expense Detail-->
         <scene sceneID="trO-uR-jKv">
             <objects>
-                <viewController id="ubP-Rn-vNA" customClass="ExpenseDetailViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="ubP-Rn-vNA" customClass="ExpenseDetailViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d2a-Uv-5Yl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="skY-wu-lw6">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="M8f-kG-P9A" detailTextLabel="70W-iq-y45" style="IBUITableViewCellStyleValue1" id="xQH-GV-LJE">
@@ -281,13 +417,13 @@
         <!--All Expenses-->
         <scene sceneID="PMt-y3-5oJ">
             <objects>
-                <viewController storyboardIdentifier="allExpenses" modalTransitionStyle="crossDissolve" id="ARe-Fn-Sf4" customClass="AllExpensesViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="allExpenses" modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="ARe-Fn-Sf4" customClass="AllExpensesViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yfg-Jn-xcd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-Wt-eEk">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
                             </tableView>
@@ -344,7 +480,7 @@
                                             <segue destination="ARe-Fn-Sf4" kind="show" id="daT-gS-pLJ"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-3p-pJV">
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-3p-pJV">
                                         <rect key="frame" x="0.0" y="231.5" width="414" height="337.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
@@ -466,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7M-jd-7DO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1504" y="743"/>
+            <point key="canvasLocation" x="-1504.3478260869567" y="742.63392857142856"/>
         </scene>
         <!--Anim Tab Bar Controller-->
         <scene sceneID="W1u-Rx-vTI">
@@ -638,8 +774,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TY8-aF-0mu"/>
-        <segue reference="iVt-hV-m0k"/>
+        <segue reference="b7d-lR-1tu"/>
+        <segue reference="Wv8-zi-07L"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>
@@ -647,9 +783,13 @@
         <image name="chart.pie" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="MainBlue">
             <color red="0.0" green="0.33333333333333331" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainRed">
+            <color red="0.85882352941176465" green="0.19607843137254902" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

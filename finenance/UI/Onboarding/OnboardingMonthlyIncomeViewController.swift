@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingMonthlyIncomeViewController: UIViewController, UITextFieldDelegate {
     
-    var onboardingData = Onboarding(firstName: "", lastName: "", monthlyIncome: 0, monthlySavings: 0)
+    var onboardingData = Onboarding(firstName: "", fullName: "", monthlyIncome: 0, monthlySavings: 0)
     
     @IBOutlet weak var monthlyIncomeField: UITextField!
     @IBOutlet weak var submitButton: UIButton!

@@ -48,13 +48,8 @@ class OnboardingNameViewController: UIViewController, UITextFieldDelegate {
         fullNameArr = name.components(separatedBy: " ")
         
         let firstName = fullNameArr.first!
-        var lastName = ""
         
-        if fullNameArr.count > 1 {
-            lastName = fullNameArr.last!
-        }
-        
-        let onboardingData = Onboarding(firstName: firstName, lastName: lastName, monthlyIncome: 0, monthlySavings: 0)
+        let onboardingData = Onboarding(firstName: firstName, fullName: name, monthlyIncome: 0, monthlySavings: 0)
         vc.onboardingData = onboardingData
     }
     

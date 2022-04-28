@@ -217,8 +217,6 @@ class FinenanceRepository: NSObject {
             return false
         }
         
-        print("Id is \(id), Saved Id is ")
-        
         let predicate = NSPredicate(format: "id = %i", id)
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
@@ -260,6 +258,24 @@ class FinenanceRepository: NSObject {
             
         } catch let error as NSError {
             print("Could not update. \(error), \(error.userInfo)")
+            return false
+        }
+    }
+    
+    func destroyDatabase() -> Bool {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "TransactionEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try appDelegate.persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: managedContext)
+            return true
+        } catch let error as NSError {
+            print("Could not destroy database. \(error), \(error.userInfo)")
             return false
         }
     }
