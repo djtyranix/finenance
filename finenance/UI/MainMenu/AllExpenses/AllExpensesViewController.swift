@@ -68,6 +68,11 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ExpenseDetailViewController {
             vc.expenseData = selectedExpense
+        } else if let vc = segue.destination as? AddEditExpenseViewController {
+            vc.updateData = { [weak self] in
+                self?.getData()
+                self?.updateViews()
+            }
         }
     }
     
