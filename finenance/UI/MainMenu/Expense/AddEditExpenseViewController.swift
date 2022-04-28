@@ -46,7 +46,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         let date = selectedDate
         let category = selectedCategory
         
-        let transaction = Transaction(name: name, amount: amount, date: date, category: category)
+        let transaction = Transaction(id: 0, name: name, amount: amount, date: date, category: category)
         
         showLoading()
         self.cancelButton.isEnabled = false

@@ -86,6 +86,7 @@ class FinenanceRepository: NSObject {
             transactionFetchArray = try managedContext.fetch(fetchRequest)
             
             for transactionFetch in transactionFetchArray {
+                let id = transactionFetch.value(forKey: "id") as! Int
                 let name = transactionFetch.value(forKey: "transaction_name") as! String
                 let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
                 let date = transactionFetch.value(forKey: "transaction_date") as! Date
@@ -105,7 +106,7 @@ class FinenanceRepository: NSObject {
                     category = .other
                 }
                 
-                let transaction = Transaction(name: name, amount: amount, date: date, category: category)
+                let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
                 transactionArray.append(transaction)
             }
             
@@ -133,6 +134,7 @@ class FinenanceRepository: NSObject {
             transactionFetchArray = try managedContext.fetch(fetchRequest)
             
             for transactionFetch in transactionFetchArray {
+                let id = transactionFetch.value(forKey: "id") as! Int
                 let name = transactionFetch.value(forKey: "transaction_name") as! String
                 let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
                 let date = transactionFetch.value(forKey: "transaction_date") as! Date
@@ -152,7 +154,7 @@ class FinenanceRepository: NSObject {
                     category = .other
                 }
                 
-                let transaction = Transaction(name: name, amount: amount, date: date, category: category)
+                let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
                 transactionArray.append(transaction)
             }
             

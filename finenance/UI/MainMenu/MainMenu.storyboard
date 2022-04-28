@@ -213,6 +213,69 @@
             </objects>
             <point key="canvasLocation" x="1000" y="743"/>
         </scene>
+        <!--Expense Detail-->
+        <scene sceneID="trO-uR-jKv">
+            <objects>
+                <viewController id="ubP-Rn-vNA" customClass="ExpenseDetailViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d2a-Uv-5Yl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="skY-wu-lw6">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="M8f-kG-P9A" detailTextLabel="70W-iq-y45" style="IBUITableViewCellStyleValue1" id="xQH-GV-LJE">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xQH-GV-LJE" id="ed6-XT-HJu">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M8f-kG-P9A">
+                                                    <rect key="frame" x="20" y="12" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="70W-iq-y45">
+                                                    <rect key="frame" x="354.5" y="14" width="39.5" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EQm-HU-bfu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EQm-HU-bfu" firstAttribute="bottom" secondItem="skY-wu-lw6" secondAttribute="bottom" id="0f4-bX-Kgr"/>
+                            <constraint firstItem="EQm-HU-bfu" firstAttribute="trailing" secondItem="skY-wu-lw6" secondAttribute="trailing" id="8dW-DD-VDa"/>
+                            <constraint firstItem="skY-wu-lw6" firstAttribute="leading" secondItem="EQm-HU-bfu" secondAttribute="leading" id="PwE-TS-7ip"/>
+                            <constraint firstItem="skY-wu-lw6" firstAttribute="top" secondItem="EQm-HU-bfu" secondAttribute="top" id="YX6-bF-qfb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Expense Detail" largeTitleDisplayMode="always" id="Y1T-5j-bz5">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="0Bp-3b-Dia">
+                            <connections>
+                                <action selector="editExpense:" destination="ubP-Rn-vNA" id="DiP-P4-QmM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailTable" destination="skY-wu-lw6" id="yHD-7j-CCx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2B-dh-6IV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1504" y="2231"/>
+        </scene>
         <!--All Expenses-->
         <scene sceneID="PMt-y3-5oJ">
             <objects>
@@ -222,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-Wt-eEk">
-                                <rect key="frame" x="0.0" y="156" width="414" height="657"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
                             </tableView>
@@ -232,7 +295,7 @@
                         <constraints>
                             <constraint firstItem="Rno-Wt-eEk" firstAttribute="leading" secondItem="ehh-38-7HQ" secondAttribute="leading" id="EYF-OR-rOh"/>
                             <constraint firstItem="ehh-38-7HQ" firstAttribute="bottom" secondItem="Rno-Wt-eEk" secondAttribute="bottom" id="GSl-ws-93o"/>
-                            <constraint firstItem="Rno-Wt-eEk" firstAttribute="top" secondItem="ehh-38-7HQ" secondAttribute="top" constant="16" id="sEV-uo-dmf"/>
+                            <constraint firstItem="Rno-Wt-eEk" firstAttribute="top" secondItem="ehh-38-7HQ" secondAttribute="top" id="sEV-uo-dmf"/>
                             <constraint firstItem="ehh-38-7HQ" firstAttribute="trailing" secondItem="Rno-Wt-eEk" secondAttribute="trailing" id="uf7-e2-yK2"/>
                         </constraints>
                     </view>
@@ -246,13 +309,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="expensesTable" destination="Rno-Wt-eEk" id="AsR-BT-52h"/>
+                        <segue destination="ubP-Rn-vNA" kind="show" identifier="fromAllToDetail" id="TY8-aF-0mu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkn-LR-eCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1504" y="1468"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="Y7m-2G-Ygg">
             <objects>
                 <viewController storyboardIdentifier="home" id="xKk-Qo-vqE" customClass="HomeViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
@@ -387,7 +451,7 @@
                             <constraint firstItem="K79-fl-y8E" firstAttribute="trailing" secondItem="0yK-hA-4qm" secondAttribute="trailing" id="mj8-OI-nws"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="0j5-gT-B6y"/>
+                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="never" id="0j5-gT-B6y"/>
                     <connections>
                         <outlet property="budgetStatusLabel" destination="UdF-3n-XeX" id="tcl-Xh-ifn"/>
                         <outlet property="currentMonthAndYear" destination="egH-Q4-Ntg" id="jfW-ww-ZYe"/>
@@ -396,6 +460,7 @@
                         <outlet property="expensesTable" destination="eSs-3p-pJV" id="qFl-Sb-LET"/>
                         <outlet property="statusImageView" destination="cMq-Sp-rdQ" id="TGc-bP-vAL"/>
                         <outlet property="userGreetingsLabel" destination="Thf-wJ-7jI" id="0dp-ii-8Bz"/>
+                        <segue destination="ubP-Rn-vNA" kind="show" identifier="fromHomeToDetail" id="b7d-lR-1tu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7M-jd-7DO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -572,6 +637,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="b7d-lR-1tu"/>
         <segue reference="iVt-hV-m0k"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct Transaction {
+    let id: Int
     let name: String
     let amount: Int
     let date: Date
@@ -16,6 +17,7 @@ struct Transaction {
 }
 
 struct Expense {
+    let id: Int
     let name: String
     let amount: Int
     let date: String

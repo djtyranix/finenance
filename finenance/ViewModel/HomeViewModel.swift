@@ -45,6 +45,7 @@ class HomeViewModel: NSObject {
         for transaction in transactionsSorted {
             expenses.append(
                 Expense(
+                    id: transaction.id,
                     name: transaction.name,
                     amount: transaction.amount,
                     date: transaction.date.formatToString(format: "dd/MM/YYYY"),

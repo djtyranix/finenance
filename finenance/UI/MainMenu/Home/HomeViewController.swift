@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var monthlyExpenses = 0
     var remainingBudget = 0
     var monthAndYear = ""
+    var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedExpense = expenseDatas[indexPath.row]
+        
+        performSegue(withIdentifier: "fromHomeToDetail", sender: cell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ExpenseDetailViewController {
+            vc.expenseData = selectedExpense
+        }
     }
     
     private func getData() {

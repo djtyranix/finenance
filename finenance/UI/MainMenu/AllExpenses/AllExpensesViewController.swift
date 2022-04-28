@@ -11,6 +11,7 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
 
     let viewModel = AllExpensesViewModel()
     var expenseDatas = [Expense]()
+    var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
     
     @IBOutlet weak var expensesTable: UITableView!
     
@@ -54,6 +55,20 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedExpense = expenseDatas[indexPath.row]
+        
+        performSegue(withIdentifier: "fromAllToDetail", sender: cell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ExpenseDetailViewController {
+            vc.expenseData = selectedExpense
+        }
     }
     
     private func setUpTableView() {
