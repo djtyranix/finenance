@@ -1,14 +1,14 @@
 //
-//  ExpenseTableViewCell.swift
+//  ExpensesTableViewCell.swift
 //  finenance
 //
-//  Created by Michael Ricky on 26/04/22.
+//  Created by Michael Ricky on 28/04/22.
 //
 
 import UIKit
 
-class ExpenseTableViewCell: UITableViewCell {
-    
+class ExpensesTableViewCell: UITableViewCell {
+
     @IBOutlet weak var expenseImageView: UIImageView!
     @IBOutlet weak var expenseNameLabel: UILabel!
     @IBOutlet weak var expenseAmountLabel: UILabel!
@@ -26,5 +26,5 @@ class ExpenseTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

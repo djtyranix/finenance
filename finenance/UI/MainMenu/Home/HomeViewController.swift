@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expensesTable.register(ExpenseTableViewCell.self, forCellReuseIdentifier: "Cell")
+        expensesTable.register(UINib(nibName: "ExpensesTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpenseCell")
         expensesTable.delegate = self
         expensesTable.dataSource = self
         expensesTable.separatorStyle = .none
@@ -46,11 +46,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         getData()
         updateViews()
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = expensesTable.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
+        let cell = expensesTable.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpensesTableViewCell
         
         let expense = expenseDatas[indexPath.row]
         let colorData = expense.colorData
