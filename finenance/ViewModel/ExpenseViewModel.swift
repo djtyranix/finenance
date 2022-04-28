@@ -50,7 +50,7 @@ class ExpenseViewModel: NSObject {
                 totalExpenses.totalExpense += expense.amount
                 
             case .other:
-                totalExpenses.leisureAmount += expense.amount
+                totalExpenses.otherAmount += expense.amount
                 totalExpenses.totalExpense += expense.amount
             }
         }

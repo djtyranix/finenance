@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     var viewModel = ExpenseViewModel()
     var categoryArray = [TransactionCategory]()
@@ -107,6 +107,11 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         
         categoryTable.reloadData()
         print(selectedCategory.rawValue)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     private func showLoading() {

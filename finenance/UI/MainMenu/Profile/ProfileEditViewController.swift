@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileEditViewController: UIViewController {
+class ProfileEditViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
@@ -37,6 +37,10 @@ class ProfileEditViewController: UIViewController {
         showSuccessAlert()
     }
     
+    @IBAction func viewTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     var mode = 0
     
     override func viewDidLoad() {
@@ -45,6 +49,11 @@ class ProfileEditViewController: UIViewController {
         // Do any additional setup after loading the view.
         setNavBarStyle()
         checkMode()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     private func setNavBarStyle() {
@@ -77,14 +86,17 @@ class ProfileEditViewController: UIViewController {
             navigationItem.title = "Set Monthly Income"
             textField.placeholder = "Your Monthly Income"
             textField.text = String(UserDefaults.standard.value(forKey: "monthlyIncome") as! Int)
+            textField.keyboardType = .numberPad
         case 1:
             navigationItem.title = "Set Monthly Savings"
             textField.placeholder = "Your Monthly Savings"
             textField.text = String(UserDefaults.standard.value(forKey: "monthlySavings") as! Int)
+            textField.keyboardType = .numberPad
         case 2:
             navigationItem.title = "Set User Name"
             textField.placeholder = "Your Name"
             textField.text = UserDefaults.standard.value(forKey: "userFullName") as? String
+            textField.returnKeyType = .done
         default:
             navigationItem.title = ""
         }

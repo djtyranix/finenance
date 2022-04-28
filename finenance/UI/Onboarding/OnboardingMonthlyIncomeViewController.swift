@@ -20,7 +20,11 @@ class OnboardingMonthlyIncomeViewController: UIViewController, UITextFieldDelega
     @IBAction func textFieldChanged(_ sender: UITextField) {
         updateSubmitButton()
     }
-
+    
+    @IBAction func viewTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +42,12 @@ class OnboardingMonthlyIncomeViewController: UIViewController, UITextFieldDelega
         
         onboardingData.monthlyIncome = monthlyIncome
         vc.onboardingData = onboardingData
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        return true
     }
     
     private func setUpViews() {

@@ -22,6 +22,10 @@ class OnboardingNameViewController: UIViewController, UITextFieldDelegate {
     @IBAction func submitDefaultName(_ sender: UIButton) {
     }
     
+    @IBAction func viewTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func nameFieldChanged(_ sender: UITextField) {
         updateSubmitButton()
     }
@@ -51,6 +55,11 @@ class OnboardingNameViewController: UIViewController, UITextFieldDelegate {
         
         let onboardingData = Onboarding(firstName: firstName, fullName: name, monthlyIncome: 0, monthlySavings: 0)
         vc.onboardingData = onboardingData
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     private func setUpViews() {

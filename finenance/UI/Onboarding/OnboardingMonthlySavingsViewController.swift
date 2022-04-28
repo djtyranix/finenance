@@ -21,6 +21,10 @@ class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDeleg
         updateSubmitButton()
     }
 
+    @IBAction func viewTapped(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +44,11 @@ class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDeleg
         UserDefaults.standard.set(onboardingData.monthlySavings, forKey: "monthlySavings")
         UserDefaults.standard.set(true, forKey: "isOnboardingFinished")
         print("Data has been saved.")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     private func setUpViews() {

@@ -123,7 +123,7 @@
                                     <constraint firstAttribute="height" constant="55" id="e3d-Qn-fQU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" textContentType="name"/>
                                 <connections>
                                     <action selector="nameFieldChanged:" destination="aP9-Gl-UQ3" eventType="editingChanged" id="qa6-pI-k9p"/>
                                 </connections>
@@ -134,7 +134,7 @@
                                     <constraint firstAttribute="height" constant="55" id="iVd-JC-HXC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="amountFieldChanged:" destination="aP9-Gl-UQ3" eventType="editingChanged" id="8QQ-jK-eUa"/>
                                 </connections>
@@ -145,7 +145,7 @@
                                     <constraint firstAttribute="height" constant="55" id="iga-VB-lhP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="date-time"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="date-time"/>
                                 <connections>
                                     <action selector="dateFieldPressed:" destination="aP9-Gl-UQ3" eventType="editingChanged" id="SZj-P7-rZf"/>
                                 </connections>
@@ -163,6 +163,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4DG-qL-dfo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="P8c-ip-yrS" firstAttribute="top" secondItem="OZi-DE-oM8" secondAttribute="bottom" constant="16" id="22r-iL-gKy"/>
                             <constraint firstItem="qnf-1K-DhH" firstAttribute="top" secondItem="P8c-ip-yrS" secondAttribute="bottom" constant="24" id="Aeo-K9-JKa"/>
@@ -322,6 +323,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JCA-G9-RH6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="alk-gu-clf" firstAttribute="leading" secondItem="JCA-G9-RH6" secondAttribute="leading" constant="20" id="A2w-hx-0Oj"/>
                             <constraint firstItem="JcM-2k-Mkc" firstAttribute="leading" secondItem="JCA-G9-RH6" secondAttribute="leading" constant="20" id="AYt-Hh-AZF"/>
@@ -330,6 +332,9 @@
                             <constraint firstItem="alk-gu-clf" firstAttribute="top" secondItem="JCA-G9-RH6" secondAttribute="top" constant="24" id="gUS-YJ-uHx"/>
                             <constraint firstItem="JCA-G9-RH6" firstAttribute="trailing" secondItem="JcM-2k-Mkc" secondAttribute="trailing" constant="20" id="qtz-h5-I3Z"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="f4L-1Y-Qnq" appends="YES" id="zBa-D0-TC7"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="1FT-Es-0hQ"/>
                     <connections>
@@ -340,6 +345,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xh5-b7-3Te" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="JSJ-ML-x8j" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="f4L-1Y-Qnq">
+                    <connections>
+                        <action selector="viewTapped:" destination="euu-MX-O7w" id="HtF-Vb-3cS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1799" y="743"/>
         </scene>
