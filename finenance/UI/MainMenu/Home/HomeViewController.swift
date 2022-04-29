@@ -80,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.categoryOuter.borderColor = colorData.shadeColor
         cell.categoryOuter.backgroundColor = colorData.mainColor
-        cell.expenseImageView.tintColor = UIColor(named: "MainRed")
+        cell.expenseImageView.tintColor = UIColor(named: "MainBlue")
         
         if colorData.colorType == .dark {
             cell.expenseCategoryLabel.textColor = .white

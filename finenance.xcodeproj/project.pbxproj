@@ -18,6 +18,7 @@
 		A848A99B281927F50048AF3C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A99A281927F50048AF3C /* Onboarding.swift */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
 		A899FC4A281B7FB2000A06C0 /* OnboadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */; };
+		A899FC4C281B876A000A06C0 /* BorderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC4B281B876A000A06C0 /* BorderCardView.swift */; };
 		A8BBFABC281A75880002BF7B /* ExpenseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */; };
 		A8BBFABE281AB4C10002BF7B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABD281AB4C10002BF7B /* ProfileEditViewController.swift */; };
 		A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E4E28166C330093F5FB /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		A848A99A281927F50048AF3C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadingDoneViewController.swift; sourceTree = "<group>"; };
+		A899FC4B281B876A000A06C0 /* BorderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardView.swift; sourceTree = "<group>"; };
 		A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailViewModel.swift; sourceTree = "<group>"; };
 		A8BBFABD281AB4C10002BF7B /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		A8CB8E4B28166C330093F5FB /* finenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +218,7 @@
 				A8CB8E822817A8F70093F5FB /* CardView.swift */,
 				A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */,
 				A8CB8E89281834570093F5FB /* CategoryLabel.swift */,
+				A899FC4B281B876A000A06C0 /* BorderCardView.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				A8DF5CA9281959CE0056D872 /* AddEditExpenseViewController.swift in Sources */,
 				A8CB8E8C28183A8B0093F5FB /* Transaction.swift in Sources */,
 				A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */,
+				A899FC4C281B876A000A06C0 /* BorderCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
