@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="121" id="KGk-i7-Jjw" customClass="ExpensesTableViewCell" customModule="finenance" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="476" height="121"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="165" id="KGk-i7-Jjw" customClass="ExpensesTableViewCell" customModule="finenance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="165"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="476" height="121"/>
+                <rect key="frame" x="0.0" y="0.0" width="476" height="165"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kku-ah-UaV" customClass="CardView" customModule="finenance" customModuleProvider="target">
-                        <rect key="frame" x="20" y="8" width="436" height="105"/>
+                        <rect key="frame" x="20" y="8" width="436" height="100"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEM-jA-lZN">
-                                <rect key="frame" x="16" y="22" width="57" height="63"/>
+                                <rect key="frame" x="16" y="22" width="42" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="3ZT-nw-Mho"/>
                                     <constraint firstAttribute="width" secondItem="dEM-jA-lZN" secondAttribute="height" multiplier="1:1" id="guh-PW-iY4"/>
@@ -31,19 +31,22 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cafe Bills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu8-5T-nge">
-                                <rect key="frame" x="105" y="16" width="70.5" height="19.5"/>
+                                <rect key="frame" x="90" y="16" width="252" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="OLk-rh-UGk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="- IDR 45.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNC-z5-vtN">
-                                <rect key="frame" x="105" y="39.5" width="83" height="17"/>
+                                <rect key="frame" x="90" y="40" width="83" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-Kj-niY" customClass="CategoryLabel" customModule="finenance" customModuleProvider="target">
-                                <rect key="frame" x="105" y="60.5" width="129" height="22.5"/>
+                                <rect key="frame" x="90" y="61" width="129" height="22.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Food &amp; Beverage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cox-43-RAp">
                                         <rect key="frame" x="16" y="4" width="97" height="14.5"/>
@@ -64,8 +67,11 @@
                                     <constraint firstItem="Cox-43-RAp" firstAttribute="leading" secondItem="dHY-Kj-niY" secondAttribute="leading" constant="16" id="sMo-k6-IaL"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07/04/2022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3P-vM-uEv">
-                                <rect key="frame" x="346" y="16" width="66" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="07/04/2022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3P-vM-uEv">
+                                <rect key="frame" x="346" y="18.5" width="66" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="66" id="rYl-7m-z1j"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -79,8 +85,10 @@
                             <constraint firstItem="dHY-Kj-niY" firstAttribute="top" secondItem="KNC-z5-vtN" secondAttribute="bottom" constant="4" id="GXN-RZ-DFd"/>
                             <constraint firstItem="KNC-z5-vtN" firstAttribute="top" secondItem="Qu8-5T-nge" secondAttribute="bottom" constant="4" id="JOV-Ic-aQN"/>
                             <constraint firstItem="Qu8-5T-nge" firstAttribute="leading" secondItem="dEM-jA-lZN" secondAttribute="trailing" constant="32" id="LUR-3q-PGL"/>
-                            <constraint firstItem="h3P-vM-uEv" firstAttribute="top" secondItem="Qu8-5T-nge" secondAttribute="top" id="XXY-A3-cC6"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="T7v-oz-vcc"/>
                             <constraint firstAttribute="bottom" secondItem="dHY-Kj-niY" secondAttribute="bottom" constant="16" id="ZjG-Ip-oK0"/>
+                            <constraint firstItem="h3P-vM-uEv" firstAttribute="leading" secondItem="Qu8-5T-nge" secondAttribute="trailing" constant="4" id="bjC-Gg-2aF"/>
+                            <constraint firstItem="h3P-vM-uEv" firstAttribute="centerY" secondItem="Qu8-5T-nge" secondAttribute="centerY" id="dVp-bU-tdY"/>
                             <constraint firstAttribute="trailing" secondItem="h3P-vM-uEv" secondAttribute="trailing" constant="24" id="fEo-fG-YHi"/>
                             <constraint firstItem="KNC-z5-vtN" firstAttribute="leading" secondItem="Qu8-5T-nge" secondAttribute="leading" id="n9k-dM-Jxi"/>
                             <constraint firstAttribute="bottom" secondItem="dEM-jA-lZN" secondAttribute="bottom" constant="24" id="zJw-gy-KLI"/>
@@ -103,7 +111,7 @@
                 <outlet property="expenseImageView" destination="dEM-jA-lZN" id="kaI-QW-Jug"/>
                 <outlet property="expenseNameLabel" destination="Qu8-5T-nge" id="FL2-nm-L07"/>
             </connections>
-            <point key="canvasLocation" x="107.24637681159422" y="72.65625"/>
+            <point key="canvasLocation" x="107.24637681159422" y="87.388392857142847"/>
         </tableViewCell>
     </objects>
     <resources>

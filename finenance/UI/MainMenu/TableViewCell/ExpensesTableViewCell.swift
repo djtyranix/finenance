@@ -19,6 +19,8 @@ class ExpensesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        expenseNameLabel.adjustsFontSizeToFitWidth = false
+        expenseNameLabel.lineBreakMode = .byTruncatingTail
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
