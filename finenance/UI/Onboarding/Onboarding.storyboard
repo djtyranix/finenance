@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="4257" y="92"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboading Done View Controller-->
         <scene sceneID="k7I-bA-bRx">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="0Ee-O0-dnH" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="0Ee-O0-dnH" customClass="OnboadingDoneViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dxG-SK-zt8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,9 +413,9 @@
                                     <color key="baseBackgroundColor" name="MainBlue"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="goToHome:" destination="0Ee-O0-dnH" eventType="touchUpInside" id="rgl-ph-x9d"/>
                                     <action selector="submitMonthlyIncome:" destination="MEh-xt-ULz" eventType="touchUpInside" id="xQA-Yd-dHI"/>
                                     <action selector="submitMonthlySavings:" destination="TSX-hr-4oO" eventType="touchUpInside" id="AaP-qH-vMx"/>
-                                    <segue destination="rLc-49-TYb" kind="show" id="Stg-2D-9SC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -443,10 +443,10 @@
         <!--mainmenu-->
         <scene sceneID="pDh-d8-DZC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5aJ-Rn-L8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="mainmenu" storyboardName="MainMenu" referencedIdentifier="mainmenu" id="rLc-49-TYb" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cWH-ns-4MP"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5aJ-Rn-L8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5763" y="33"/>
         </scene>
