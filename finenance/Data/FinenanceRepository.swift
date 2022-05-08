@@ -32,6 +32,8 @@ class FinenanceRepository: NSObject {
             return false
         }
         
+        print(data)
+        
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "TransactionEntity", in: managedContext)!
@@ -51,6 +53,8 @@ class FinenanceRepository: NSObject {
             category = 2
         case .other:
             category = 3
+        case .income:
+            category = 4
         }
         
         transaction.setValue(currentId, forKey: "id")
@@ -102,6 +106,8 @@ class FinenanceRepository: NSObject {
                     category = .leisure
                 case 3:
                     category = .other
+                case 4:
+                    category = .income
                 default:
                     category = .other
                 }
@@ -150,6 +156,8 @@ class FinenanceRepository: NSObject {
                     category = .leisure
                 case 3:
                     category = .other
+                case 4:
+                    category = .income
                 default:
                     category = .other
                 }
@@ -197,6 +205,8 @@ class FinenanceRepository: NSObject {
                 category = .leisure
             case 3:
                 category = .other
+            case 4:
+                category = .income
             default:
                 category = .other
             }
@@ -243,6 +253,8 @@ class FinenanceRepository: NSObject {
                     category = 2
                 case .other:
                     category = 3
+                case .income:
+                    category = 4
                 }
                 
                 transaction.setValue(data.name, forKey: "transaction_name")

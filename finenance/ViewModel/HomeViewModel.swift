@@ -79,6 +79,9 @@ class HomeViewModel: NSObject {
             case .other:
                 totalExpenses.leisureAmount += expense.amount
                 totalExpenses.totalExpense += expense.amount
+                
+            case .income:
+                totalExpenses.totalExpense += 0
             }
         }
         

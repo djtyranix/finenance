@@ -31,6 +31,7 @@ enum TransactionCategory: String, CaseIterable {
     case bills = "Bills"
     case leisure = "Leisure"
     case other = "Other"
+    case income = "Income"
 }
 
 extension TransactionCategory {
@@ -41,13 +42,16 @@ extension TransactionCategory {
             return ColorData(colorType: .dark, mainColor: UIColor(named: "MainRed")!, shadeColor: UIColor(named: "MainRedShade")!)
             
         case .leisure:
-            return ColorData(colorType: .dark, mainColor: UIColor(named: "MainBlue")!, shadeColor: UIColor(named: "MainBlueShade")!)
+            return ColorData(colorType: .light, mainColor: UIColor(named: "MainYellow")!, shadeColor: UIColor(named: "MainYellowShade")!)
             
         case .bills:
             return ColorData(colorType: .dark, mainColor: UIColor(named: "MainGreen")!, shadeColor: UIColor(named: "MainGreenShade")!)
         
         case .other:
             return ColorData(colorType: .light, mainColor: .systemGray4, shadeColor: .systemGray)
+            
+        case .income:
+            return ColorData(colorType: .dark, mainColor: UIColor(named: "MainBlue")!, shadeColor: UIColor(named: "MainBlueShade")!)
         }
     }
 }

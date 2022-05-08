@@ -93,7 +93,7 @@
         <!--Add Expense-->
         <scene sceneID="3c7-Di-kZd">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" hidesBottomBarWhenPushed="YES" id="aP9-Gl-UQ3" customClass="AddEditExpenseViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="aP9-Gl-UQ3" customClass="AddEditExpenseViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hOX-e3-LuD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,8 +190,10 @@
                         <outlet property="amountField" destination="OZi-DE-oM8" id="2Io-O2-AGL"/>
                         <outlet property="cancelButton" destination="xU1-j8-R4U" id="qru-Na-XUe"/>
                         <outlet property="categoryTable" destination="k9J-n7-bf6" id="Sqy-bi-Vkc"/>
+                        <outlet property="currentNavBar" destination="2zf-q5-NG2" id="XoD-Ne-W8R"/>
                         <outlet property="dateField" destination="P8c-ip-yrS" id="5Yh-YO-9sW"/>
                         <outlet property="nameField" destination="gVw-dk-YZp" id="mFj-TY-7ev"/>
+                        <outlet property="selectCategoryLabel" destination="qnf-1K-DhH" id="Um7-MR-GQf"/>
                         <segue destination="yvG-mw-8Zg" kind="unwind" identifier="unwindToAllExpenses" unwindAction="unwind:" id="Ky4-7m-IbA"/>
                     </connections>
                 </viewController>
@@ -361,7 +363,7 @@
             </objects>
             <point key="canvasLocation" x="2474" y="489"/>
         </scene>
-        <!--Expense Detail-->
+        <!--Transaction Detail-->
         <scene sceneID="trO-uR-jKv">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="ubP-Rn-vNA" customClass="ExpenseDetailViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
@@ -409,7 +411,7 @@
                             <constraint firstItem="skY-wu-lw6" firstAttribute="top" secondItem="EQm-HU-bfu" secondAttribute="top" id="YX6-bF-qfb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Expense Detail" largeTitleDisplayMode="always" id="Y1T-5j-bz5">
+                    <navigationItem key="navigationItem" title="Transaction Detail" largeTitleDisplayMode="always" id="Y1T-5j-bz5">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="0Bp-3b-Dia">
                             <connections>
                                 <segue destination="aP9-Gl-UQ3" kind="presentation" id="qMo-bG-fZB"/>
@@ -424,7 +426,7 @@
             </objects>
             <point key="canvasLocation" x="-1504" y="2231"/>
         </scene>
-        <!--All Expenses-->
+        <!--All Transactions-->
         <scene sceneID="PMt-y3-5oJ">
             <objects>
                 <viewController storyboardIdentifier="allExpenses" modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="ARe-Fn-Sf4" customClass="AllExpensesViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
@@ -447,7 +449,7 @@
                             <constraint firstItem="ehh-38-7HQ" firstAttribute="trailing" secondItem="Rno-Wt-eEk" secondAttribute="trailing" id="uf7-e2-yK2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="All Expenses" largeTitleDisplayMode="always" id="Nek-T6-gpi">
+                    <navigationItem key="navigationItem" title="All Transactions" largeTitleDisplayMode="always" id="Nek-T6-gpi">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="rut-cD-YY9">
                             <connections>
                                 <segue destination="aP9-Gl-UQ3" kind="presentation" id="iVt-hV-m0k"/>
@@ -474,8 +476,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yK-hA-4qm">
                                 <rect key="frame" x="0.0" y="244" width="414" height="569"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmp-J4-GJj">
-                                        <rect key="frame" x="20" y="186" width="141.5" height="21.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmp-J4-GJj">
+                                        <rect key="frame" x="20" y="186" width="170" height="21.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -648,13 +650,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4o-8R-BGI">
-                                <rect key="frame" x="20" y="20" width="202.5" height="29"/>
+                                <rect key="frame" x="20" y="87.5" width="202.5" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dO6-0z-Cns">
-                                <rect key="frame" x="0.0" y="73" width="414" height="600"/>
+                                <rect key="frame" x="0.0" y="140.5" width="414" height="532.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailCell" textLabel="lzR-WJ-i3h" detailTextLabel="b9s-xz-4eu" style="IBUITableViewCellStyleValue1" id="0Xv-RA-od7">
@@ -683,15 +685,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdD-SM-gbn">
+                                <rect key="frame" x="20" y="20" width="374" height="43.5"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Income" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="0.0" bottom="12" trailing="0.0"/>
+                                    <color key="baseBackgroundColor" name="MainBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="aP9-Gl-UQ3" kind="presentation" id="hkS-xK-Jdk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DrO-Ex-qBy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c4o-8R-BGI" firstAttribute="leading" secondItem="DrO-Ex-qBy" secondAttribute="leading" constant="20" id="58v-OB-xns"/>
+                            <constraint firstItem="QdD-SM-gbn" firstAttribute="top" secondItem="DrO-Ex-qBy" secondAttribute="top" constant="20" id="3Jf-zi-eAT"/>
+                            <constraint firstItem="c4o-8R-BGI" firstAttribute="leading" secondItem="QdD-SM-gbn" secondAttribute="leading" id="58v-OB-xns"/>
+                            <constraint firstItem="DrO-Ex-qBy" firstAttribute="trailing" secondItem="QdD-SM-gbn" secondAttribute="trailing" constant="20" id="ART-Ns-iXf"/>
                             <constraint firstItem="DrO-Ex-qBy" firstAttribute="bottom" secondItem="dO6-0z-Cns" secondAttribute="bottom" id="PHj-jb-bEg"/>
                             <constraint firstItem="dO6-0z-Cns" firstAttribute="top" secondItem="c4o-8R-BGI" secondAttribute="bottom" constant="24" id="YKq-ff-dfh"/>
+                            <constraint firstItem="c4o-8R-BGI" firstAttribute="top" secondItem="QdD-SM-gbn" secondAttribute="bottom" constant="24" id="kpB-7F-shp"/>
                             <constraint firstItem="dO6-0z-Cns" firstAttribute="leading" secondItem="DrO-Ex-qBy" secondAttribute="leading" id="laz-8p-U3U"/>
-                            <constraint firstItem="c4o-8R-BGI" firstAttribute="top" secondItem="DrO-Ex-qBy" secondAttribute="top" constant="20" id="sPY-XA-uLg"/>
+                            <constraint firstItem="QdD-SM-gbn" firstAttribute="leading" secondItem="DrO-Ex-qBy" secondAttribute="leading" constant="20" id="vGE-e0-bHO"/>
                             <constraint firstItem="DrO-Ex-qBy" firstAttribute="trailing" secondItem="dO6-0z-Cns" secondAttribute="trailing" id="xQW-Ay-Lg2"/>
                         </constraints>
                     </view>
@@ -784,8 +802,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b7d-lR-1tu"/>
-        <segue reference="Wv8-zi-07L"/>
+        <segue reference="TY8-aF-0mu"/>
+        <segue reference="hkS-xK-Jdk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>

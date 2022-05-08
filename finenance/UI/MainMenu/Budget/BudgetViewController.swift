@@ -32,6 +32,19 @@ class BudgetViewController: UIViewController, UITableViewDataSource, UITableView
         updateView()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? AddEditExpenseViewController else {
+            return
+        }
+        
+        vc.isIncome = true
+        
+        vc.updateData = { [weak self] in
+            self?.getData()
+            self?.updateView()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }

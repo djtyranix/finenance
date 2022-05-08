@@ -16,6 +16,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     let datePicker = UIDatePicker()
     var selectedDate = Date()
     var isEdit = false
+    var isIncome = false
     var expenseData = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
     var updateData: (()->())?
 
@@ -25,6 +26,8 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var categoryTable: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var selectCategoryLabel: UILabel!
+    @IBOutlet weak var currentNavBar: UINavigationItem!
     
     @IBAction func nameFieldChanged(_ sender: Any) {
         checkIfAllFieldFilled()
@@ -72,7 +75,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         prepareCategoryArray()
         prepareTableView()
         createDatePicker()
-        checkIfEditing()
+        checkIfAddIncome()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -132,6 +135,15 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     
     private func prepareCategoryArray() {
         categoryArray = TransactionCategory.allCases
+        categoryArray.remove(at: 4) // Hiding Income
+    }
+    
+    private func prepareForAddIncome() {
+        currentNavBar.title = "Add Income"
+        selectedCategory = TransactionCategory.income
+        selectedIndex = 4
+        categoryTable.isHidden = true
+        selectCategoryLabel.isHidden = true
     }
     
     private func prepareTableView() {
@@ -205,15 +217,15 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     
     private func checkIfEditing() {
         if isEdit {
-            self.title = "Edit Expense"
+            currentNavBar.title = "Edit Expense"
             addButton.title = "Update"
+            
+            categoryArray = TransactionCategory.allCases
             
             nameField.text = expenseData.name
             amountField.text = String(expenseData.amount)
             dateField.text = expenseData.date
             selectedDate = expenseData.date.formatToDate(format: "dd/MM/yyyy")
-            print("Date is \(expenseData.date)")
-            print("Stringify Date is \(selectedDate)")
             selectedCategory = expenseData.category
             
             switch selectedCategory {
@@ -225,16 +237,28 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
                 selectedIndex = 2
             case .other:
                 selectedIndex = 3
+            case .income:
+                selectedIndex = 4
             }
+        }
+    }
+    
+    private func checkIfAddIncome() {
+        if isIncome {
+            prepareForAddIncome()
+        } else {
+            checkIfEditing()
         }
     }
     
     private func showSuccessAlert() {
         var title = ""
-        let message = "You can see your expenses on the home and see the overview on the expenses menu."
+        let message = "You can see your transactions on the home and see the overview on the expenses and budget menu."
         
         if isEdit {
-            title = "Expense Updated"
+            title = "Transaction Updated"
+        } else if isIncome {
+            title = "Income Added"
         } else {
             title = "Expense Added"
         }
