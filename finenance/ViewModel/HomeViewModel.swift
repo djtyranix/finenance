@@ -22,8 +22,9 @@ class HomeViewModel: NSObject {
     func getRemainingBudgets(monthlyExpense: Int) -> Int {
         let monthlyIncome = UserDefaults.standard.value(forKey: "monthlyIncome") as? Int ?? 0
         let monthlySavings = UserDefaults.standard.value(forKey: "monthlySavings") as? Int ?? 0
+        let otherIncome = getOtherIncomeAmount()
         
-        return monthlyIncome - monthlySavings - monthlyExpense
+        return monthlyIncome + otherIncome - monthlySavings - monthlyExpense
     }
     
     func getMonthlyExpenses() -> Int {
@@ -57,6 +58,17 @@ class HomeViewModel: NSObject {
         }
         
         return expenses
+    }
+    
+    private func getOtherIncomeAmount() -> Int {
+        let transactions = repository.getDataByTypeOnMonth(category: .income)
+        var otherIncome = 0
+        
+        for transaction in transactions {
+            otherIncome += transaction.amount
+        }
+        
+        return otherIncome
     }
     
     private func calculateTotalExpenses(expenses: [Expense]) -> TotalExpenses {

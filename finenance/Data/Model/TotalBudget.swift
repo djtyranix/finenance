@@ -13,4 +13,5 @@ struct TotalBudget {
     var monthlyIncome: Int
     var totalExpenses: Int
     var remainingBudget: Int
+    var otherIncome: Int
 }

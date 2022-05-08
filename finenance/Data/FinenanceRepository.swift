@@ -220,6 +220,70 @@ class FinenanceRepository: NSObject {
         }
     }
     
+    func getDataByTypeOnMonth(category: TransactionCategory) -> [Transaction] {
+        var transactionFetchArray = [NSManagedObject]()
+        var transactionArray = [Transaction]()
+        let categoryInt: Int
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return [Transaction]()
+        }
+        
+        switch category {
+        case .fnb:
+            categoryInt = 0
+        case .bills:
+            categoryInt = 1
+        case .leisure:
+            categoryInt = 2
+        case .other:
+            categoryInt = 3
+        case .income:
+            categoryInt = 4
+        }
+        
+        let predicate = NSPredicate(format: "transaction_date >= %@ && transaction_date <= %@ && transaction_category = %i", Date().startOfMonth as CVarArg, Date().endOfMonth as CVarArg, categoryInt)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        fetchRequest.predicate = predicate
+        
+        do {
+            transactionFetchArray = try managedContext.fetch(fetchRequest)
+            
+            for transactionFetch in transactionFetchArray {
+                let id = transactionFetch.value(forKey: "id") as! Int
+                let name = transactionFetch.value(forKey: "transaction_name") as! String
+                let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
+                let date = transactionFetch.value(forKey: "transaction_date") as! Date
+                let categoryId = transactionFetch.value(forKey: "transaction_category") as! Int
+                let category: TransactionCategory
+                
+                switch categoryId {
+                case 0:
+                    category = .fnb
+                case 1:
+                    category = .bills
+                case 2:
+                    category = .leisure
+                case 3:
+                    category = .other
+                case 4:
+                    category = .income
+                default:
+                    category = .other
+                }
+                
+                let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
+                transactionArray.append(transaction)
+            }
+            
+            return transactionArray
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return [Transaction]()
+        }
+    }
+    
     func updateData(id: Int, data: Transaction) -> Bool {
         var transactionFetchArray = [NSManagedObject]()
         

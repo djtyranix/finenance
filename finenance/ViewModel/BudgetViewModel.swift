@@ -15,13 +15,15 @@ class BudgetViewModel: NSObject {
         let monthlyIncome = UserDefaults.standard.value(forKey: "monthlyIncome") as? Int ?? 0
         let monthlySavings = UserDefaults.standard.value(forKey: "monthlySavings") as? Int ?? 0
         let totalExpenses = calculateTotalExpenses(expenses: getExpenses()).totalExpense
+        let otherIncome = getOtherIncomeAmount()
         
         let totalBudget = TotalBudget(
-            totalBudget: monthlyIncome - monthlySavings,
+            totalBudget: monthlyIncome + otherIncome - monthlySavings,
             totalSavings: monthlySavings,
             monthlyIncome: monthlyIncome,
             totalExpenses: totalExpenses,
-            remainingBudget: monthlyIncome - monthlySavings - totalExpenses
+            remainingBudget: monthlyIncome + otherIncome - monthlySavings - totalExpenses,
+            otherIncome: otherIncome
         )
         
         return totalBudget
@@ -33,10 +35,22 @@ class BudgetViewModel: NSObject {
         array.append(("Total Budget", totalBudget.totalBudget.formatToRupiah()))
         array.append(("Total Savings", totalBudget.totalSavings.formatToRupiah()))
         array.append(("Monthly Income", totalBudget.monthlyIncome.formatToRupiah()))
+        array.append(("Other Income", totalBudget.otherIncome.formatToRupiah()))
         array.append(("Total Expenses", totalBudget.totalExpenses.formatToRupiah()))
         array.append(("Remaining Budget", totalBudget.remainingBudget.formatToRupiah()))
         
         return array
+    }
+    
+    private func getOtherIncomeAmount() -> Int {
+        let transactions = repository.getDataByTypeOnMonth(category: .income)
+        var otherIncome = 0
+        
+        for transaction in transactions {
+            otherIncome += transaction.amount
+        }
+        
+        return otherIncome
     }
     
     private func getExpenses() -> [Expense] {
