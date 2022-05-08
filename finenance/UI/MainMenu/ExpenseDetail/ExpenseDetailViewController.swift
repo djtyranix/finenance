@@ -15,6 +15,10 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var detailTable: UITableView!
     
+    @IBAction func deletePressed(_ sender: UIButton) {
+        showDeleteActionSheet()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,5 +61,57 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     private func updateView() {
         detailTable.reloadData()
+    }
+    
+    private func showDeleteActionSheet() {
+        // Destructive
+        let optionMenu = UIAlertController(title: "Warning!", message: "Deleting transaction is PERMANENT and cannot be recovered. Are you sure you want to delete transaction data?", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Yes, Proceed to Delete", style: .destructive, handler: { _ in
+            let isSuccess = self.viewModel.deleteTransaction(id: self.expenseData.id)
+            
+            if isSuccess {
+                print("Transaction Deleted")
+                self.showSuccessAlert()
+            } else {
+                print("Couldn't Delete Transaction")
+                self.showErrorAlert()
+            }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true)
+    }
+    
+    private func showSuccessAlert() {
+        let title = "Transaction Deleted"
+        let message = "Selected transaction has been successfully deleted."
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: {_ in
+            self.performSegue(withIdentifier: "unwindToPreviousScreen", sender: self)
+        })
+        
+        alert.addAction(doneAction)
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func showErrorAlert() {
+        let title = "Delete Error"
+        let message = "An error occured. Please try again in a moment."
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default)
+        
+        alert.addAction(doneAction)
+        
+        self.present(alert, animated: true)
     }
 }

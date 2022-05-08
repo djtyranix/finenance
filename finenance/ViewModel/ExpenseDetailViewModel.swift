@@ -8,6 +8,7 @@
 import UIKit
 
 class ExpenseDetailViewModel: NSObject {
+    let repository = FinenanceRepository.sharedInstance
     func generateDetailTuple(data: Expense) -> [(title: String, detail: String)] {
         var array = [(title: String, detail: String)]()
         
@@ -17,5 +18,9 @@ class ExpenseDetailViewModel: NSObject {
         array.append((title: "Category", detail: data.categoryName))
         
         return array
+    }
+    
+    func deleteTransaction(id: Int) -> Bool {
+        return repository.deleteData(id: id)
     }
 }

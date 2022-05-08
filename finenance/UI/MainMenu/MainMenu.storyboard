@@ -372,7 +372,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="skY-wu-lw6">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="630.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="M8f-kG-P9A" detailTextLabel="70W-iq-y45" style="IBUITableViewCellStyleValue1" id="xQH-GV-LJE">
@@ -401,14 +401,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-Bh-W1n">
+                                <rect key="frame" x="20" y="794.5" width="374" height="43.5"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete Transaction" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="0.0" bottom="12" trailing="0.0"/>
+                                    <color key="baseBackgroundColor" name="MainRed"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deletePressed:" destination="ubP-Rn-vNA" eventType="touchUpInside" id="bt0-mM-2yH"/>
+                                    <action selector="deleteProfile:" destination="gSW-25-jwF" eventType="touchUpInside" id="hlM-nh-JBF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EQm-HU-bfu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EQm-HU-bfu" firstAttribute="bottom" secondItem="skY-wu-lw6" secondAttribute="bottom" id="0f4-bX-Kgr"/>
+                            <constraint firstItem="EQm-HU-bfu" firstAttribute="trailing" secondItem="hdC-Bh-W1n" secondAttribute="trailing" constant="20" id="6Dv-uP-lzY"/>
                             <constraint firstItem="EQm-HU-bfu" firstAttribute="trailing" secondItem="skY-wu-lw6" secondAttribute="trailing" id="8dW-DD-VDa"/>
+                            <constraint firstItem="hdC-Bh-W1n" firstAttribute="leading" secondItem="EQm-HU-bfu" secondAttribute="leading" constant="20" id="PP7-ym-qDJ"/>
                             <constraint firstItem="skY-wu-lw6" firstAttribute="leading" secondItem="EQm-HU-bfu" secondAttribute="leading" id="PwE-TS-7ip"/>
                             <constraint firstItem="skY-wu-lw6" firstAttribute="top" secondItem="EQm-HU-bfu" secondAttribute="top" id="YX6-bF-qfb"/>
+                            <constraint firstItem="EQm-HU-bfu" firstAttribute="bottom" secondItem="hdC-Bh-W1n" secondAttribute="bottom" constant="24" id="qri-rg-XhG"/>
+                            <constraint firstItem="hdC-Bh-W1n" firstAttribute="top" secondItem="skY-wu-lw6" secondAttribute="bottom" constant="24" id="sLp-Fh-hIX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transaction Detail" largeTitleDisplayMode="always" id="Y1T-5j-bz5">
@@ -420,11 +437,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTable" destination="skY-wu-lw6" id="yHD-7j-CCx"/>
+                        <segue destination="jM5-sn-KkI" kind="unwind" identifier="unwindToPreviousScreen" unwindAction="unwind:" id="Joi-4w-0J1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2B-dh-6IV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jM5-sn-KkI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1504" y="2231"/>
+            <point key="canvasLocation" x="-1504.3478260869567" y="2230.5803571428569"/>
         </scene>
         <!--All Transactions-->
         <scene sceneID="PMt-y3-5oJ">
@@ -803,7 +822,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TY8-aF-0mu"/>
-        <segue reference="hkS-xK-Jdk"/>
+        <segue reference="qMo-bG-fZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>

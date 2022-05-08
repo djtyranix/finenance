@@ -338,6 +338,40 @@ class FinenanceRepository: NSObject {
         }
     }
     
+    func deleteData(id: Int) -> Bool {
+        var transactionFetchArray = [NSManagedObject]()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        let predicate = NSPredicate(format: "id = %i", id)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        fetchRequest.predicate = predicate
+        
+        do {
+            transactionFetchArray = try managedContext.fetch(fetchRequest)
+            
+            if transactionFetchArray.isEmpty {
+                print("Fetch Array Empty Error")
+                return false
+            } else {
+                let transaction = transactionFetchArray.first!
+                
+                managedContext.delete(transaction)
+                try managedContext.save()
+                
+                print("Data deleted")
+                return true
+            }
+            
+        } catch let error as NSError {
+            print("Could not delete. \(error), \(error.userInfo)")
+            return false
+        }
+    }
+    
     func destroyDatabase() -> Bool {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return false
