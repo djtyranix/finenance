@@ -47,7 +47,9 @@ class FinenanceRepository: NSObject {
         let transaction = NSManagedObject(entity: entity, insertInto: managedContext)
         
         // Setting Data
-        var currentId = UserDefaults.standard.value(forKey: "nextId") as? Int ?? 0
+        let latestData = self.getLatestData()
+        let currentId = latestData.id
+        let nextId = currentId + 1
         let category: Int
         
         switch data.category {
@@ -63,7 +65,7 @@ class FinenanceRepository: NSObject {
             category = 4
         }
         
-        transaction.setValue(currentId, forKey: "id")
+        transaction.setValue(nextId, forKey: "id")
         transaction.setValue(data.name, forKey: "transaction_name")
         transaction.setValue(data.amount, forKey: "transaction_amount")
         transaction.setValue(category, forKey: "transaction_category")
@@ -71,8 +73,6 @@ class FinenanceRepository: NSObject {
         
         do {
             try managedContext.save()
-            currentId += 1
-            UserDefaults.standard.set(currentId, forKey: "nextId")
             print("Data saved")
             return true
         } catch let error as NSError {
@@ -122,6 +122,49 @@ class FinenanceRepository: NSObject {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
             return [Transaction]()
+        }
+    }
+    
+    func getLatestData() -> Transaction {
+        var transactionFetchArray = [NSManagedObject]()
+        
+        let managedContext = self.getManagedContext()
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        fetchRequest.fetchLimit = 1
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            transactionFetchArray = try managedContext.fetch(fetchRequest)
+            let transactionFetch = transactionFetchArray.first!
+            
+            let id = transactionFetch.value(forKey: "id") as! Int
+            let name = transactionFetch.value(forKey: "transaction_name") as! String
+            let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
+            let date = transactionFetch.value(forKey: "transaction_date") as! Date
+            let categoryId = transactionFetch.value(forKey: "transaction_category") as! Int
+            let category: TransactionCategory
+            
+            switch categoryId {
+            case 0:
+                category = .fnb
+            case 1:
+                category = .bills
+            case 2:
+                category = .leisure
+            case 3:
+                category = .other
+            case 4:
+                category = .income
+            default:
+                category = .other
+            }
+            
+            let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
+            return transaction
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return Transaction(id: 0, name: "Error", amount: 0, date: Date(), category: .other)
         }
     }
     

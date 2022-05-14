@@ -137,7 +137,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @objc private func refreshData() {
         self.expensesTable.refreshControl?.beginRefreshing()
         self.getData()
-        self.expensesTable.reloadData()
+        self.updateViews()
         self.expensesTable.refreshControl?.endRefreshing()
     }
 }
