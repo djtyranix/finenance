@@ -88,6 +88,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if colorData.colorType == .dark {
             cell.expenseCategoryLabel.textColor = .white
+        } else {
+            cell.expenseCategoryLabel.textColor = .label
         }
         
         return cell

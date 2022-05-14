@@ -57,6 +57,8 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
         
         if colorData.colorType == .dark {
             cell.expenseCategoryLabel.textColor = .white
+        } else {
+            cell.expenseCategoryLabel.textColor = .label
         }
         
         return cell
