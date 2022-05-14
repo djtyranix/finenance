@@ -40,6 +40,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         expensesTable.dataSource = self
         expensesTable.separatorStyle = .none
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        expensesTable.refreshControl = refreshControl
+        
         getData()
         updateViews()
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -126,5 +130,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         currentMonthAndYear.text = monthAndYear
         expensesTable.reloadData()
+    }
+    
+    @objc private func refreshData() {
+        self.expensesTable.refreshControl?.beginRefreshing()
+        self.getData()
+        self.expensesTable.reloadData()
+        self.expensesTable.refreshControl?.endRefreshing()
     }
 }

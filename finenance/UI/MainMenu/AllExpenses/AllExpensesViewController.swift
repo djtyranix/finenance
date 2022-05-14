@@ -86,6 +86,10 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
         expensesTable.delegate = self
         expensesTable.dataSource = self
         expensesTable.separatorStyle = .none
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        expensesTable.refreshControl = refreshControl
     }
     
     private func getData() {
@@ -94,6 +98,13 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
     
     private func updateViews() {
         expensesTable.reloadData()
+    }
+    
+    @objc private func refreshData() {
+        self.expensesTable.refreshControl?.beginRefreshing()
+        self.getData()
+        self.updateViews()
+        self.expensesTable.refreshControl?.endRefreshing()
     }
 
 }
