@@ -27,14 +27,20 @@ class FinenanceRepository: NSObject {
         print("FinenanceRepository Disposed")
     }
     
-    func saveData(data: Transaction) -> Bool {
+    private func getManagedContext() -> NSManagedObjectContext {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return false
+            return NSManagedObjectContext()
         }
-        
-        print(data)
-        
+
         let managedContext = appDelegate.persistentContainer.viewContext
+        managedContext.automaticallyMergesChangesFromParent = true
+        
+        return managedContext
+    }
+    
+    func saveData(data: Transaction) -> Bool {
+        
+        let managedContext = self.getManagedContext()
         
         let entity = NSEntityDescription.entity(forEntityName: "TransactionEntity", in: managedContext)!
         
@@ -79,11 +85,7 @@ class FinenanceRepository: NSObject {
         var transactionFetchArray = [NSManagedObject]()
         var transactionArray = [Transaction]()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return [Transaction]()
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
         
         do {
@@ -127,12 +129,8 @@ class FinenanceRepository: NSObject {
         var transactionFetchArray = [NSManagedObject]()
         var transactionArray = [Transaction]()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return [Transaction]()
-        }
-        
         let predicate = NSPredicate(format: "transaction_date >= %@ && transaction_date <= %@", Date().startOfMonth as CVarArg, Date().endOfMonth as CVarArg)
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
         fetchRequest.predicate = predicate
         
@@ -176,12 +174,8 @@ class FinenanceRepository: NSObject {
     func getDataById(id: Int) -> Transaction {
         var transactionFetchArray = [NSManagedObject]()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return Transaction(id: 0, name: "Error", amount: 0, date: Date(), category: .other)
-        }
-        
         let predicate = NSPredicate(format: "id = %@", id as Int)
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
         fetchRequest.predicate = predicate
         
@@ -225,10 +219,6 @@ class FinenanceRepository: NSObject {
         var transactionArray = [Transaction]()
         let categoryInt: Int
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return [Transaction]()
-        }
-        
         switch category {
         case .fnb:
             categoryInt = 0
@@ -243,7 +233,7 @@ class FinenanceRepository: NSObject {
         }
         
         let predicate = NSPredicate(format: "transaction_date >= %@ && transaction_date <= %@ && transaction_category = %i", Date().startOfMonth as CVarArg, Date().endOfMonth as CVarArg, categoryInt)
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
         fetchRequest.predicate = predicate
         
@@ -287,12 +277,8 @@ class FinenanceRepository: NSObject {
     func updateData(id: Int, data: Transaction) -> Bool {
         var transactionFetchArray = [NSManagedObject]()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return false
-        }
-        
         let predicate = NSPredicate(format: "id = %i", id)
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
         fetchRequest.predicate = predicate
         
@@ -341,12 +327,8 @@ class FinenanceRepository: NSObject {
     func deleteData(id: Int) -> Bool {
         var transactionFetchArray = [NSManagedObject]()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return false
-        }
-        
         let predicate = NSPredicate(format: "id = %i", id)
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TransactionEntity")
         fetchRequest.predicate = predicate
         
@@ -377,7 +359,7 @@ class FinenanceRepository: NSObject {
             return false
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = self.getManagedContext()
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "TransactionEntity")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         

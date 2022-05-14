@@ -16,6 +16,7 @@
 		A84646AC28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646AB28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift */; };
 		A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A998281923030048AF3C /* OnboardingMonthlySavingsViewController.swift */; };
 		A848A99B281927F50048AF3C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A99A281927F50048AF3C /* Onboarding.swift */; };
+		A85DA349282FE494004EB080 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
 		A899FC4A281B7FB2000A06C0 /* OnboadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */; };
 		A899FC4C281B876A000A06C0 /* BorderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC4B281B876A000A06C0 /* BorderCardView.swift */; };
@@ -57,6 +58,8 @@
 		A84646AB28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMonthlyIncomeViewController.swift; sourceTree = "<group>"; };
 		A848A998281923030048AF3C /* OnboardingMonthlySavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMonthlySavingsViewController.swift; sourceTree = "<group>"; };
 		A848A99A281927F50048AF3C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		A85DA346282FE461004EB080 /* finenance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = finenance.entitlements; sourceTree = "<group>"; };
+		A85DA348282FE494004EB080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadingDoneViewController.swift; sourceTree = "<group>"; };
 		A899FC4B281B876A000A06C0 /* BorderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardView.swift; sourceTree = "<group>"; };
@@ -95,17 +98,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85DA349282FE494004EB080 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A85DA347282FE494004EB080 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A85DA348282FE494004EB080 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8CB8E4228166C330093F5FB = {
 			isa = PBXGroup;
 			children = (
 				A8CB8E4D28166C330093F5FB /* finenance */,
 				A8CB8E4C28166C330093F5FB /* Products */,
+				A85DA347282FE494004EB080 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +133,7 @@
 		A8CB8E4D28166C330093F5FB /* finenance */ = {
 			isa = PBXGroup;
 			children = (
+				A85DA346282FE461004EB080 /* finenance.entitlements */,
 				A8DF5CAA281A2BCA0056D872 /* Data */,
 				A8CB8E6B28178E5F0093F5FB /* Utils */,
 				A8CB8E6828178E120093F5FB /* ViewModel */,
@@ -533,6 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = finenance/finenance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
@@ -564,6 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = finenance/finenance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
