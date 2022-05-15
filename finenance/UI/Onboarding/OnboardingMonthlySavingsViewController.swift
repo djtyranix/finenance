@@ -38,11 +38,12 @@ class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDeleg
         let monthlySavings = Int(monthlySavingsField.text!) ?? 0
         onboardingData.monthlySavings = monthlySavings
         
-        UserDefaults.standard.set(onboardingData.firstName, forKey: "userFirstName")
-        UserDefaults.standard.set(onboardingData.fullName, forKey: "userFullName")
-        UserDefaults.standard.set(onboardingData.monthlyIncome, forKey: "monthlyIncome")
-        UserDefaults.standard.set(onboardingData.monthlySavings, forKey: "monthlySavings")
-        UserDefaults.standard.set(true, forKey: "isOnboardingFinished")
+        UserKeyStore.sharedInstance.keyStore.set(onboardingData.firstName, forKey: "userFirstName")
+        UserKeyStore.sharedInstance.keyStore.set(onboardingData.fullName, forKey: "userFullName")
+        UserKeyStore.sharedInstance.keyStore.set(onboardingData.monthlyIncome, forKey: "monthlyIncome")
+        UserKeyStore.sharedInstance.keyStore.set(onboardingData.monthlySavings, forKey: "monthlySavings")
+        UserKeyStore.sharedInstance.keyStore.set(true, forKey: "isOnboardingFinished")
+        UserKeyStore.sharedInstance.keyStore.synchronize()
         print("Data has been saved.")
     }
     

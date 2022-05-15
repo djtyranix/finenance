@@ -16,12 +16,12 @@ class HomeViewModel: NSObject {
     }
     
     func getUserName() -> String {
-        return UserDefaults.standard.value(forKey: "userFirstName") as? String ?? "User"
+        return UserKeyStore.sharedInstance.keyStore.string(forKey: "userFirstName") ?? "User"
     }
     
     func getRemainingBudgets(monthlyExpense: Int) -> Int {
-        let monthlyIncome = UserDefaults.standard.value(forKey: "monthlyIncome") as? Int ?? 0
-        let monthlySavings = UserDefaults.standard.value(forKey: "monthlySavings") as? Int ?? 0
+        let monthlyIncome = UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlyIncome") as? Int ?? 0
+        let monthlySavings = UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlySavings") as? Int ?? 0
         let otherIncome = getOtherIncomeAmount()
         
         return monthlyIncome + otherIncome - monthlySavings - monthlyExpense

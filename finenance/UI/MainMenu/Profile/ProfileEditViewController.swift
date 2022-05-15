@@ -22,14 +22,17 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate {
         
         switch mode {
         case 0:
-            UserDefaults.standard.set(Int(text), forKey: "monthlyIncome")
+            UserKeyStore.sharedInstance.keyStore.set(Int(text), forKey: "monthlyIncome")
+            UserKeyStore.sharedInstance.keyStore.synchronize()
         case 1:
-            UserDefaults.standard.set(Int(text), forKey: "monthlySavings")
+            UserKeyStore.sharedInstance.keyStore.set(Int(text), forKey: "monthlySavings")
+            UserKeyStore.sharedInstance.keyStore.synchronize()
         case 2:
             let fullNameArr = text.components(separatedBy: " ")
             let firstName = fullNameArr.first!
-            UserDefaults.standard.set(firstName, forKey: "userFirstName")
-            UserDefaults.standard.set(text, forKey: "userFullName")
+            UserKeyStore.sharedInstance.keyStore.set(firstName, forKey: "userFirstName")
+            UserKeyStore.sharedInstance.keyStore.set(text, forKey: "userFullName")
+            UserKeyStore.sharedInstance.keyStore.synchronize()
         default:
             navigationItem.title = ""
         }
@@ -85,17 +88,17 @@ class ProfileEditViewController: UIViewController, UITextFieldDelegate {
         case 0:
             navigationItem.title = "Set Monthly Income"
             textField.placeholder = "Your Monthly Income"
-            textField.text = String(UserDefaults.standard.value(forKey: "monthlyIncome") as! Int)
+            textField.text = String(UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlyIncome") as! Int)
             textField.keyboardType = .numberPad
         case 1:
             navigationItem.title = "Set Monthly Savings"
             textField.placeholder = "Your Monthly Savings"
-            textField.text = String(UserDefaults.standard.value(forKey: "monthlySavings") as! Int)
+            textField.text = String(UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlySavings") as! Int)
             textField.keyboardType = .numberPad
         case 2:
             navigationItem.title = "Set User Name"
             textField.placeholder = "Your Name"
-            textField.text = UserDefaults.standard.value(forKey: "userFullName") as? String
+            textField.text = UserKeyStore.sharedInstance.keyStore.string(forKey: "userFullName")
             textField.returnKeyType = .done
         default:
             navigationItem.title = ""

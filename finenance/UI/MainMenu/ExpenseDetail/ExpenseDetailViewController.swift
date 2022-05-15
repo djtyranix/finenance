@@ -65,7 +65,7 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     private func showDeleteActionSheet() {
         // Destructive
-        let optionMenu = UIAlertController(title: "Warning!", message: "Deleting transaction is PERMANENT and cannot be recovered. Are you sure you want to delete transaction data?", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "Warning!", message: "Deleting transaction is PERMANENT and cannot be recovered. Are you sure you want to delete transaction data?", preferredStyle: .alert)
         
         let deleteAction = UIAlertAction(title: "Yes, Proceed to Delete", style: .destructive, handler: { _ in
             let isSuccess = self.viewModel.deleteTransaction(id: self.expenseData.id)

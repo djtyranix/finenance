@@ -12,8 +12,8 @@ class BudgetViewModel: NSObject {
     private let repository = FinenanceRepository.sharedInstance
 
     func getTotalBudget() -> TotalBudget {
-        let monthlyIncome = UserDefaults.standard.value(forKey: "monthlyIncome") as? Int ?? 0
-        let monthlySavings = UserDefaults.standard.value(forKey: "monthlySavings") as? Int ?? 0
+        let monthlyIncome = UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlyIncome") as? Int ?? 0
+        let monthlySavings = UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlySavings") as? Int ?? 0
         let totalExpenses = calculateTotalExpenses(expenses: getExpenses()).totalExpense
         let otherIncome = getOtherIncomeAmount()
         

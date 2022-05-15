@@ -24,14 +24,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func deleteProfile(_ sender: Any) {
         // Destructive
-        let optionMenu = UIAlertController(title: "Warning!", message: "Deleting profile is PERMANENT and cannot be recovered. Are you sure you want to delete ALL data?", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "Warning!", message: "Deleting profile is PERMANENT and cannot be recovered. Are you sure you want to delete ALL data?", preferredStyle: .alert)
         
         let deleteAction = UIAlertAction(title: "Yes, Proceed to Delete", style: .destructive, handler: { _ in
             self.showLoading()
             let isSuccess = self.viewModel.destroyDatabase()
             
             if isSuccess {
-                print("Deleted Database, continuing delete UserDefaults")
+                print("Deleted Database, continuing delete Keystore")
                 self.deleteAndReset()
             } else {
                 print("Couldn't Delete Database")
@@ -121,16 +121,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func updateViews() {
-        let name = UserDefaults.standard.value(forKey: "userFullName") as? String
+        let name = UserKeyStore.sharedInstance.keyStore.string(forKey: "userFullName")
         profileName.text = name
     }
     
     private func deleteAndReset() {
-        UserDefaults.standard.removeObject(forKey: "userFirstName")
-        UserDefaults.standard.removeObject(forKey: "userFullName")
-        UserDefaults.standard.removeObject(forKey: "monthlyIncome")
-        UserDefaults.standard.removeObject(forKey: "monthlySavings")
-        UserDefaults.standard.removeObject(forKey: "isOnboardingFinished")
+        UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "userFirstName")
+        UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "userFullName")
+        UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "monthlyIncome")
+        UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "monthlySavings")
+        UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "isOnboardingFinished")
+        UserKeyStore.sharedInstance.keyStore.synchronize()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.dismissLoading()

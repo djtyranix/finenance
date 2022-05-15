@@ -27,9 +27,9 @@ class FinenanceRepository: NSObject {
         print("FinenanceRepository Disposed")
     }
     
-     private func getManagedContext() -> NSManagedObjectContext {
+    private func getManagedContext() -> NSManagedObjectContext {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return NSManagedObjectContext()
+            return NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext

@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let isOnboardingFinished = UserDefaults.standard.value(forKey: "isOnboardingFinished") as? Bool ?? false
+        UserKeyStore.sharedInstance.keyStore.synchronize()
+        print("UserKeyStore Synchronized")
+        let isOnboardingFinished = UserKeyStore.sharedInstance.keyStore.bool(forKey: "isOnboardingFinished")
         
         if isOnboardingFinished {
             let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
@@ -60,6 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        UserKeyStore.sharedInstance.keyStore.synchronize()
     }
 
 
