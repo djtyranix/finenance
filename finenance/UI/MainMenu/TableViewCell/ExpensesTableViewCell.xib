@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="476" height="165"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kku-ah-UaV" customClass="BorderCardView" customModule="finenance" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kku-ah-UaV" customClass="MiniCardView" customModule="finenance" customModuleProvider="target">
                         <rect key="frame" x="20" y="8" width="436" height="100"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEM-jA-lZN">

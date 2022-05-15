@@ -493,16 +493,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yK-hA-4qm">
-                                <rect key="frame" x="0.0" y="305" width="390" height="456"/>
+                                <rect key="frame" x="0.0" y="273" width="390" height="488"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmp-J4-GJj">
-                                        <rect key="frame" x="20" y="125.00000000000001" width="170" height="21.666666666666671"/>
+                                        <rect key="frame" x="20" y="157" width="170" height="21.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9s-gn-Lrc">
-                                        <rect key="frame" x="273.66666666666669" y="120.33333333333331" width="96.333333333333314" height="31"/>
+                                        <rect key="frame" x="273.66666666666669" y="152.33333333333331" width="96.333333333333314" height="31"/>
                                         <color key="tintColor" name="MainBlue"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Show More"/>
@@ -512,7 +512,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-3p-pJV">
-                                        <rect key="frame" x="0.0" y="170.66666666666671" width="390" height="285.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="202.66666666666671" width="390" height="285.33333333333326"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -611,7 +611,7 @@
                             <constraint firstItem="NQ0-RF-Qlp" firstAttribute="leading" secondItem="K79-fl-y8E" secondAttribute="leading" constant="20" id="3ex-Pw-Nm9"/>
                             <constraint firstItem="Thf-wJ-7jI" firstAttribute="leading" secondItem="K79-fl-y8E" secondAttribute="leading" constant="20" id="EWU-s6-KpD"/>
                             <constraint firstItem="NQ0-RF-Qlp" firstAttribute="top" secondItem="Thf-wJ-7jI" secondAttribute="bottom" constant="24" id="Hsb-36-Ux5"/>
-                            <constraint firstItem="0yK-hA-4qm" firstAttribute="top" secondItem="NQ0-RF-Qlp" secondAttribute="top" constant="112" id="Vij-wy-pWo"/>
+                            <constraint firstItem="0yK-hA-4qm" firstAttribute="top" secondItem="NQ0-RF-Qlp" secondAttribute="top" constant="80" id="Vij-wy-pWo"/>
                             <constraint firstItem="xmp-J4-GJj" firstAttribute="top" secondItem="NQ0-RF-Qlp" secondAttribute="bottom" constant="32" id="ZXU-tN-WvF"/>
                             <constraint firstItem="NQ0-RF-Qlp" firstAttribute="centerX" secondItem="K79-fl-y8E" secondAttribute="centerX" id="em9-dD-i4d"/>
                             <constraint firstItem="0yK-hA-4qm" firstAttribute="leading" secondItem="K79-fl-y8E" secondAttribute="leading" id="h7i-u1-v8T"/>
@@ -822,7 +822,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b7d-lR-1tu"/>
-        <segue reference="iVt-hV-m0k"/>
+        <segue reference="Wv8-zi-07L"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>

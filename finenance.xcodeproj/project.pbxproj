@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80D2D252830FBD500F60552 /* MiniCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D2D242830FBD500F60552 /* MiniCardView.swift */; };
 		A81D2A06281853260007760C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D2A05281853260007760C /* ColorData.swift */; };
 		A84646A02818F20400AC8CD4 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A846469F2818F20400AC8CD4 /* ExpenseViewModel.swift */; };
 		A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */; };
@@ -19,7 +20,6 @@
 		A85DA349282FE494004EB080 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
 		A899FC4A281B7FB2000A06C0 /* OnboadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */; };
-		A899FC4C281B876A000A06C0 /* BorderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC4B281B876A000A06C0 /* BorderCardView.swift */; };
 		A8BBFABC281A75880002BF7B /* ExpenseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */; };
 		A8BBFABE281AB4C10002BF7B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABD281AB4C10002BF7B /* ProfileEditViewController.swift */; };
 		A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E4E28166C330093F5FB /* AppDelegate.swift */; };
@@ -49,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A80D2D242830FBD500F60552 /* MiniCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCardView.swift; sourceTree = "<group>"; };
 		A81D2A05281853260007760C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		A846469F2818F20400AC8CD4 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpenses.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		A85DA348282FE494004EB080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadingDoneViewController.swift; sourceTree = "<group>"; };
-		A899FC4B281B876A000A06C0 /* BorderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardView.swift; sourceTree = "<group>"; };
 		A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailViewModel.swift; sourceTree = "<group>"; };
 		A8BBFABD281AB4C10002BF7B /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		A8CB8E4B28166C330093F5FB /* finenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +232,7 @@
 				A8CB8E822817A8F70093F5FB /* CardView.swift */,
 				A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */,
 				A8CB8E89281834570093F5FB /* CategoryLabel.swift */,
-				A899FC4B281B876A000A06C0 /* BorderCardView.swift */,
+				A80D2D242830FBD500F60552 /* MiniCardView.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -405,12 +405,12 @@
 				A8BBFABC281A75880002BF7B /* ExpenseDetailViewModel.swift in Sources */,
 				A8CB8E5128166C330093F5FB /* SceneDelegate.swift in Sources */,
 				A8CB8E832817A8F70093F5FB /* CardView.swift in Sources */,
+				A80D2D252830FBD500F60552 /* MiniCardView.swift in Sources */,
 				A8CB8E73281790F90093F5FB /* HomeViewController.swift in Sources */,
 				A848A99B281927F50048AF3C /* Onboarding.swift in Sources */,
 				A8DF5CA9281959CE0056D872 /* AddEditExpenseViewController.swift in Sources */,
 				A8CB8E8C28183A8B0093F5FB /* Transaction.swift in Sources */,
 				A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */,
-				A899FC4C281B876A000A06C0 /* BorderCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
