@@ -18,7 +18,7 @@
 		A84646AC28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84646AB28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift */; };
 		A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A998281923030048AF3C /* OnboardingMonthlySavingsViewController.swift */; };
 		A848A99B281927F50048AF3C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A99A281927F50048AF3C /* Onboarding.swift */; };
-		A85DA349282FE494004EB080 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
+		A8901D8C283119C400A2D7A5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
 		A899FC4A281B7FB2000A06C0 /* OnboadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */; };
 		A8BBFABC281A75880002BF7B /* ExpenseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */; };
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85DA349282FE494004EB080 /* CloudKit.framework in Frameworks */,
+				A8901D8C283119C400A2D7A5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +569,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelricky.finenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -601,7 +601,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelricky.finenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

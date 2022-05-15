@@ -139,28 +139,8 @@ class FinenanceRepository: NSObject {
             let transactionFetch = transactionFetchArray.first!
             
             let id = transactionFetch.value(forKey: "id") as! Int
-            let name = transactionFetch.value(forKey: "transaction_name") as! String
-            let amount = transactionFetch.value(forKey: "transaction_amount") as! Int
-            let date = transactionFetch.value(forKey: "transaction_date") as! Date
-            let categoryId = transactionFetch.value(forKey: "transaction_category") as! Int
-            let category: TransactionCategory
+            let transaction = Transaction(id: id, name: "IdOnly", amount: 0, date: Date(), category: .other)
             
-            switch categoryId {
-            case 0:
-                category = .fnb
-            case 1:
-                category = .bills
-            case 2:
-                category = .leisure
-            case 3:
-                category = .other
-            case 4:
-                category = .income
-            default:
-                category = .other
-            }
-            
-            let transaction = Transaction(id: id, name: name, amount: amount, date: date, category: category)
             return transaction
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
