@@ -372,7 +372,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="skY-wu-lw6">
-                                <rect key="frame" x="0.0" y="140" width="390" height="578.66666666666663"/>
+                                <rect key="frame" x="0.0" y="140" width="390" height="580"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="M8f-kG-P9A" detailTextLabel="70W-iq-y45" style="IBUITableViewCellStyleValue1" id="xQH-GV-LJE">
@@ -402,13 +402,13 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-Bh-W1n">
-                                <rect key="frame" x="20" y="742.66666666666663" width="350" height="43.333333333333371"/>
+                                <rect key="frame" x="20" y="744" width="350" height="42"/>
+                                <color key="tintColor" name="MainRed"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Delete Transaction" titleAlignment="center">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete Transaction" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                     <directionalEdgeInsets key="contentInsets" top="12" leading="0.0" bottom="12" trailing="0.0"/>
-                                    <color key="baseBackgroundColor" name="MainRed"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="deletePressed:" destination="ubP-Rn-vNA" eventType="touchUpInside" id="bt0-mM-2yH"/>
@@ -822,7 +822,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b7d-lR-1tu"/>
-        <segue reference="Wv8-zi-07L"/>
+        <segue reference="qMo-bG-fZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>
