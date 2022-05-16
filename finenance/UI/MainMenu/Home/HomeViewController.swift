@@ -76,7 +76,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let expense = expenseDatas[indexPath.row]
         
         cell.expenseNameLabel.text = expense.name
-        cell.expenseAmountLabel.text = expense.amount.formatToRupiah()
+        
+        if expense.category == .income {
+            cell.expenseAmountLabel.text = "+ \(expense.amount.formatToRupiah())"
+            cell.expenseAmountLabel.textColor = UIColor(named: "MainBlue")
+        } else {
+            cell.expenseAmountLabel.text = "- \(expense.amount.formatToRupiah())"
+            cell.expenseAmountLabel.textColor = UIColor(named: "MainRed")
+        }
+        
         cell.expenseDateLabel.text = expense.date
         cell.expenseCategoryLabel.text = expense.categoryName
         cell.expenseImageView.image = expense.category.toImage()
