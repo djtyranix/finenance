@@ -62,7 +62,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.label]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
