@@ -217,10 +217,8 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     
     private func checkIfEditing() {
         if isEdit {
-            currentNavBar.title = "Edit Expense"
+            currentNavBar.title = "Edit Transaction"
             addButton.title = "Update"
-            
-            categoryArray = TransactionCategory.allCases
             
             nameField.text = expenseData.name
             amountField.text = String(expenseData.amount)
@@ -239,6 +237,15 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
                 selectedIndex = 3
             case .income:
                 selectedIndex = 4
+            }
+            
+            if expenseData.category == .income {
+                selectedCategory = TransactionCategory.income
+                categoryTable.isHidden = true
+                selectCategoryLabel.isHidden = true
+            } else {
+                categoryArray = TransactionCategory.allCases
+                categoryArray.remove(at: 4)
             }
         }
     }
