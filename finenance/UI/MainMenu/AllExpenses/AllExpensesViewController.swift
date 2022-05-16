@@ -41,25 +41,13 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = expensesTable.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpensesTableViewCell
         
         let expense = expenseDatas[indexPath.row]
-        let colorData = expense.colorData
-        
-        cell.categoryOuter.layer.cornerRadius = 8
+
         cell.expenseNameLabel.text = expense.name
         cell.expenseAmountLabel.text = expense.amount.formatToRupiah()
         cell.expenseDateLabel.text = expense.date
         cell.expenseCategoryLabel.text = expense.categoryName
-        cell.expenseImageView.image = UIImage(systemName: "cart.fill")
+        cell.expenseImageView.image = expense.category.toImage()
         cell.selectionStyle = .none
-        
-        cell.categoryOuter.borderColor = colorData.shadeColor
-        cell.categoryOuter.backgroundColor = colorData.mainColor
-        cell.expenseImageView.tintColor = UIColor(named: "MainBlue")
-        
-        if colorData.colorType == .dark {
-            cell.expenseCategoryLabel.textColor = .white
-        } else {
-            cell.expenseCategoryLabel.textColor = .label
-        }
         
         return cell
     }

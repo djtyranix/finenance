@@ -54,4 +54,23 @@ extension TransactionCategory {
             return ColorData(colorType: .dark, mainColor: UIColor(named: "MainBlue")!, shadeColor: UIColor(named: "MainBlueShade")!)
         }
     }
+    
+    public func toImage() -> UIImage {
+        switch self {
+        case .fnb:
+            return UIImage(named: "burger")!
+            
+        case .leisure:
+            return UIImage(named: "online-shopping")!
+            
+        case .bills:
+            return UIImage(named: "bill")!
+        
+        case .other:
+            return UIImage(named: "expense")!
+            
+        case .income:
+            return UIImage(named: "wallet")!
+        }
+    }
 }

@@ -14,7 +14,6 @@ class ExpensesTableViewCell: UITableViewCell {
     @IBOutlet weak var expenseAmountLabel: UILabel!
     @IBOutlet weak var expenseCategoryLabel: UILabel!
     @IBOutlet weak var expenseDateLabel: UILabel!
-    @IBOutlet weak var categoryOuter: CategoryLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
