@@ -493,7 +493,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yK-hA-4qm">
-                                <rect key="frame" x="0.0" y="273" width="390" height="488"/>
+                                <rect key="frame" x="0.0" y="249" width="390" height="512"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmp-J4-GJj">
                                         <rect key="frame" x="20" y="157" width="170" height="21.666666666666657"/>
@@ -512,7 +512,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-3p-pJV">
-                                        <rect key="frame" x="0.0" y="202.66666666666671" width="390" height="285.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="202.66666666666671" width="390" height="309.33333333333326"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -529,13 +529,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thf-wJ-7jI">
-                                <rect key="frame" x="20" y="128" width="180" height="41"/>
+                                <rect key="frame" x="20" y="104" width="180" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQ0-RF-Qlp" customClass="CardView" customModule="finenance" customModuleProvider="target">
-                                <rect key="frame" x="20" y="193" width="350" height="205"/>
+                                <rect key="frame" x="20" y="169" width="350" height="205"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="April 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egH-Q4-Ntg">
                                         <rect key="frame" x="32" y="32" width="88" height="21"/>
@@ -615,11 +615,18 @@
                             <constraint firstItem="xmp-J4-GJj" firstAttribute="top" secondItem="NQ0-RF-Qlp" secondAttribute="bottom" constant="32" id="ZXU-tN-WvF"/>
                             <constraint firstItem="NQ0-RF-Qlp" firstAttribute="centerX" secondItem="K79-fl-y8E" secondAttribute="centerX" id="em9-dD-i4d"/>
                             <constraint firstItem="0yK-hA-4qm" firstAttribute="leading" secondItem="K79-fl-y8E" secondAttribute="leading" id="h7i-u1-v8T"/>
-                            <constraint firstItem="Thf-wJ-7jI" firstAttribute="top" secondItem="K79-fl-y8E" secondAttribute="top" constant="40" id="l5a-fK-tkh"/>
+                            <constraint firstItem="Thf-wJ-7jI" firstAttribute="top" secondItem="K79-fl-y8E" secondAttribute="top" constant="16" id="l5a-fK-tkh"/>
                             <constraint firstItem="K79-fl-y8E" firstAttribute="trailing" secondItem="0yK-hA-4qm" secondAttribute="trailing" id="mj8-OI-nws"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="never" id="0j5-gT-B6y"/>
+                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="never" id="0j5-gT-B6y">
+                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="Izn-Fj-1CV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="aP9-Gl-UQ3" kind="presentation" id="tX6-ep-Jol"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="budgetStatusLabel" destination="UdF-3n-XeX" id="tcl-Xh-ifn"/>
                         <outlet property="currentMonthAndYear" destination="egH-Q4-Ntg" id="jfW-ww-ZYe"/>
@@ -822,7 +829,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b7d-lR-1tu"/>
-        <segue reference="qMo-bG-fZB"/>
+        <segue reference="tX6-ep-Jol"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>

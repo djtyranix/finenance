@@ -44,9 +44,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         expensesTable.refreshControl = refreshControl
         
-        getData()
-        updateViews()
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        refreshData()
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,13 +55,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         refreshData()
         
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,6 +108,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ExpenseDetailViewController {
             vc.expenseData = selectedExpense
+        } else if let vc = segue.destination as? AddEditExpenseViewController {
+            vc.updateData = { [weak self] in
+                self?.refreshData()
+            }
         }
     }
     
