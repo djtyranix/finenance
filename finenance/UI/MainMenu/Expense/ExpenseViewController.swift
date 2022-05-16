@@ -22,11 +22,14 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         expenseTable.delegate = self
         expenseTable.dataSource = self
         
-        getData()
+        updateUi()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        updateUi()
+        
         setNavBarStyle()
     }
     
