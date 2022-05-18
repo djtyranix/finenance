@@ -17,9 +17,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var budgetStatusLabel: UILabel!
     @IBOutlet weak var userGreetingsLabel: UILabel!
     
-    @IBAction func showMoreClicked(_ sender: UIButton) {
-    }
-    
     let viewModel = HomeViewModel()
     var expenseDatas = [Expense]()
     var userName: String = ""
@@ -27,6 +24,32 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var remainingBudget = 0
     var monthAndYear = ""
     var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
+    var isAddingIncome = false
+    
+    @IBAction func showMoreClicked(_ sender: UIButton) {
+    }
+    
+    @IBAction func addEditPressed(_ sender: UIBarButtonItem) {
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let addExpenseAction = UIAlertAction(title: "Add Expense", style: .default, handler: { _ in
+            self.isAddingIncome = false
+            self.performSegue(withIdentifier: "showAddEditSegue", sender: self)
+        })
+        
+        let addIncomeAction = UIAlertAction(title: "Add Income", style: .default, handler: { _ in
+            self.isAddingIncome = true
+            self.performSegue(withIdentifier: "showAddEditSegue", sender: self)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        optionMenu.addAction(addExpenseAction)
+        optionMenu.addAction(addIncomeAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true)
+    }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         
@@ -105,6 +128,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let vc = segue.destination as? ExpenseDetailViewController {
             vc.expenseData = selectedExpense
         } else if let vc = segue.destination as? AddEditExpenseViewController {
+            
+            if isAddingIncome {
+                vc.isIncome = true
+            }
+            
             vc.updateData = { [weak self] in
                 self?.refreshData()
             }

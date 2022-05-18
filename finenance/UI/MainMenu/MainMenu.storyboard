@@ -623,7 +623,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="Izn-Fj-1CV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="aP9-Gl-UQ3" kind="presentation" id="tX6-ep-Jol"/>
+                                <action selector="addEditPressed:" destination="xKk-Qo-vqE" id="FXN-bT-Yy5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -636,6 +636,7 @@
                         <outlet property="statusImageView" destination="cMq-Sp-rdQ" id="TGc-bP-vAL"/>
                         <outlet property="userGreetingsLabel" destination="Thf-wJ-7jI" id="0dp-ii-8Bz"/>
                         <segue destination="ubP-Rn-vNA" kind="show" identifier="fromHomeToDetail" id="b7d-lR-1tu"/>
+                        <segue destination="aP9-Gl-UQ3" kind="presentation" identifier="showAddEditSegue" id="6Gf-e0-Uk7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7M-jd-7DO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -829,7 +830,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b7d-lR-1tu"/>
-        <segue reference="tX6-ep-Jol"/>
+        <segue reference="6Gf-e0-Uk7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>
