@@ -9,8 +9,6 @@ import UIKit
 import LocalAuthentication
 
 class AuthenticatorManager: NSObject {
-    private let context: LAContext
-    private let availableBiometry: LABiometryType
     
     struct Static {
         static var instance: AuthenticatorManager?
@@ -29,13 +27,10 @@ class AuthenticatorManager: NSObject {
         print("AuthenticatorManager Disposed")
     }
     
-    override init() {
-        self.context = LAContext()
-        self.availableBiometry = context.biometryType
-    }
-    
     func checkIfBiometricsHasPermission() -> Bool {
         var error: NSError?
+        
+        let context = LAContext()
         
         let isGranted = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         
@@ -51,6 +46,7 @@ class AuthenticatorManager: NSObject {
     
     func loginWithBiometrics(successCallback: @escaping (() -> Void), failedCallback: @escaping (() -> Void)) {
         let reason = "Log in with Biometrics"
+        let context = LAContext()
         
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
                                localizedReason: reason) { success, error in
