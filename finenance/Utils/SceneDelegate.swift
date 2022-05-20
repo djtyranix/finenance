@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if isOnboardingFinished {
             let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
-            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "mainmenu") as! UITabBarController
+            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! SecureViewController
             self.window?.rootViewController = homePage
         } else {
             let onboardingStoryBoard = UIStoryboard(name: "Onboarding", bundle: nil)
@@ -38,6 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        AuthenticatorManager.sharedInstance.disposeSingleton()
+        FinenanceRepository.sharedInstance.disposeSingleton()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -53,6 +55,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        UserKeyStore.sharedInstance.keyStore.synchronize()
+        print("UserKeyStore Synchronized")
+        let isOnboardingFinished = UserKeyStore.sharedInstance.keyStore.bool(forKey: "isOnboardingFinished")
+        
+        if isOnboardingFinished {
+            let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
+            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! SecureViewController
+            self.window?.rootViewController = homePage
+        } else {
+            let onboardingStoryBoard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let onboarding = onboardingStoryBoard.instantiateViewController(withIdentifier: "onboarding")
+            self.window?.rootViewController = onboarding
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -64,7 +79,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         UserKeyStore.sharedInstance.keyStore.synchronize()
     }
-
-
 }
 

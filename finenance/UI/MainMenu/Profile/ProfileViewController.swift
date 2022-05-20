@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var profileTable: UITableView!
     @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var biometricSwitch: UISwitch!
+    @IBOutlet weak var versionLabel: UILabel!
     
     @IBAction func deleteProfile(_ sender: Any) {
         // Destructive
@@ -51,11 +53,57 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
+    @IBAction func biometricSwitchChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            let isPermissionAuthorized = AuthenticatorManager.sharedInstance.checkIfBiometricsHasPermission()
+            
+            if isPermissionAuthorized {
+                AuthenticatorManager.sharedInstance.loginWithBiometrics(
+                    successCallback: {
+                        UserDefaults.standard.set(true, forKey: "isBiometricsEnabled")
+                        DispatchQueue.main.async {
+                            sender.setOn(true, animated: true)
+                        }
+                    },
+                    failedCallback: {
+                        UserDefaults.standard.set(false, forKey: "isBiometricsEnabled")
+                        DispatchQueue.main.async {
+                            sender.setOn(false, animated: true)
+                        }
+                    }
+                )
+            } else {
+                print("Failed isPermissionAuthorized")
+                DispatchQueue.main.async {
+                    sender.setOn(false, animated: true)
+                }
+            }
+        } else {
+            // Switch turned off
+            let disableBiometricsAlert = UIAlertController(title: "Disable Biometrics", message: "Are you sure you want to disable biometrics lock?", preferredStyle: .alert)
+            
+            let disableAction = UIAlertAction(title: "Disable", style: .destructive, handler: {_ in
+                UserDefaults.standard.set(false, forKey: "isBiometricsEnabled")
+                sender.setOn(false, animated: true)
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+                sender.setOn(true, animated: true)
+            })
+            
+            disableBiometricsAlert.addAction(disableAction)
+            disableBiometricsAlert.addAction(cancelAction)
+            
+            self.present(disableBiometricsAlert, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpTableView()
         updateViews()
+        checkIfBiometricEnabled()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,8 +169,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func updateViews() {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         let name = UserKeyStore.sharedInstance.keyStore.string(forKey: "userFullName")
         profileName.text = name
+        versionLabel.text = "App Version v\(appVersion!)"
+    }
+    
+    private func checkIfBiometricEnabled() {
+        let isBiometricEnabled = UserDefaults.standard.bool(forKey: "isBiometricsEnabled")
+        
+        if isBiometricEnabled {
+            biometricSwitch.isOn = true
+        } else {
+            biometricSwitch.isOn = false
+        }
     }
     
     private func deleteAndReset() {
@@ -132,6 +192,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "monthlySavings")
         UserKeyStore.sharedInstance.keyStore.removeObject(forKey: "isOnboardingFinished")
         UserKeyStore.sharedInstance.keyStore.synchronize()
+        UserDefaults.standard.removeObject(forKey: "isBiometricsEnabled")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.dismissLoading()
