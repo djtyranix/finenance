@@ -32,7 +32,7 @@ class AuthenticatorManager: NSObject {
         
         let context = LAContext()
         
-        let isGranted = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        let isGranted = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
         
         if isGranted {
             return true
@@ -48,7 +48,7 @@ class AuthenticatorManager: NSObject {
         let reason = "Log in with Biometrics"
         let context = LAContext()
         
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+        context.evaluatePolicy(.deviceOwnerAuthentication,
                                localizedReason: reason) { success, error in
             if success {
                 successCallback()
