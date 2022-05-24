@@ -13,18 +13,20 @@ class SecureViewController: UIViewController {
         let isAuthEnabled = UserDefaults.standard.bool(forKey: "isBiometricsEnabled")
         
         if isAuthEnabled {
-            print("Needs authentication")
-            AuthenticatorManager.sharedInstance.loginWithBiometrics(
-                successCallback: { [weak self] in
-                    print("Successfully Authenticated")
-                    DispatchQueue.main.async {
-                        self?.performSegue(withIdentifier: "goToHome", sender: self)
+            if AuthenticatorManager.sharedInstance.needsAuthentication {
+                print("Needs authentication")
+                AuthenticatorManager.sharedInstance.loginWithBiometrics(
+                    successCallback: { [weak self] in
+                        print("Successfully Authenticated")
+                        DispatchQueue.main.async {
+                            self?.performSegue(withIdentifier: "goToHome", sender: self)
+                        }
+                    },
+                    failedCallback: {
+                        print("Failed Authentication")
                     }
-                },
-                failedCallback: {
-                    print("Failed Authentication")
-                }
-            )
+                )
+            }
         } else {
             self.performSegue(withIdentifier: "goToHome", sender: self)
         }

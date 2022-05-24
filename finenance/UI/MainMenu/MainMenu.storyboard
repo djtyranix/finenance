@@ -210,11 +210,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="734"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jtx-BY-GIP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jtx-BY-GIP">
                                 <rect key="frame" x="0.0" y="108" width="390" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="beR-tu-ug2"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="beR-tu-ug2"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ProfileCell" textLabel="bLq-pC-FI4" style="IBUITableViewCellStyleDefault" id="iJw-qd-N9s">
@@ -266,25 +266,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometrics Authentication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bki-fp-N0O">
-                                <rect key="frame" x="20" y="266" width="176.33333333333334" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" systemColor="secondaryLabelColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometrics Lock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmP-Im-my0">
-                                <rect key="frame" x="20.000000000000007" y="300" width="121.66666666666669" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="EnableBiometricSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="sUW-Ti-qzD">
-                                <rect key="frame" x="321" y="295" width="51" height="31"/>
-                                <color key="onTintColor" name="MainBlue"/>
-                                <connections>
-                                    <action selector="biometricSwitchChanged:" destination="gSW-25-jwF" eventType="valueChanged" id="7u6-tL-M5l"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Version v" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gra-ZE-HGg">
                                 <rect key="frame" x="20" y="618.66666666666663" width="350" height="14.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -298,33 +279,26 @@
                             <constraint firstItem="Pbu-7F-oE8" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" constant="20" id="2bk-5R-pGr"/>
                             <constraint firstItem="NIx-HY-JKk" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" constant="20" id="2st-Tu-VjQ"/>
                             <constraint firstItem="jtx-BY-GIP" firstAttribute="top" secondItem="NIx-HY-JKk" secondAttribute="bottom" constant="16" id="34r-ig-uf8"/>
-                            <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="sUW-Ti-qzD" secondAttribute="trailing" constant="20" id="3Ea-Tn-HGM"/>
                             <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="Pbu-7F-oE8" secondAttribute="trailing" constant="20" id="6Hc-yB-eVE"/>
-                            <constraint firstItem="sUW-Ti-qzD" firstAttribute="centerY" secondItem="gmP-Im-my0" secondAttribute="centerY" id="7Ed-hh-Rti"/>
-                            <constraint firstItem="Bki-fp-N0O" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" constant="20" id="8Ac-Xf-mfa"/>
                             <constraint firstItem="wQJ-2V-ELd" firstAttribute="centerY" secondItem="NIx-HY-JKk" secondAttribute="centerY" id="8yP-ou-bpm"/>
-                            <constraint firstItem="gra-ZE-HGg" firstAttribute="top" secondItem="gmP-Im-my0" secondAttribute="bottom" priority="250" constant="16" id="9gE-Th-stT"/>
                             <constraint firstItem="Pbu-7F-oE8" firstAttribute="top" secondItem="gra-ZE-HGg" secondAttribute="bottom" constant="8" symbolic="YES" id="KzI-Fr-8pq"/>
-                            <constraint firstItem="gmP-Im-my0" firstAttribute="leading" secondItem="Bki-fp-N0O" secondAttribute="leading" id="OBC-8O-H9C"/>
                             <constraint firstItem="ZUb-F7-P9N" firstAttribute="bottom" secondItem="Pbu-7F-oE8" secondAttribute="bottom" constant="24" id="OrB-oe-NbA"/>
                             <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="wQJ-2V-ELd" secondAttribute="trailing" constant="20" id="W7v-KF-1h0"/>
                             <constraint firstItem="ZUb-F7-P9N" firstAttribute="trailing" secondItem="jtx-BY-GIP" secondAttribute="trailing" id="WOV-rz-2jV"/>
                             <constraint firstItem="jtx-BY-GIP" firstAttribute="leading" secondItem="ZUb-F7-P9N" secondAttribute="leading" id="agX-bL-cAD"/>
                             <constraint firstItem="wQJ-2V-ELd" firstAttribute="leading" secondItem="NIx-HY-JKk" secondAttribute="trailing" constant="24" id="aj9-IR-kwa"/>
-                            <constraint firstItem="gmP-Im-my0" firstAttribute="top" secondItem="Bki-fp-N0O" secondAttribute="bottom" constant="16" id="cK6-em-Ikl"/>
                             <constraint firstItem="gra-ZE-HGg" firstAttribute="leading" secondItem="Pbu-7F-oE8" secondAttribute="leading" id="dTE-eW-Rgk"/>
                             <constraint firstItem="NIx-HY-JKk" firstAttribute="top" secondItem="ZUb-F7-P9N" secondAttribute="top" constant="20" id="hQX-Ka-4YS"/>
                             <constraint firstItem="gra-ZE-HGg" firstAttribute="trailing" secondItem="Pbu-7F-oE8" secondAttribute="trailing" id="njD-jG-fwO"/>
-                            <constraint firstItem="Bki-fp-N0O" firstAttribute="top" secondItem="jtx-BY-GIP" secondAttribute="bottom" constant="8" id="zrK-QX-VrQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="awb-Bw-kwI"/>
                     <connections>
-                        <outlet property="biometricSwitch" destination="sUW-Ti-qzD" id="j2Z-wB-HVg"/>
                         <outlet property="profileName" destination="wQJ-2V-ELd" id="Yc1-7p-9XF"/>
                         <outlet property="profileTable" destination="jtx-BY-GIP" id="bTn-QS-vIo"/>
                         <outlet property="versionLabel" destination="gra-ZE-HGg" id="ZvB-hx-7Ga"/>
                         <segue destination="euu-MX-O7w" kind="show" identifier="goToProfileEdit" id="0zA-rE-ct8"/>
+                        <segue destination="Ilr-a0-l2x" kind="show" identifier="goToBiometricsSettings" id="yWF-qA-fss"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfX-lO-CvE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -396,6 +370,83 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1799" y="743"/>
+        </scene>
+        <!--Biometrics-->
+        <scene sceneID="9wg-10-kfb">
+            <objects>
+                <viewController id="Ilr-a0-l2x" customClass="BiometricsSettingsViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Qc-nF-u3b">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="682"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometrics Authentication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hat-W5-gXP">
+                                <rect key="frame" x="20" y="24" width="176.33333333333334" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock Interval (Minutes)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-jF-iID">
+                                <rect key="frame" x="20" y="103" width="156.66666666666666" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometrics Lock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFh-f5-OEt">
+                                <rect key="frame" x="20.000000000000007" y="58" width="121.66666666666669" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="EnableBiometricSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="abi-Wh-xTq">
+                                <rect key="frame" x="321" y="53" width="51" height="31"/>
+                                <color key="onTintColor" name="MainBlue"/>
+                                <connections>
+                                    <action selector="biometricSwitchChanged:" destination="Ilr-a0-l2x" eventType="valueChanged" id="YxL-Ma-suY"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="tVl-nV-09s">
+                                <rect key="frame" x="18" y="145" width="354" height="31"/>
+                                <color key="tintColor" name="MainBlue"/>
+                                <connections>
+                                    <action selector="lockIntervalChanged:" destination="Ilr-a0-l2x" eventType="valueChanged" id="M6g-21-IOm"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock immediately" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjQ-QR-DXI">
+                                <rect key="frame" x="20" y="199" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WDw-Qr-6Gj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tVl-nV-09s" firstAttribute="leading" secondItem="47Z-jF-iID" secondAttribute="leading" id="0oE-TJ-BCQ"/>
+                            <constraint firstItem="tVl-nV-09s" firstAttribute="top" secondItem="47Z-jF-iID" secondAttribute="bottom" constant="24" id="4nI-nC-x5T"/>
+                            <constraint firstItem="abi-Wh-xTq" firstAttribute="centerY" secondItem="TFh-f5-OEt" secondAttribute="centerY" id="8Fs-oK-BuD"/>
+                            <constraint firstItem="WDw-Qr-6Gj" firstAttribute="trailing" secondItem="abi-Wh-xTq" secondAttribute="trailing" constant="20" id="Bw7-Sh-o8w"/>
+                            <constraint firstItem="AjQ-QR-DXI" firstAttribute="leading" secondItem="tVl-nV-09s" secondAttribute="leading" id="CLD-D0-a0K"/>
+                            <constraint firstItem="47Z-jF-iID" firstAttribute="leading" secondItem="TFh-f5-OEt" secondAttribute="leading" id="IP2-RA-0Fy"/>
+                            <constraint firstItem="TFh-f5-OEt" firstAttribute="top" secondItem="Hat-W5-gXP" secondAttribute="bottom" constant="16" id="MBn-0X-Rw5"/>
+                            <constraint firstItem="Hat-W5-gXP" firstAttribute="leading" secondItem="WDw-Qr-6Gj" secondAttribute="leading" constant="20" id="NwV-5F-f9I"/>
+                            <constraint firstItem="TFh-f5-OEt" firstAttribute="leading" secondItem="Hat-W5-gXP" secondAttribute="leading" id="OAd-b5-oPi"/>
+                            <constraint firstItem="AjQ-QR-DXI" firstAttribute="top" secondItem="tVl-nV-09s" secondAttribute="bottom" constant="24" id="SG6-Iw-8zx"/>
+                            <constraint firstItem="Hat-W5-gXP" firstAttribute="top" secondItem="WDw-Qr-6Gj" secondAttribute="top" constant="24" id="YXs-1L-iba"/>
+                            <constraint firstItem="47Z-jF-iID" firstAttribute="top" secondItem="TFh-f5-OEt" secondAttribute="bottom" constant="24" id="sN6-dU-DDj"/>
+                            <constraint firstItem="WDw-Qr-6Gj" firstAttribute="trailing" secondItem="tVl-nV-09s" secondAttribute="trailing" constant="20" id="wL2-mn-PNs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Biometrics" id="Obd-yl-GT1"/>
+                    <connections>
+                        <outlet property="biometricSwitch" destination="abi-Wh-xTq" id="HzL-Ei-OvR"/>
+                        <outlet property="lockIntervalHeaderLabel" destination="47Z-jF-iID" id="zIQ-cP-s3u"/>
+                        <outlet property="lockIntervalSlider" destination="tVl-nV-09s" id="NUN-KS-LgW"/>
+                        <outlet property="lockValueLabel" destination="AjQ-QR-DXI" id="3h3-LO-NRR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrP-8L-SuV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796.9230769230769" y="1466.5876777251185"/>
         </scene>
         <!--onboarding-->
         <scene sceneID="jAG-jR-sf1">

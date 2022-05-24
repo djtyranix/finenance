@@ -58,11 +58,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserKeyStore.sharedInstance.keyStore.synchronize()
         print("UserKeyStore Synchronized")
         let isOnboardingFinished = UserKeyStore.sharedInstance.keyStore.bool(forKey: "isOnboardingFinished")
+        let backgroundEnteredDate = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: "backgroundEntered"))
+        let calendar = Calendar.current
+        
+        // Calculating time differences
+        let backgroundEnteredTime = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second], from: backgroundEnteredDate)
+        let currentTime = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second], from: Date())
+        let differenceInSeconds = calendar.dateComponents([.second], from: backgroundEnteredTime, to: currentTime).second!
+        
+        // Getting User Key (in seconds)
+        let userSetDifference = UserDefaults.standard.value(forKey: "lockInterval") as? Int ?? 0
+        
+        if differenceInSeconds >= userSetDifference {
+            AuthenticatorManager.sharedInstance.needsAuthentication = true
+        } else {
+            AuthenticatorManager.sharedInstance.needsAuthentication = false
+        }
         
         if isOnboardingFinished {
-            let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
-            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! SecureViewController
-            self.window?.rootViewController = homePage
+            if AuthenticatorManager.sharedInstance.needsAuthentication {
+                let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
+                let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! SecureViewController
+                self.window?.rootViewController = homePage
+            }
         } else {
             let onboardingStoryBoard = UIStoryboard(name: "Onboarding", bundle: nil)
             let onboarding = onboardingStoryBoard.instantiateViewController(withIdentifier: "onboarding")
@@ -78,6 +96,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         UserKeyStore.sharedInstance.keyStore.synchronize()
+        UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "backgroundEntered")
     }
 }
 

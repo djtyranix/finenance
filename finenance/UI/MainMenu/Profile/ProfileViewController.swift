@@ -16,7 +16,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     let profileSettings = [
         "Set Monthly Income",
         "Set Monthly Savings",
-        "Set User Name"
+        "Set User Name",
+        "Biometrics Lock"
     ]
     
     @IBOutlet weak var profileTable: UITableView!
@@ -53,57 +54,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    @IBAction func biometricSwitchChanged(_ sender: UISwitch) {
-        if sender.isOn {
-            let isPermissionAuthorized = AuthenticatorManager.sharedInstance.checkIfBiometricsHasPermission()
-            
-            if isPermissionAuthorized {
-                AuthenticatorManager.sharedInstance.loginWithBiometrics(
-                    successCallback: {
-                        UserDefaults.standard.set(true, forKey: "isBiometricsEnabled")
-                        DispatchQueue.main.async {
-                            sender.setOn(true, animated: true)
-                        }
-                    },
-                    failedCallback: {
-                        UserDefaults.standard.set(false, forKey: "isBiometricsEnabled")
-                        DispatchQueue.main.async {
-                            sender.setOn(false, animated: true)
-                        }
-                    }
-                )
-            } else {
-                print("Failed isPermissionAuthorized")
-                DispatchQueue.main.async {
-                    sender.setOn(false, animated: true)
-                }
-            }
-        } else {
-            // Switch turned off
-            let disableBiometricsAlert = UIAlertController(title: "Disable Biometrics", message: "Are you sure you want to disable biometrics lock?", preferredStyle: .alert)
-            
-            let disableAction = UIAlertAction(title: "Disable", style: .destructive, handler: {_ in
-                UserDefaults.standard.set(false, forKey: "isBiometricsEnabled")
-                sender.setOn(false, animated: true)
-            })
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
-                sender.setOn(true, animated: true)
-            })
-            
-            disableBiometricsAlert.addAction(disableAction)
-            disableBiometricsAlert.addAction(cancelAction)
-            
-            self.present(disableBiometricsAlert, animated: true, completion: nil)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpTableView()
         updateViews()
-        checkIfBiometricEnabled()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,15 +82,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         selectedMode = indexPath.row
         
-        performSegue(withIdentifier: "goToProfileEdit", sender: self)
+        if selectedMode == 3 {
+            performSegue(withIdentifier: "goToBiometricsSettings", sender: self)
+        } else {
+            performSegue(withIdentifier: "goToProfileEdit", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let vc = segue.destination as? ProfileEditViewController else {
-            return
+        if let vc = segue.destination as? ProfileEditViewController {
+            vc.mode = selectedMode
         }
-        
-        vc.mode = selectedMode
     }
     
     private func showLoading() {
@@ -173,16 +130,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let name = UserKeyStore.sharedInstance.keyStore.string(forKey: "userFullName")
         profileName.text = name
         versionLabel.text = "App Version v\(appVersion!)"
-    }
-    
-    private func checkIfBiometricEnabled() {
-        let isBiometricEnabled = UserDefaults.standard.bool(forKey: "isBiometricsEnabled")
-        
-        if isBiometricEnabled {
-            biometricSwitch.isOn = true
-        } else {
-            biometricSwitch.isOn = false
-        }
     }
     
     private func deleteAndReset() {
