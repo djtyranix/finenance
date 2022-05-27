@@ -14,11 +14,34 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
     var expenseDatas = [Expense]()
     var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
     var filteredDatas = [Expense]()
+    var isAddingIncome = false
     
     @IBOutlet weak var expensesTable: UITableView!
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         
+    }
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let addExpenseAction = UIAlertAction(title: "Add Expense", style: .default, handler: { _ in
+            self.isAddingIncome = false
+            self.performSegue(withIdentifier: "goToAddExpense", sender: self)
+        })
+        
+        let addIncomeAction = UIAlertAction(title: "Add Income", style: .default, handler: { _ in
+            self.isAddingIncome = true
+            self.performSegue(withIdentifier: "goToAddExpense", sender: self)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        optionMenu.addAction(addExpenseAction)
+        optionMenu.addAction(addIncomeAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true)
     }
     
     override func viewDidLoad() {
@@ -99,6 +122,10 @@ class AllExpensesViewController: UIViewController, UITableViewDataSource, UITabl
         if let vc = segue.destination as? ExpenseDetailViewController {
             vc.expenseData = selectedExpense
         } else if let vc = segue.destination as? AddEditExpenseViewController {
+            if isAddingIncome {
+                vc.isIncome = true
+            }
+            
             vc.updateData = { [weak self] in
                 self?.getData()
                 self?.updateViews()

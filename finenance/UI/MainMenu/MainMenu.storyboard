@@ -564,13 +564,14 @@
                     <navigationItem key="navigationItem" title="All Transactions" largeTitleDisplayMode="never" id="Nek-T6-gpi">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="rut-cD-YY9">
                             <connections>
-                                <segue destination="aP9-Gl-UQ3" kind="presentation" id="iVt-hV-m0k"/>
+                                <action selector="addButtonPressed:" destination="ARe-Fn-Sf4" id="GNv-df-4kD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="expensesTable" destination="Rno-Wt-eEk" id="AsR-BT-52h"/>
                         <segue destination="ubP-Rn-vNA" kind="show" identifier="fromAllToDetail" id="TY8-aF-0mu"/>
+                        <segue destination="aP9-Gl-UQ3" kind="presentation" identifier="goToAddExpense" id="rbN-gP-iK6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkn-LR-eCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -941,8 +942,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b7d-lR-1tu"/>
-        <segue reference="hkS-xK-Jdk"/>
+        <segue reference="TY8-aF-0mu"/>
+        <segue reference="rbN-gP-iK6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="budgethigh" width="1056" height="781"/>
