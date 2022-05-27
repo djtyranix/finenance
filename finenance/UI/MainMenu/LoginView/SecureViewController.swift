@@ -18,7 +18,9 @@ class SecureViewController: UIViewController {
                 successCallback: { [weak self] in
                     print("Successfully Authenticated")
                     DispatchQueue.main.async {
-                        self?.performSegue(withIdentifier: "goToHome", sender: self)
+                        let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
+                        let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "mainmenu") as! AnimTabBarController
+                        self?.view.window?.rootViewController = homePage
                     }
                 },
                 failedCallback: {
@@ -26,7 +28,9 @@ class SecureViewController: UIViewController {
                 }
             )
         } else {
-            self.performSegue(withIdentifier: "goToHome", sender: self)
+            let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
+            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "mainmenu") as! AnimTabBarController
+            self.view.window?.rootViewController = homePage
         }
     }
 }
