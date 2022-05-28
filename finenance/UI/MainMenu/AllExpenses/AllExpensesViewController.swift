@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllExpensesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+class AllExpensesViewController: SecureViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
 
     let viewModel = AllExpensesViewModel()
     let searchController = UISearchController()

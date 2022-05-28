@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BudgetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BudgetViewController: SecureViewController, UITableViewDataSource, UITableViewDelegate {
     
     var itemArray = [(title: String, detail: String)]()
     var totalBudget = TotalBudget(totalBudget: 0, totalSavings: 0, monthlyIncome: 0, totalExpenses: 0, remainingBudget: 0, otherIncome: 0)
@@ -24,9 +24,7 @@ class BudgetViewController: UIViewController, UITableViewDataSource, UITableView
         getData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {        
         setNavBarStyle()
         getData()
         updateView()

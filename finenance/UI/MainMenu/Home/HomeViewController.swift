@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: SecureViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var expensesTable: UITableView!
     @IBOutlet weak var currentMonthAndYear: UILabel!

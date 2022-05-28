@@ -21,11 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserKeyStore.sharedInstance.keyStore.synchronize()
         print("UserKeyStore Synchronized")
         let isOnboardingFinished = UserKeyStore.sharedInstance.keyStore.bool(forKey: "isOnboardingFinished")
+        let isAppTerminated = UserDefaults.standard.value(forKey: "isTerminated") as? Bool ?? false
         
         if isOnboardingFinished {
-            let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
-            let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! SecureViewController
-            self.window?.rootViewController = homePage
+            if isAppTerminated {
+                let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
+                let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! LoginViewController
+                self.window?.rootViewController = homePage
+                UserDefaults.standard.removeObject(forKey: "isTerminated")
+            } else {
+                let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
+                let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "mainmenu") as! AnimTabBarController
+                self.window?.rootViewController = homePage
+            }
         } else {
             let onboardingStoryBoard = UIStoryboard(name: "Onboarding", bundle: nil)
             let onboarding = onboardingStoryBoard.instantiateViewController(withIdentifier: "onboarding")
@@ -64,7 +72,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background.
         UserKeyStore.sharedInstance.keyStore.synchronize()
         print("UserKeyStore Synchronized")
-        let isOnboardingFinished = UserKeyStore.sharedInstance.keyStore.bool(forKey: "isOnboardingFinished")
         let backgroundEnteredDate = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: "backgroundEntered"))
         let calendar = Calendar.current
         
@@ -80,18 +87,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             AuthenticatorManager.sharedInstance.needsAuthentication = true
         } else {
             AuthenticatorManager.sharedInstance.needsAuthentication = false
-        }
-        
-        if isOnboardingFinished {
-            if AuthenticatorManager.sharedInstance.needsAuthentication {
-                let mainStoryBoard = UIStoryboard(name: "MainMenu", bundle: nil)
-                let homePage = mainStoryBoard.instantiateViewController(withIdentifier: "loginView") as! SecureViewController
-                self.window?.rootViewController = homePage
-            }
-        } else {
-            let onboardingStoryBoard = UIStoryboard(name: "Onboarding", bundle: nil)
-            let onboarding = onboardingStoryBoard.instantiateViewController(withIdentifier: "onboarding")
-            self.window?.rootViewController = onboarding
         }
     }
 

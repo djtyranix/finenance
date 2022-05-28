@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpenseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ExpenseViewController: SecureViewController, UITableViewDataSource, UITableViewDelegate {
     
     var itemArray = [(title: String, detail: String)]()
     var expenseDatas = [Expense]()
@@ -25,9 +25,7 @@ class ExpenseViewController: UIViewController, UITableViewDataSource, UITableVie
         updateUi()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {        
         updateUi()
         
         setNavBarStyle()

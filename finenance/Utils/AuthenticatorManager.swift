@@ -27,7 +27,7 @@ class AuthenticatorManager: NSObject {
         print("AuthenticatorManager Disposed")
     }
     
-    var needsAuthentication = false
+    var needsAuthentication = true
     
     func checkIfBiometricsHasPermission() -> Bool {
         var error: NSError?
