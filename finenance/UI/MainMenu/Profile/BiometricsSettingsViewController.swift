@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BiometricsSettingsViewController: UIViewController {
+class BiometricsSettingsViewController: SecureViewController {
 
     @IBOutlet weak var biometricSwitch: UISwitch!
     @IBOutlet weak var lockIntervalSlider: UISlider!

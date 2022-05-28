@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: SecureViewController, UITableViewDataSource, UITableViewDelegate {
     
     var selectedMode = 0
     let viewModel = ProfileViewModel()
@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUpTableView()
         updateViews()
     }

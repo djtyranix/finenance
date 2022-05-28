@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileEditViewController: UIViewController, UITextFieldDelegate {
+class ProfileEditViewController: SecureViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
