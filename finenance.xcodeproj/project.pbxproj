@@ -22,6 +22,8 @@
 		A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A998281923030048AF3C /* OnboardingMonthlySavingsViewController.swift */; };
 		A848A99B281927F50048AF3C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848A99A281927F50048AF3C /* Onboarding.swift */; };
 		A84920B328E7E815008E5988 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B228E7E815008E5988 /* FilledButton.swift */; };
+		A84920B528E7EB74008E5988 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B428E7EB74008E5988 /* CurrencyTextField.swift */; };
+		A84920B728E7EC44008E5988 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B628E7EC44008E5988 /* Constants.swift */; };
 		A858261C2842157000C991E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858261B2842157000C991E7 /* LoginViewController.swift */; };
 		A8901D8C283119C400A2D7A5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
@@ -70,6 +72,8 @@
 		A848A998281923030048AF3C /* OnboardingMonthlySavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMonthlySavingsViewController.swift; sourceTree = "<group>"; };
 		A848A99A281927F50048AF3C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		A84920B228E7E815008E5988 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
+		A84920B428E7EB74008E5988 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
+		A84920B628E7EC44008E5988 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A858261B2842157000C991E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A85DA346282FE461004EB080 /* finenance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = finenance.entitlements; sourceTree = "<group>"; };
 		A85DA348282FE494004EB080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -209,6 +213,7 @@
 				A8CB8E5028166C330093F5FB /* SceneDelegate.swift */,
 				A8CB8E7F2817A2C10093F5FB /* Extensions.swift */,
 				A84406DA28373D890022FB5A /* AuthenticatorManager.swift */,
+				A84920B628E7EC44008E5988 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				A8CB8E89281834570093F5FB /* CategoryLabel.swift */,
 				A80D2D242830FBD500F60552 /* MiniCardView.swift */,
 				A84920B228E7E815008E5988 /* FilledButton.swift */,
+				A84920B428E7EB74008E5988 /* CurrencyTextField.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */,
 				A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */,
 				A84646AA28190AB100AC8CD4 /* AnimTabBarController.swift in Sources */,
+				A84920B728E7EC44008E5988 /* Constants.swift in Sources */,
 				A8CB8E85281830CE0093F5FB /* HomeViewModel.swift in Sources */,
 				A8DF5CBA281A66490056D872 /* ExpensesTableViewCell.swift in Sources */,
 				A84406DD28374F190022FB5A /* SecureViewController.swift in Sources */,
@@ -442,6 +449,7 @@
 				A848A99B281927F50048AF3C /* Onboarding.swift in Sources */,
 				A8DF5CA9281959CE0056D872 /* AddEditExpenseViewController.swift in Sources */,
 				A8CB8E8C28183A8B0093F5FB /* Transaction.swift in Sources */,
+				A84920B528E7EB74008E5988 /* CurrencyTextField.swift in Sources */,
 				A848A999281923030048AF3C /* OnboardingMonthlySavingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +589,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = finenance/finenance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 212;
+				CURRENT_PROJECT_VERSION = 254;
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = finenance/Info.plist;
@@ -590,6 +598,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -599,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelricky.finenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -615,7 +624,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = finenance/finenance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 212;
+				CURRENT_PROJECT_VERSION = 254;
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = finenance/Info.plist;
@@ -624,6 +633,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -633,7 +643,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelricky.finenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

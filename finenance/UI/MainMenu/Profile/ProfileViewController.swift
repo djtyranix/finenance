@@ -84,8 +84,10 @@ class ProfileViewController: SecureViewController, UITableViewDataSource, UITabl
         
         if selectedMode == 3 {
             performSegue(withIdentifier: "goToBiometricsSettings", sender: self)
-        } else {
+        } else if selectedMode == 2 {
             performSegue(withIdentifier: "goToProfileEdit", sender: self)
+        } else {
+            performSegue(withIdentifier: "goToProfileEditCurrency", sender: self)
         }
     }
     

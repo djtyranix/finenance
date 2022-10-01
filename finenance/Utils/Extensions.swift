@@ -36,12 +36,12 @@ extension UIColor {
 }
 
 extension Int {
-    public func formatToRupiah() -> String {
+    public func toCurrency(locale: Locale = Locale(identifier: Constants.defaultLocale)) -> String {
         let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "id_ID")
+        formatter.locale = locale
         formatter.numberStyle = .currency
         
-        return formatter.string(from: NSNumber.init(value: self))!
+        return formatter.string(from: NSNumber.init(value: self)) ?? "Rp0"
     }
 }
 
@@ -74,5 +74,17 @@ extension String {
         dateFormatter.dateFormat = format
         
         return dateFormatter.date(from: self)!
+    }
+    
+    public func fromCurrency(locale: Locale = Locale(identifier: Constants.defaultLocale)) -> Int {
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.numberStyle = .currency
+        
+        if let number = formatter.number(from: self.replacingOccurrences(of: ".", with: "")) {
+            return number.intValue
+        }
+        
+        return 0
     }
 }

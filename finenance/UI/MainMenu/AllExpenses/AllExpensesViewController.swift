@@ -82,10 +82,10 @@ class AllExpensesViewController: SecureViewController, UITableViewDataSource, UI
         cell.expenseNameLabel.text = expense.name
         
         if expense.category == .income {
-            cell.expenseAmountLabel.text = "+ \(expense.amount.formatToRupiah())"
+            cell.expenseAmountLabel.text = "+ \(expense.amount.toCurrency())"
             cell.expenseAmountLabel.textColor = UIColor(named: "MainBlue")
         } else {
-            cell.expenseAmountLabel.text = "- \(expense.amount.formatToRupiah())"
+            cell.expenseAmountLabel.text = "- \(expense.amount.toCurrency())"
             cell.expenseAmountLabel.textColor = UIColor(named: "MainRed")
         }
         

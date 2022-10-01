@@ -101,10 +101,10 @@ class HomeViewController: SecureViewController, UITableViewDataSource, UITableVi
         cell.expenseNameLabel.text = expense.name
         
         if expense.category == .income {
-            cell.expenseAmountLabel.text = "+ \(expense.amount.formatToRupiah())"
+            cell.expenseAmountLabel.text = "+ \(expense.amount.toCurrency())"
             cell.expenseAmountLabel.textColor = UIColor(named: "MainBlue")
         } else {
-            cell.expenseAmountLabel.text = "- \(expense.amount.formatToRupiah())"
+            cell.expenseAmountLabel.text = "- \(expense.amount.toCurrency())"
             cell.expenseAmountLabel.textColor = UIColor(named: "MainRed")
         }
         
@@ -149,8 +149,8 @@ class HomeViewController: SecureViewController, UITableViewDataSource, UITableVi
     
     private func updateViews() {
         userGreetingsLabel.text = "Hello, \(userName)!"
-        currentMonthlyExpenses.text = monthlyExpenses.formatToRupiah()
-        currentRemainingBudget.text = remainingBudget.formatToRupiah()
+        currentMonthlyExpenses.text = monthlyExpenses.toCurrency()
+        currentRemainingBudget.text = remainingBudget.toCurrency()
         
         if (Double(remainingBudget) / Double(monthlyExpenses + remainingBudget)) < 0.25 {
             statusImageView.image = UIImage(named: "budgetwarning")

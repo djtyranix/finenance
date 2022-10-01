@@ -129,7 +129,7 @@
                                     <action selector="nameFieldChanged:" destination="aP9-Gl-UQ3" eventType="editingChanged" id="qa6-pI-k9p"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OZi-DE-oM8">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OZi-DE-oM8" customClass="CurrencyTextField" customModule="finenance" customModuleProvider="target">
                                 <rect key="frame" x="20" y="190" width="350" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="iVd-JC-HXC"/>
@@ -300,6 +300,7 @@
                         <outlet property="versionLabel" destination="gra-ZE-HGg" id="ZvB-hx-7Ga"/>
                         <segue destination="euu-MX-O7w" kind="show" identifier="goToProfileEdit" id="0zA-rE-ct8"/>
                         <segue destination="Ilr-a0-l2x" kind="show" identifier="goToBiometricsSettings" id="yWF-qA-fss"/>
+                        <segue destination="uMb-bu-25T" kind="show" identifier="goToProfileEditCurrency" id="fvE-tV-nge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfX-lO-CvE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -370,7 +371,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1799" y="743"/>
+            <point key="canvasLocation" x="1854" y="421"/>
         </scene>
         <!--Biometrics-->
         <scene sceneID="9wg-10-kfb">
@@ -447,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrP-8L-SuV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796.9230769230769" y="1466.5876777251185"/>
+            <point key="canvasLocation" x="1000" y="1498"/>
         </scene>
         <!--onboarding-->
         <scene sceneID="jAG-jR-sf1">
@@ -949,6 +950,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dts-pU-X3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-382" y="-1534"/>
+        </scene>
+        <!--Profile Edit View Controller-->
+        <scene sceneID="P4c-bu-v5P">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="uMb-bu-25T" customClass="ProfileEditViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TVU-Ta-spv">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="701"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Savings" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FX9-vc-EH8" customClass="CurrencyTextField" customModule="finenance" customModuleProvider="target">
+                                <rect key="frame" x="20" y="24" width="350" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="2Tj-aF-cpy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next" textContentType="name"/>
+                                <connections>
+                                    <action selector="nameFieldChanged:" destination="aP9-Gl-UQ3" eventType="editingChanged" id="woq-Kc-cUN"/>
+                                    <action selector="textFieldChanged:" destination="uMb-bu-25T" eventType="editingChanged" id="Tce-2W-riJ"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PK-Xz-uP7" customClass="FilledButton" customModule="finenance" customModuleProvider="target">
+                                <rect key="frame" x="20" y="562" width="350" height="32"/>
+                                <color key="backgroundColor" name="MainBlue"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Update Data">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="updatePressed:" destination="uMb-bu-25T" eventType="touchUpInside" id="QzI-vP-Vgg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a7B-Y0-3jz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="a7B-Y0-3jz" firstAttribute="bottom" secondItem="6PK-Xz-uP7" secondAttribute="bottom" constant="73" id="1dX-iO-lk9"/>
+                            <constraint firstItem="6PK-Xz-uP7" firstAttribute="leading" secondItem="a7B-Y0-3jz" secondAttribute="leading" constant="20" id="77D-Ku-xrb"/>
+                            <constraint firstItem="FX9-vc-EH8" firstAttribute="leading" secondItem="a7B-Y0-3jz" secondAttribute="leading" constant="20" id="B6L-Jc-beg"/>
+                            <constraint firstItem="FX9-vc-EH8" firstAttribute="top" secondItem="a7B-Y0-3jz" secondAttribute="top" constant="24" id="J61-pn-ljC"/>
+                            <constraint firstItem="a7B-Y0-3jz" firstAttribute="trailing" secondItem="FX9-vc-EH8" secondAttribute="trailing" constant="20" id="LDC-dQ-31Y"/>
+                            <constraint firstItem="a7B-Y0-3jz" firstAttribute="trailing" secondItem="6PK-Xz-uP7" secondAttribute="trailing" constant="20" id="k5d-bF-XCO"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hQB-tH-aga" appends="YES" id="xnD-xG-0xG"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="00t-4J-Itz"/>
+                    <connections>
+                        <outlet property="textField" destination="FX9-vc-EH8" id="ccE-uR-vr1"/>
+                        <outlet property="updateButton" destination="6PK-Xz-uP7" id="Uiu-a3-AFZ"/>
+                        <segue destination="G2x-50-EFq" kind="unwind" identifier="unwindToProfile" unwindAction="unwind:" id="Roi-0M-OoH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeH-yF-bUn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="G2x-50-EFq" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="hQB-tH-aga">
+                    <connections>
+                        <action selector="viewTapped:" destination="uMb-bu-25T" id="U23-x7-QH5"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1854" y="1134"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

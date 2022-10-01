@@ -50,7 +50,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
         
         let id = expenseData.id
         let name = nameField.text!
-        let amount = Int(amountField.text!) ?? 0
+        let amount = amountField.text?.fromCurrency() ?? 0
         let date = selectedDate
         let category = selectedCategory
         

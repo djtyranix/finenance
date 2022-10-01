@@ -22,10 +22,10 @@ class ProfileEditViewController: SecureViewController, UITextFieldDelegate {
         
         switch mode {
         case 0:
-            UserKeyStore.sharedInstance.keyStore.set(Int(text), forKey: "monthlyIncome")
+            UserKeyStore.sharedInstance.keyStore.set(text.fromCurrency(), forKey: "monthlyIncome")
             UserKeyStore.sharedInstance.keyStore.synchronize()
         case 1:
-            UserKeyStore.sharedInstance.keyStore.set(Int(text), forKey: "monthlySavings")
+            UserKeyStore.sharedInstance.keyStore.set(text.fromCurrency(), forKey: "monthlySavings")
             UserKeyStore.sharedInstance.keyStore.synchronize()
         case 2:
             let fullNameArr = text.components(separatedBy: " ")
@@ -88,12 +88,12 @@ class ProfileEditViewController: SecureViewController, UITextFieldDelegate {
         case 0:
             navigationItem.title = "Set Monthly Income"
             textField.placeholder = "Your Monthly Income"
-            textField.text = String(UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlyIncome") as! Int)
+            textField.text = (UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlyIncome") as? Int ?? 0).toCurrency()
             textField.keyboardType = .numberPad
         case 1:
             navigationItem.title = "Set Monthly Savings"
             textField.placeholder = "Your Monthly Savings"
-            textField.text = String(UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlySavings") as! Int)
+            textField.text = (UserKeyStore.sharedInstance.keyStore.object(forKey: "monthlySavings") as? Int ?? 0).toCurrency()
             textField.keyboardType = .numberPad
         case 2:
             navigationItem.title = "Set User Name"

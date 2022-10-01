@@ -38,7 +38,7 @@ class OnboardingMonthlyIncomeViewController: UIViewController, UITextFieldDelega
         }
         monthlyIncomeField.resignFirstResponder()
         
-        let monthlyIncome = Int(monthlyIncomeField.text!) ?? 0
+        let monthlyIncome = monthlyIncomeField.text?.fromCurrency() ?? 0
         
         onboardingData.monthlyIncome = monthlyIncome
         vc.onboardingData = onboardingData

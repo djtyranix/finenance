@@ -71,7 +71,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
         UserKeyStore.sharedInstance.keyStore.synchronize()
-        print("UserKeyStore Synchronized")
         let backgroundEnteredDate = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: "backgroundEntered"))
         let calendar = Calendar.current
         

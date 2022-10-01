@@ -64,11 +64,11 @@ class ExpenseViewModel: NSObject {
     func generateDetailTuple(totalExpenses: TotalExpenses) -> [(title: String, detail: String)] {
         var array = [(title: String, detail: String)]()
         
-        array.append(("Total Expenses", totalExpenses.totalExpense.formatToRupiah()))
-        array.append((TransactionCategory.fnb.rawValue, totalExpenses.fnbAmount.formatToRupiah()))
-        array.append((TransactionCategory.bills.rawValue, totalExpenses.billsAmount.formatToRupiah()))
-        array.append((TransactionCategory.leisure.rawValue, totalExpenses.leisureAmount.formatToRupiah()))
-        array.append((TransactionCategory.other.rawValue, totalExpenses.otherAmount.formatToRupiah()))
+        array.append(("Total Expenses", totalExpenses.totalExpense.toCurrency()))
+        array.append((TransactionCategory.fnb.rawValue, totalExpenses.fnbAmount.toCurrency()))
+        array.append((TransactionCategory.bills.rawValue, totalExpenses.billsAmount.toCurrency()))
+        array.append((TransactionCategory.leisure.rawValue, totalExpenses.leisureAmount.toCurrency()))
+        array.append((TransactionCategory.other.rawValue, totalExpenses.otherAmount.toCurrency()))
         
         return array
     }

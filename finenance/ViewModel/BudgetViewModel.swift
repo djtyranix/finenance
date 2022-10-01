@@ -32,12 +32,12 @@ class BudgetViewModel: NSObject {
     func generateDetailTuple(totalBudget: TotalBudget) -> [(title: String, detail: String)] {
         var array = [(title: String, detail: String)]()
         
-        array.append(("Total Budget", totalBudget.totalBudget.formatToRupiah()))
-        array.append(("Total Savings", totalBudget.totalSavings.formatToRupiah()))
-        array.append(("Monthly Income", totalBudget.monthlyIncome.formatToRupiah()))
-        array.append(("Other Income", totalBudget.otherIncome.formatToRupiah()))
-        array.append(("Total Expenses", totalBudget.totalExpenses.formatToRupiah()))
-        array.append(("Remaining Budget", totalBudget.remainingBudget.formatToRupiah()))
+        array.append(("Total Budget", totalBudget.totalBudget.toCurrency()))
+        array.append(("Total Savings", totalBudget.totalSavings.toCurrency()))
+        array.append(("Monthly Income", totalBudget.monthlyIncome.toCurrency()))
+        array.append(("Other Income", totalBudget.otherIncome.toCurrency()))
+        array.append(("Total Expenses", totalBudget.totalExpenses.toCurrency()))
+        array.append(("Remaining Budget", totalBudget.remainingBudget.toCurrency()))
         
         return array
     }

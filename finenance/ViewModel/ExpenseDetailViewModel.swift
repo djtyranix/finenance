@@ -13,7 +13,7 @@ class ExpenseDetailViewModel: NSObject {
         var array = [(title: String, detail: String)]()
         
         array.append((title: "Name", detail: data.name))
-        array.append((title: "Amount", detail: data.amount.formatToRupiah()))
+        array.append((title: "Amount", detail: data.amount.toCurrency()))
         array.append((title: "Date", detail: data.date))
         array.append((title: "Category", detail: data.categoryName))
         

@@ -35,8 +35,11 @@ class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDeleg
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         monthlySavingsField.resignFirstResponder()
         
-        let monthlySavings = Int(monthlySavingsField.text!) ?? 0
+        let monthlySavings = monthlySavingsField.text?.fromCurrency() ?? 0
         onboardingData.monthlySavings = monthlySavings
+        
+        print("Monthly Income is: \(onboardingData.monthlyIncome)")
+        print("Monthly Savings is: \(onboardingData.monthlySavings)")
         
         UserKeyStore.sharedInstance.keyStore.set(onboardingData.firstName, forKey: "userFirstName")
         UserKeyStore.sharedInstance.keyStore.set(onboardingData.fullName, forKey: "userFullName")
@@ -44,7 +47,6 @@ class OnboardingMonthlySavingsViewController: UIViewController, UITextFieldDeleg
         UserKeyStore.sharedInstance.keyStore.set(onboardingData.monthlySavings, forKey: "monthlySavings")
         UserKeyStore.sharedInstance.keyStore.set(true, forKey: "isOnboardingFinished")
         UserKeyStore.sharedInstance.keyStore.synchronize()
-        print("Data has been saved.")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
