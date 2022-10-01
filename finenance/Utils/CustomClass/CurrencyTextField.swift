@@ -48,7 +48,6 @@ class CurrencyTextField: UITextField {
         defer {
             didBackspace = false
             text = Int(enteredNumbers)?.toCurrency()
-            print("Entered Number is \(enteredNumbers)")
         }
         
         guard didBackspace == false else { return }

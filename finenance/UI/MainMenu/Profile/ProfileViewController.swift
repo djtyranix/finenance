@@ -17,7 +17,8 @@ class ProfileViewController: SecureViewController, UITableViewDataSource, UITabl
         "Set Monthly Income",
         "Set Monthly Savings",
         "Set User Name",
-        "Biometrics Lock"
+        "Biometrics Lock",
+        "Manage Subscription"
     ]
     
     @IBOutlet weak var profileTable: UITableView!
@@ -82,12 +83,17 @@ class ProfileViewController: SecureViewController, UITableViewDataSource, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
         selectedMode = indexPath.row
         
-        if selectedMode == 3 {
-            performSegue(withIdentifier: "goToBiometricsSettings", sender: self)
-        } else if selectedMode == 2 {
-            performSegue(withIdentifier: "goToProfileEdit", sender: self)
-        } else {
+        switch selectedMode {
+        case 0, 1:
             performSegue(withIdentifier: "goToProfileEditCurrency", sender: self)
+        case 2:
+            performSegue(withIdentifier: "goToProfileEdit", sender: self)
+        case 3:
+            performSegue(withIdentifier: "goToBiometricsSettings", sender: self)
+        case 4:
+            performSegue(withIdentifier: "goToManageSubscriptions", sender: self)
+        default:
+            performSegue(withIdentifier: "goToProfileEdit", sender: self)
         }
     }
     
