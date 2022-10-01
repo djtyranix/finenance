@@ -9,11 +9,16 @@ import UIKit
 
 class ManageSubscriptionViewController: UIViewController {
 
+    @IBOutlet weak var lottieView: UIView!
+    @IBOutlet weak var dataView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setNavBarStyle()
+        lottieView.isHidden = false
+        dataView.isHidden = true
     }
     
     private func setNavBarStyle() {

@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdu-a0-YOc">
-                                <rect key="frame" x="-1" y="0.0" width="431" height="44"/>
+                                <rect key="frame" x="-2" y="0.0" width="430" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Expense" id="2zf-q5-NG2">
@@ -377,7 +377,7 @@
         <!--Biometrics-->
         <scene sceneID="9wg-10-kfb">
             <objects>
-                <viewController id="Ilr-a0-l2x" customClass="BiometricsSettingsViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Ilr-a0-l2x" customClass="BiometricsSettingsViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Qc-nF-u3b">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="777"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,14 +454,42 @@
         <!--Subscriptions-->
         <scene sceneID="XFi-mI-iHv">
             <objects>
-                <viewController id="4A8-ek-cml" customClass="ManageSubscriptionViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="4A8-ek-cml" customClass="ManageSubscriptionViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NxT-tC-ph6">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="777"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZ5-cO-EP2">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="743"/>
+                                <connections>
+                                    <segue destination="fBJ-2y-J7v" kind="embed" id="dca-Av-4h8"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZd-tS-rdy">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="743"/>
+                                <connections>
+                                    <segue destination="v5c-Ys-Xo4" kind="embed" id="Kot-Da-4R9"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FZ6-bZ-fo1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FZ6-bZ-fo1" firstAttribute="bottom" secondItem="LZd-tS-rdy" secondAttribute="bottom" id="5OD-s6-RKv"/>
+                            <constraint firstItem="LZd-tS-rdy" firstAttribute="leading" secondItem="FZ6-bZ-fo1" secondAttribute="leading" id="7dE-bT-LTQ"/>
+                            <constraint firstItem="hZ5-cO-EP2" firstAttribute="leading" secondItem="FZ6-bZ-fo1" secondAttribute="leading" id="FaB-dy-NTR"/>
+                            <constraint firstItem="FZ6-bZ-fo1" firstAttribute="bottom" secondItem="hZ5-cO-EP2" secondAttribute="bottom" id="IoK-uc-7ff"/>
+                            <constraint firstItem="FZ6-bZ-fo1" firstAttribute="trailing" secondItem="hZ5-cO-EP2" secondAttribute="trailing" id="MsB-Ru-xtZ"/>
+                            <constraint firstItem="LZd-tS-rdy" firstAttribute="top" secondItem="FZ6-bZ-fo1" secondAttribute="top" id="ikn-65-3aQ"/>
+                            <constraint firstItem="FZ6-bZ-fo1" firstAttribute="trailing" secondItem="LZd-tS-rdy" secondAttribute="trailing" id="ydi-nT-rB1"/>
+                            <constraint firstItem="hZ5-cO-EP2" firstAttribute="top" secondItem="FZ6-bZ-fo1" secondAttribute="top" id="zbM-ir-c8n"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Subscriptions" id="gjN-bL-jeo"/>
+                    <connections>
+                        <outlet property="dataView" destination="LZd-tS-rdy" id="LLZ-Lg-F30"/>
+                        <outlet property="lottieView" destination="hZ5-cO-EP2" id="Ltp-5l-SmQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHv-Xi-ULW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1034,10 +1062,91 @@
             </objects>
             <point key="canvasLocation" x="1802" y="742"/>
         </scene>
+        <!--Lottie View Controller-->
+        <scene sceneID="d5L-nB-IPX">
+            <objects>
+                <viewController id="fBJ-2y-J7v" customClass="LottieViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QRY-3l-SsI">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="743"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UP-CE-VKJ">
+                                <rect key="frame" x="155" y="332.66666666666669" width="120" height="137"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2O-hQ-GMa" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="EoC-pP-47U"/>
+                                            <constraint firstAttribute="width" secondItem="o2O-hQ-GMa" secondAttribute="height" multiplier="1:1" id="tGt-g4-nlL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="not-found"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing's here :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYM-KG-JM3">
+                                        <rect key="frame" x="0.0" y="120" width="120" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="HYM-KG-JM3" firstAttribute="trailing" secondItem="o2O-hQ-GMa" secondAttribute="trailing" id="4RZ-jb-I3V"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="JDa-oz-Py5"/>
+                                    <constraint firstItem="HYM-KG-JM3" firstAttribute="top" secondItem="o2O-hQ-GMa" secondAttribute="bottom" id="QbD-aG-gzH"/>
+                                    <constraint firstAttribute="bottom" secondItem="HYM-KG-JM3" secondAttribute="bottom" id="StP-mL-MBf"/>
+                                    <constraint firstAttribute="trailing" secondItem="o2O-hQ-GMa" secondAttribute="trailing" id="jzl-rF-84S"/>
+                                    <constraint firstItem="HYM-KG-JM3" firstAttribute="leading" secondItem="o2O-hQ-GMa" secondAttribute="leading" id="rWi-RA-1TV"/>
+                                    <constraint firstItem="o2O-hQ-GMa" firstAttribute="leading" secondItem="9UP-CE-VKJ" secondAttribute="leading" id="vdi-2V-ZTY"/>
+                                    <constraint firstItem="o2O-hQ-GMa" firstAttribute="top" secondItem="9UP-CE-VKJ" secondAttribute="top" id="vqm-Dm-iL1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wVg-v3-hF8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9UP-CE-VKJ" firstAttribute="centerY" secondItem="wVg-v3-hF8" secondAttribute="centerY" id="Sq2-cb-RIS"/>
+                            <constraint firstItem="9UP-CE-VKJ" firstAttribute="centerX" secondItem="wVg-v3-hF8" secondAttribute="centerX" id="qsO-CS-HDL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="o2O-hQ-GMa" id="pfY-CY-AaM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FN3-fa-EVL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2536.7441860465115" y="1393.7768240343348"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tYd-h2-keR">
+            <objects>
+                <viewController id="v5c-Ys-Xo4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yO2-bz-hts">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="743"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOg-ZK-QE5">
+                                <rect key="frame" x="16" y="44" width="140.33333333333326" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="coI-qf-0dS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdP-gr-K9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="1854"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b7d-lR-1tu"/>
-        <segue reference="hkS-xK-Jdk"/>
+        <segue reference="6Gf-e0-Uk7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>
