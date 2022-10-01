@@ -17,6 +17,8 @@ class SubscriptionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        subsTitle.adjustsFontSizeToFitWidth = false
+        subsTitle.lineBreakMode = .byTruncatingTail
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
