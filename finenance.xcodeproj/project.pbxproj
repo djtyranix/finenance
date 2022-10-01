@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A80D2D252830FBD500F60552 /* MiniCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D2D242830FBD500F60552 /* MiniCardView.swift */; };
 		A80D2D272831045900F60552 /* UserKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D2D262831045900F60552 /* UserKeyStore.swift */; };
+		A81925C328E80B9200A1D95D /* ExpensesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81925C228E80B9200A1D95D /* ExpensesTableViewCell.xib */; };
+		A81925C528E80BA200A1D95D /* ExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81925C428E80BA200A1D95D /* ExpensesTableViewCell.swift */; };
+		A81925C928E80C2F00A1D95D /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81925C728E80C2F00A1D95D /* SubscriptionTableViewCell.swift */; };
+		A81925CA28E80C2F00A1D95D /* SubscriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81925C828E80C2F00A1D95D /* SubscriptionTableViewCell.xib */; };
 		A81D2A06281853260007760C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D2A05281853260007760C /* ColorData.swift */; };
 		A8285990283C86C800E1F66C /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828598F283C86C800E1F66C /* BiometricsSettingsViewController.swift */; };
 		A84406DB28373D890022FB5A /* AuthenticatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84406DA28373D890022FB5A /* AuthenticatorManager.swift */; };
@@ -24,6 +28,7 @@
 		A84920B328E7E815008E5988 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B228E7E815008E5988 /* FilledButton.swift */; };
 		A84920B528E7EB74008E5988 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B428E7EB74008E5988 /* CurrencyTextField.swift */; };
 		A84920B728E7EC44008E5988 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B628E7EC44008E5988 /* Constants.swift */; };
+		A84920BA28E8084C008E5988 /* ManageSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84920B928E8084C008E5988 /* ManageSubscriptionViewController.swift */; };
 		A858261C2842157000C991E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858261B2842157000C991E7 /* LoginViewController.swift */; };
 		A8901D8C283119C400A2D7A5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
@@ -51,14 +56,16 @@
 		A8DF5CAC281A2BEC0056D872 /* FinenanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CAB281A2BEC0056D872 /* FinenanceRepository.swift */; };
 		A8DF5CB0281A5F150056D872 /* AllExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CAF281A5F150056D872 /* AllExpensesViewModel.swift */; };
 		A8DF5CB3281A5F910056D872 /* AllExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CB2281A5F910056D872 /* AllExpensesViewController.swift */; };
-		A8DF5CBA281A66490056D872 /* ExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CB8281A66490056D872 /* ExpensesTableViewCell.swift */; };
-		A8DF5CBB281A66490056D872 /* ExpensesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DF5CB9281A66490056D872 /* ExpensesTableViewCell.xib */; };
 		A8DF5CBE281A702F0056D872 /* ExpenseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF5CBD281A702F0056D872 /* ExpenseDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A80D2D242830FBD500F60552 /* MiniCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCardView.swift; sourceTree = "<group>"; };
 		A80D2D262831045900F60552 /* UserKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeyStore.swift; sourceTree = "<group>"; };
+		A81925C228E80B9200A1D95D /* ExpensesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpensesTableViewCell.xib; sourceTree = "<group>"; };
+		A81925C428E80BA200A1D95D /* ExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewCell.swift; sourceTree = "<group>"; };
+		A81925C728E80C2F00A1D95D /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
+		A81925C828E80C2F00A1D95D /* SubscriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionTableViewCell.xib; sourceTree = "<group>"; };
 		A81D2A05281853260007760C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		A828598F283C86C800E1F66C /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
 		A84406DA28373D890022FB5A /* AuthenticatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorManager.swift; sourceTree = "<group>"; };
@@ -74,6 +81,7 @@
 		A84920B228E7E815008E5988 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		A84920B428E7EB74008E5988 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		A84920B628E7EC44008E5988 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A84920B928E8084C008E5988 /* ManageSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSubscriptionViewController.swift; sourceTree = "<group>"; };
 		A858261B2842157000C991E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A85DA346282FE461004EB080 /* finenance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = finenance.entitlements; sourceTree = "<group>"; };
 		A85DA348282FE494004EB080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -104,8 +112,6 @@
 		A8DF5CAB281A2BEC0056D872 /* FinenanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinenanceRepository.swift; sourceTree = "<group>"; };
 		A8DF5CAF281A5F150056D872 /* AllExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpensesViewModel.swift; sourceTree = "<group>"; };
 		A8DF5CB2281A5F910056D872 /* AllExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpensesViewController.swift; sourceTree = "<group>"; };
-		A8DF5CB8281A66490056D872 /* ExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewCell.swift; sourceTree = "<group>"; };
-		A8DF5CB9281A66490056D872 /* ExpensesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpensesTableViewCell.xib; sourceTree = "<group>"; };
 		A8DF5CBD281A702F0056D872 /* ExpenseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +127,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A81925C628E80BFE00A1D95D /* SubscriptionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A81925C728E80C2F00A1D95D /* SubscriptionTableViewCell.swift */,
+				A81925C828E80C2F00A1D95D /* SubscriptionTableViewCell.xib */,
+			);
+			path = SubscriptionTableViewCell;
+			sourceTree = "<group>";
+		};
 		A84406DE283751BC0022FB5A /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +143,23 @@
 				A858261B2842157000C991E7 /* LoginViewController.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		A84920B828E80828008E5988 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				A84920B928E8084C008E5988 /* ManageSubscriptionViewController.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		A84920BB28E80ADA008E5988 /* ExpenseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A81925C428E80BA200A1D95D /* ExpensesTableViewCell.swift */,
+				A81925C228E80B9200A1D95D /* ExpensesTableViewCell.xib */,
+			);
+			path = ExpenseTableViewCell;
 			sourceTree = "<group>";
 		};
 		A85DA347282FE494004EB080 /* Frameworks */ = {
@@ -221,9 +253,9 @@
 		A8CB8E7628179B920093F5FB /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				A84920B828E80828008E5988 /* Subscription */,
 				A84406DE283751BC0022FB5A /* LoginView */,
 				A8DF5CBC281A70160056D872 /* ExpenseDetail */,
-				A8CB8E86281830FB0093F5FB /* TableViewCell */,
 				A8DF5CB1281A5F720056D872 /* AllExpenses */,
 				A8DF5CA72819597B0056D872 /* Profile */,
 				A8DF5CA6281959680056D872 /* Home */,
@@ -257,6 +289,7 @@
 		A8CB8E812817A8CB0093F5FB /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				A8CB8E86281830FB0093F5FB /* TableViewCell */,
 				A8CB8E822817A8F70093F5FB /* CardView.swift */,
 				A84646A928190AB100AC8CD4 /* AnimTabBarController.swift */,
 				A8CB8E89281834570093F5FB /* CategoryLabel.swift */,
@@ -270,8 +303,8 @@
 		A8CB8E86281830FB0093F5FB /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				A8DF5CB8281A66490056D872 /* ExpensesTableViewCell.swift */,
-				A8DF5CB9281A66490056D872 /* ExpensesTableViewCell.xib */,
+				A81925C628E80BFE00A1D95D /* SubscriptionTableViewCell */,
+				A84920BB28E80ADA008E5988 /* ExpenseTableViewCell */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -397,8 +430,9 @@
 			files = (
 				A8CB8E5E28166C350093F5FB /* LaunchScreen.storyboard in Resources */,
 				A8CB8E6F28178ECA0093F5FB /* MainMenu.storyboard in Resources */,
+				A81925CA28E80C2F00A1D95D /* SubscriptionTableViewCell.xib in Resources */,
 				A8CB8E5B28166C350093F5FB /* Assets.xcassets in Resources */,
-				A8DF5CBB281A66490056D872 /* ExpensesTableViewCell.xib in Resources */,
+				A81925C328E80B9200A1D95D /* ExpensesTableViewCell.xib in Resources */,
 				A8CB8E6D28178EC10093F5FB /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,14 +463,16 @@
 				A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */,
 				A80D2D272831045900F60552 /* UserKeyStore.swift in Sources */,
 				A8285990283C86C800E1F66C /* BiometricsSettingsViewController.swift in Sources */,
+				A81925C928E80C2F00A1D95D /* SubscriptionTableViewCell.swift in Sources */,
 				A8BBFABE281AB4C10002BF7B /* ProfileEditViewController.swift in Sources */,
+				A81925C528E80BA200A1D95D /* ExpensesTableViewCell.swift in Sources */,
 				A84646AC28191F2D00AC8CD4 /* OnboardingMonthlyIncomeViewController.swift in Sources */,
 				A84646A22818F2D300AC8CD4 /* TotalExpenses.swift in Sources */,
+				A84920BA28E8084C008E5988 /* ManageSubscriptionViewController.swift in Sources */,
 				A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */,
 				A84646AA28190AB100AC8CD4 /* AnimTabBarController.swift in Sources */,
 				A84920B728E7EC44008E5988 /* Constants.swift in Sources */,
 				A8CB8E85281830CE0093F5FB /* HomeViewModel.swift in Sources */,
-				A8DF5CBA281A66490056D872 /* ExpensesTableViewCell.swift in Sources */,
 				A84406DD28374F190022FB5A /* SecureViewController.swift in Sources */,
 				A8CB8E7A28179C2A0093F5FB /* ExpenseViewController.swift in Sources */,
 				A899FC4A281B7FB2000A06C0 /* OnboadingDoneViewController.swift in Sources */,

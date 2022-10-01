@@ -4,7 +4,6 @@
 //
 //  Created by Michael Ricky on 28/04/22.
 //
-
 import UIKit
 
 class ExpensesTableViewCell: UITableViewCell {

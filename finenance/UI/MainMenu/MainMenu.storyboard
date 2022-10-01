@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdu-a0-YOc">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
+                                <rect key="frame" x="-1" y="0.0" width="431" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Expense" id="2zf-q5-NG2">
@@ -451,17 +451,17 @@
             </objects>
             <point key="canvasLocation" x="1000" y="1498"/>
         </scene>
-        <!--View Controller-->
+        <!--Subscriptions-->
         <scene sceneID="XFi-mI-iHv">
             <objects>
-                <viewController id="4A8-ek-cml" sceneMemberID="viewController">
+                <viewController id="4A8-ek-cml" customClass="ManageSubscriptionViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NxT-tC-ph6">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="777"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="FZ6-bZ-fo1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gjN-bL-jeo"/>
+                    <navigationItem key="navigationItem" title="Subscriptions" id="gjN-bL-jeo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHv-Xi-ULW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -971,7 +971,7 @@
         <!--Profile Edit View Controller-->
         <scene sceneID="P4c-bu-v5P">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="uMb-bu-25T" customClass="ProfileEditViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uMb-bu-25T" customClass="ProfileEditViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TVU-Ta-spv">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="777"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -989,7 +989,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PK-Xz-uP7" customClass="FilledButton" customModule="finenance" customModuleProvider="target">
-                                <rect key="frame" x="20" y="638" width="390" height="32"/>
+                                <rect key="frame" x="20" y="589" width="390" height="32"/>
                                 <color key="backgroundColor" name="MainBlue"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
