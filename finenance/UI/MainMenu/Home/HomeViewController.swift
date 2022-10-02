@@ -23,7 +23,7 @@ class HomeViewController: SecureViewController, UITableViewDataSource, UITableVi
     var monthlyExpenses = 0
     var remainingBudget = 0
     var monthAndYear = ""
-    var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
+    var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "")
     var isAddingIncome = false
     
     @IBAction func showMoreClicked(_ sender: UIButton) {

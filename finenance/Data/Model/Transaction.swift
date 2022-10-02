@@ -23,7 +23,6 @@ struct Expense {
     let date: String
     let category: TransactionCategory
     let categoryName: String
-    let colorData: ColorData
 }
 
 enum TransactionCategory: String, CaseIterable {
@@ -35,26 +34,6 @@ enum TransactionCategory: String, CaseIterable {
 }
 
 extension TransactionCategory {
-    // Returns ColorData
-    public func toColor() -> ColorData {
-        switch self {
-        case .fnb:
-            return ColorData(colorType: .dark, mainColor: UIColor(named: "MainRed")!, shadeColor: UIColor(named: "MainRedShade")!)
-            
-        case .leisure:
-            return ColorData(colorType: .light, mainColor: UIColor(named: "MainYellow")!, shadeColor: UIColor(named: "MainYellowShade")!)
-            
-        case .bills:
-            return ColorData(colorType: .dark, mainColor: UIColor(named: "MainGreen")!, shadeColor: UIColor(named: "MainGreenShade")!)
-        
-        case .other:
-            return ColorData(colorType: .light, mainColor: .systemGray4, shadeColor: .systemGray)
-            
-        case .income:
-            return ColorData(colorType: .dark, mainColor: UIColor(named: "MainBlue")!, shadeColor: UIColor(named: "MainBlueShade")!)
-        }
-    }
-    
     public func toImage() -> UIImage {
         switch self {
         case .fnb:

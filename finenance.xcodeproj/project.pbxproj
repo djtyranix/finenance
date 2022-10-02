@@ -16,7 +16,6 @@
 		A81925C528E80BA200A1D95D /* ExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81925C428E80BA200A1D95D /* ExpensesTableViewCell.swift */; };
 		A81925C928E80C2F00A1D95D /* SubscriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81925C728E80C2F00A1D95D /* SubscriptionTableViewCell.swift */; };
 		A81925CA28E80C2F00A1D95D /* SubscriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81925C828E80C2F00A1D95D /* SubscriptionTableViewCell.xib */; };
-		A81D2A06281853260007760C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D2A05281853260007760C /* ColorData.swift */; };
 		A8285990283C86C800E1F66C /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828598F283C86C800E1F66C /* BiometricsSettingsViewController.swift */; };
 		A84406DB28373D890022FB5A /* AuthenticatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84406DA28373D890022FB5A /* AuthenticatorManager.swift */; };
 		A84406DD28374F190022FB5A /* SecureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84406DC28374F190022FB5A /* SecureViewController.swift */; };
@@ -74,7 +73,6 @@
 		A81925C428E80BA200A1D95D /* ExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewCell.swift; sourceTree = "<group>"; };
 		A81925C728E80C2F00A1D95D /* SubscriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTableViewCell.swift; sourceTree = "<group>"; };
 		A81925C828E80C2F00A1D95D /* SubscriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionTableViewCell.xib; sourceTree = "<group>"; };
-		A81D2A05281853260007760C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		A828598F283C86C800E1F66C /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
 		A84406DA28373D890022FB5A /* AuthenticatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorManager.swift; sourceTree = "<group>"; };
 		A84406DC28374F190022FB5A /* SecureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureViewController.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				A8CB8E8B28183A8B0093F5FB /* Transaction.swift */,
-				A81D2A05281853260007760C /* ColorData.swift */,
 				A84646A12818F2D300AC8CD4 /* TotalExpenses.swift */,
 				A84646A52819002700AC8CD4 /* TotalBudget.swift */,
 				A848A99A281927F50048AF3C /* Onboarding.swift */,
@@ -531,7 +528,6 @@
 				A84920B328E7E815008E5988 /* FilledButton.swift in Sources */,
 				A8DF5CB0281A5F150056D872 /* AllExpensesViewModel.swift in Sources */,
 				A8CB8E7E28179C860093F5FB /* ProfileViewController.swift in Sources */,
-				A81D2A06281853260007760C /* ColorData.swift in Sources */,
 				A8CB8E71281790830093F5FB /* OnboardingNameViewController.swift in Sources */,
 				A84406DB28373D890022FB5A /* AuthenticatorManager.swift in Sources */,
 				A8CB8E7C28179C4D0093F5FB /* BudgetViewController.swift in Sources */,

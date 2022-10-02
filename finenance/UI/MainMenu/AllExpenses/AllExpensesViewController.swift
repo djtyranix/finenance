@@ -12,7 +12,7 @@ class AllExpensesViewController: SecureViewController, UITableViewDataSource, UI
     let viewModel = AllExpensesViewModel()
     let searchController = UISearchController()
     var expenseDatas = [Expense]()
-    var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
+    var selectedExpense = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "")
     var filteredDatas = [Expense]()
     var isAddingIncome = false
     

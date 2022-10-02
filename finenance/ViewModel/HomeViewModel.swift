@@ -51,8 +51,7 @@ class HomeViewModel: NSObject {
                     amount: transaction.amount,
                     date: transaction.date.formatToString(format: "dd/MM/YYYY"),
                     category: transaction.category,
-                    categoryName: transaction.category.rawValue,
-                    colorData: transaction.category.toColor()
+                    categoryName: transaction.category.rawValue
                 )
             )
         }

@@ -10,7 +10,7 @@ import UIKit
 class ExpenseDetailViewController: SecureViewController, UITableViewDelegate, UITableViewDataSource {
 
     var itemArray = [(title: String, detail: String)]()
-    var expenseData = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
+    var expenseData = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "")
     let viewModel = ExpenseDetailViewModel()
     
     @IBOutlet weak var detailTable: UITableView!

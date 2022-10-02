@@ -17,7 +17,7 @@ class AddEditExpenseViewController: UIViewController, UITableViewDataSource, UIT
     var selectedDate = Date()
     var isEdit = false
     var isIncome = false
-    var expenseData = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "", colorData: ColorData(colorType: .dark, mainColor: .blue, shadeColor: .blue))
+    var expenseData = Expense(id: 0, name: "", amount: 0, date: "", category: .other, categoryName: "")
     var updateData: (()->())?
 
     @IBOutlet weak var nameField: UITextField!
