@@ -32,10 +32,13 @@ class CurrencyTextField: UITextField {
     
     override func deleteBackward() {
         if enteredNumbers != "" {
-            if self.text != nil && self.text != "", let currentNumber = self.text?.fromCurrency() {
-                if enteredNumbers != String(currentNumber) {
-                    enteredNumbers = String(currentNumber)
-                }
+            enteredNumbers = String(enteredNumbers.dropLast())
+            // Call super so that the .editingChanged event gets fired, but we need to handle it differently, so we set the `didBackspace` flag first
+            didBackspace = true
+            super.deleteBackward()
+        } else if enteredNumbers == "" && self.text != nil && self.text != "", let currentNumber = self.text?.fromCurrency() {
+            if enteredNumbers != String(currentNumber) {
+                enteredNumbers = String(currentNumber)
             }
             enteredNumbers = String(enteredNumbers.dropLast())
             // Call super so that the .editingChanged event gets fired, but we need to handle it differently, so we set the `didBackspace` flag first
