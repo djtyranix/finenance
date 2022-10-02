@@ -36,6 +36,7 @@
 		A8901D8C283119C400A2D7A5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85DA348282FE494004EB080 /* CloudKit.framework */; };
 		A899FC48281AC5FE000A06C0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */; };
 		A899FC4A281B7FB2000A06C0 /* OnboadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */; };
+		A89A617F28E94DA7004C9B0B /* ActiveSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A617E28E94DA7004C9B0B /* ActiveSubscriptionViewController.swift */; };
 		A8BBFABC281A75880002BF7B /* ExpenseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */; };
 		A8BBFABE281AB4C10002BF7B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBFABD281AB4C10002BF7B /* ProfileEditViewController.swift */; };
 		A8CB8E4F28166C330093F5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB8E4E28166C330093F5FB /* AppDelegate.swift */; };
@@ -94,6 +95,7 @@
 		A85DA348282FE494004EB080 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A899FC47281AC5FE000A06C0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A899FC49281B7FB2000A06C0 /* OnboadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadingDoneViewController.swift; sourceTree = "<group>"; };
+		A89A617E28E94DA7004C9B0B /* ActiveSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSubscriptionViewController.swift; sourceTree = "<group>"; };
 		A8BBFABB281A75880002BF7B /* ExpenseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailViewModel.swift; sourceTree = "<group>"; };
 		A8BBFABD281AB4C10002BF7B /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		A8CB8E4B28166C330093F5FB /* finenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				A84920B928E8084C008E5988 /* ManageSubscriptionViewController.swift */,
+				A89A617E28E94DA7004C9B0B /* ActiveSubscriptionViewController.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				A84646A02818F20400AC8CD4 /* ExpenseViewModel.swift in Sources */,
 				A84646A62819002700AC8CD4 /* TotalBudget.swift in Sources */,
 				A8DF5CB3281A5F910056D872 /* AllExpensesViewController.swift in Sources */,
+				A89A617F28E94DA7004C9B0B /* ActiveSubscriptionViewController.swift in Sources */,
 				A8CB8E5928166C330093F5FB /* finenance.xcdatamodeld in Sources */,
 				A858261C2842157000C991E7 /* LoginViewController.swift in Sources */,
 				A84920B328E7E815008E5988 /* FilledButton.swift in Sources */,

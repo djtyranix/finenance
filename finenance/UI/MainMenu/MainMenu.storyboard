@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdu-a0-YOc">
-                                <rect key="frame" x="-2" y="0.0" width="430" height="44"/>
+                                <rect key="frame" x="-2" y="0.0" width="427" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Expense" id="2zf-q5-NG2">
@@ -465,6 +465,9 @@
                                     <segue destination="fBJ-2y-J7v" kind="embed" id="dca-Av-4h8"/>
                                 </connections>
                             </containerView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EbC-XW-wnu">
+                                <rect key="frame" x="205" y="361" width="20" height="20"/>
+                            </activityIndicatorView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZd-tS-rdy">
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="743"/>
                                 <connections>
@@ -477,10 +480,14 @@
                         <constraints>
                             <constraint firstItem="FZ6-bZ-fo1" firstAttribute="bottom" secondItem="LZd-tS-rdy" secondAttribute="bottom" id="5OD-s6-RKv"/>
                             <constraint firstItem="LZd-tS-rdy" firstAttribute="leading" secondItem="FZ6-bZ-fo1" secondAttribute="leading" id="7dE-bT-LTQ"/>
+                            <constraint firstItem="FZ6-bZ-fo1" firstAttribute="bottom" secondItem="EbC-XW-wnu" secondAttribute="bottom" constant="362" id="Dar-aI-cs2"/>
                             <constraint firstItem="hZ5-cO-EP2" firstAttribute="leading" secondItem="FZ6-bZ-fo1" secondAttribute="leading" id="FaB-dy-NTR"/>
                             <constraint firstItem="FZ6-bZ-fo1" firstAttribute="bottom" secondItem="hZ5-cO-EP2" secondAttribute="bottom" id="IoK-uc-7ff"/>
                             <constraint firstItem="FZ6-bZ-fo1" firstAttribute="trailing" secondItem="hZ5-cO-EP2" secondAttribute="trailing" id="MsB-Ru-xtZ"/>
+                            <constraint firstItem="EbC-XW-wnu" firstAttribute="leading" secondItem="FZ6-bZ-fo1" secondAttribute="leading" constant="205" id="f47-kc-wB9"/>
                             <constraint firstItem="LZd-tS-rdy" firstAttribute="top" secondItem="FZ6-bZ-fo1" secondAttribute="top" id="ikn-65-3aQ"/>
+                            <constraint firstItem="FZ6-bZ-fo1" firstAttribute="trailing" secondItem="EbC-XW-wnu" secondAttribute="trailing" constant="205" id="pYK-rd-dd1"/>
+                            <constraint firstItem="EbC-XW-wnu" firstAttribute="top" secondItem="FZ6-bZ-fo1" secondAttribute="top" constant="361" id="qiK-tc-j2W"/>
                             <constraint firstItem="FZ6-bZ-fo1" firstAttribute="trailing" secondItem="LZd-tS-rdy" secondAttribute="trailing" id="ydi-nT-rB1"/>
                             <constraint firstItem="hZ5-cO-EP2" firstAttribute="top" secondItem="FZ6-bZ-fo1" secondAttribute="top" id="zbM-ir-c8n"/>
                         </constraints>
@@ -488,6 +495,7 @@
                     <navigationItem key="navigationItem" title="Subscriptions" id="gjN-bL-jeo"/>
                     <connections>
                         <outlet property="dataView" destination="LZd-tS-rdy" id="LLZ-Lg-F30"/>
+                        <outlet property="loadingIcon" destination="EbC-XW-wnu" id="337-6E-d2d"/>
                         <outlet property="lottieView" destination="hZ5-cO-EP2" id="Ltp-5l-SmQ"/>
                     </connections>
                 </viewController>
@@ -1117,31 +1125,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FN3-fa-EVL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536.7441860465115" y="1393.7768240343348"/>
+            <point key="canvasLocation" x="2565" y="1393"/>
         </scene>
-        <!--View Controller-->
+        <!--Active Subscription View Controller-->
         <scene sceneID="tYd-h2-keR">
             <objects>
-                <viewController id="v5c-Ys-Xo4" sceneMemberID="viewController">
+                <viewController id="v5c-Ys-Xo4" customClass="ActiveSubscriptionViewController" customModule="finenance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yO2-bz-hts">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="743"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOg-ZK-QE5">
-                                <rect key="frame" x="16" y="44" width="140.33333333333326" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOg-ZK-QE5">
+                                <rect key="frame" x="20" y="35" width="140.33333333333334" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lCM-EW-FWN">
+                                <rect key="frame" x="0.0" y="69" width="430" height="674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="coI-qf-0dS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="coI-qf-0dS" firstAttribute="top" secondItem="KOg-ZK-QE5" secondAttribute="top" constant="24" id="00A-fk-SN5"/>
+                            <constraint firstItem="coI-qf-0dS" firstAttribute="trailing" secondItem="lCM-EW-FWN" secondAttribute="trailing" id="EwR-i1-Zmi"/>
+                            <constraint firstItem="lCM-EW-FWN" firstAttribute="top" secondItem="KOg-ZK-QE5" secondAttribute="bottom" constant="16" id="Rwz-Tu-XD8"/>
+                            <constraint firstItem="lCM-EW-FWN" firstAttribute="leading" secondItem="coI-qf-0dS" secondAttribute="leading" id="T7j-G0-ept"/>
+                            <constraint firstItem="coI-qf-0dS" firstAttribute="bottom" secondItem="lCM-EW-FWN" secondAttribute="bottom" id="Zc8-qJ-qqe"/>
+                            <constraint firstItem="KOg-ZK-QE5" firstAttribute="leading" secondItem="coI-qf-0dS" secondAttribute="leading" constant="20" id="c5C-qN-9at"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activeSubsTableView" destination="lCM-EW-FWN" id="RuZ-af-bJx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdP-gr-K9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="1854"/>
+            <point key="canvasLocation" x="2565" y="1932"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
