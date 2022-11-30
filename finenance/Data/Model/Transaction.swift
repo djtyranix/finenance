@@ -16,6 +16,16 @@ struct Transaction {
     let category: TransactionCategory
 }
 
+struct Subscription {
+    let id: Int
+    let name: String
+    let amount: Int
+    let dateStart: Date
+    let dateFinish: Date?
+    let dateCharged: Date
+    let category: TransactionCategory
+}
+
 struct Expense {
     let id: Int
     let name: String

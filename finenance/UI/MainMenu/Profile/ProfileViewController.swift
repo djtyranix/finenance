@@ -13,12 +13,19 @@ class ProfileViewController: SecureViewController, UITableViewDataSource, UITabl
     var selectedMode = 0
     let viewModel = ProfileViewModel()
     
+//    let profileSettings = [
+//        "Set Monthly Income",
+//        "Set Monthly Savings",
+//        "Set User Name",
+//        "Biometrics Lock",
+//        "Manage Subscription"
+//    ]
+    
     let profileSettings = [
         "Set Monthly Income",
         "Set Monthly Savings",
         "Set User Name",
-        "Biometrics Lock",
-        "Manage Subscription"
+        "Biometrics Lock"
     ]
     
     @IBOutlet weak var profileTable: UITableView!
